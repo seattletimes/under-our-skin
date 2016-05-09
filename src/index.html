@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= json.project.title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <%= t.include("partials/_head.html") %>
+  </head>
+  <body>
+
+<!-- Intro -->
+    <section data-index="1">
+      Are you comfortable talking about race?
+
+      <div>
+        <div class="tile hed">Under our skin</div>
+      </div>
+
+      <i data-index="2" class="next fa fa-chevron-circle-down" aria-hidden="true"></i>
+    </section>
+
+<!-- Editor's note -->
+    <section data-index="2">
+      <video></video>
+      Editor's note
+      <i data-index="3" class="next fa fa-chevron-circle-down" aria-hidden="true"></i>
+    </section>
+
+<!-- Words -->
+    <section class="shown" data-index="3">
+      <%= t.include("./_words.html") %>
+      <i data-index="4" class="next fa fa-chevron-circle-down" aria-hidden="true"></i>
+    </section>
+
+<!-- Playlist -->
+    <section data-index="4">
+      <div class="video-container aspect-outer pending">
+        <div class="aspect-inner">
+          <video
+            data-account="1509317113"
+            data-player="B15NOtCZ"
+            data-embed="default"
+            id="player"
+            class="video-js" controls>
+          </video>
+        </div>
+      </div>
+      <i data-index="5" class="next fa fa-chevron-circle-down" aria-hidden="true"></i>
+    </section>
+
+<!-- Bios -->
+    <section data-index="5">
+    </section>
+
+    <script src="app.js" async></script>
+    <% if (json.project.production) { %>
+    <%= !json.project.embedded ? t.include("partials/_foot.html") : "" %>
+    <%= t.include("partials/_workHere.html") %>
+    <% } %>
+  </body>
+</html>
