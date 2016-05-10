@@ -4,23 +4,28 @@
 var $ = require("./lib/qsa");
 var ready = require("./brightcove");
 
-var index;
+var pageIndex = 0;
 var sections = $("section");
+
+var navigateTo = function(index) {
+  sections.forEach(function(section) {
+    if (index == section.getAttribute("data-index")) {
+      section.classList.add("shown");
+      var reflow = section.offsetWidth;
+      section.classList.add("fade");
+    } else {
+      section.classList.remove("fade");
+      setTimeout(function() {
+        section.classList.remove("shown")
+      }, 5000);
+    }
+  });
+}
 
 document.body.addEventListener("click", function(e) {
   if (e.target.classList.contains("next")) {
-
-    index = e.target.getAttribute("data-index");
-
-    sections.forEach(function(section) {
-      if (index == section.getAttribute("data-index")) {
-        console.log(section.classList)
-        section.classList.add("shown");
-      } else {
-        section.classList.remove("shown");
-      }
-    });
-
+    pageIndex = e.target.getAttribute("data-index");
+    navigateTo(pageIndex);
   };
 });
 
@@ -34,12 +39,12 @@ ready(function(player) {
   player.catalog.getPlaylist(playlistID, function(err, playlist) {
     player.catalog.load(playlist);
 
-    var lookup = {};
-    playlist.forEach((v, i) => lookup[v.id] = v);
-
     $(".word.tile").forEach(tile => tile.addEventListener("click", function(e) {
-      var id = this.getAttribute("data-id");
-      player.play(lookup[id]);
+      var index = this.getAttribute("data-index") * 1;
+      navigateTo(3);
+      player.playlist.currentItem(index);
+      player.play();
+      // display relevant content divs based on index
     }));
 
   });

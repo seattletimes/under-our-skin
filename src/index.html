@@ -11,31 +11,31 @@
   <body>
 
 <!-- Intro -->
-    <section data-index="1">
+    <section data-index="0">
       Are you comfortable talking about race?
 
       <div>
         <div class="tile hed">Under our skin</div>
       </div>
 
-      <i data-index="2" class="next fa fa-chevron-circle-down" aria-hidden="true"></i>
+      <i data-index="1" class="next fa fa-chevron-circle-down" aria-hidden="true"></i>
     </section>
 
 <!-- Editor's note -->
-    <section data-index="2">
+    <section data-index="1">
       <video></video>
       Editor's note
-      <i data-index="3" class="next fa fa-chevron-circle-down" aria-hidden="true"></i>
+      <i data-index="2" class="next fa fa-chevron-circle-down" aria-hidden="true"></i>
     </section>
 
 <!-- Words -->
-    <section class="shown" data-index="3">
+    <section class="shown fade" data-index="2">
       <%= t.include("./_words.html") %>
-      <i data-index="4" class="next fa fa-chevron-circle-down" aria-hidden="true"></i>
+      <i data-index="3" class="next fa fa-chevron-circle-down" aria-hidden="true"></i>
     </section>
 
 <!-- Playlist -->
-    <section data-index="4">
+    <section data-index="3">
       <div class="video-container aspect-outer pending">
         <div class="aspect-inner">
           <video
@@ -47,11 +47,12 @@
           </video>
         </div>
       </div>
-      <i data-index="5" class="next fa fa-chevron-circle-down" aria-hidden="true"></i>
+      <!-- load in all comments, auto hidden -->
+      <i data-index="4" class="next fa fa-chevron-circle-down" aria-hidden="true"></i>
     </section>
 
 <!-- Bios -->
-    <section data-index="5">
+    <section data-index="4">
     </section>
 
     <script src="app.js" async></script>

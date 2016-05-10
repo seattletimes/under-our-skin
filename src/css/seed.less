@@ -17,9 +17,15 @@ section {
   left: 0;
   bottom: 0;
   right: 0;
+  transition: opacity 1s linear;
 
   &.shown {
     display: block;
+    opacity: 0;
+
+    &.fade {
+      opacity: 1;
+    }
   }
 }
 
@@ -38,6 +44,16 @@ section {
     color: white;
     background: black;
     font-weight: bold;
+  }
+
+  &.word {
+    cursor: pointer;
+    transition: all 0.3s linear;
+
+    &:hover {
+      color: white;
+      background: black;
+    }
   }
 }
 
