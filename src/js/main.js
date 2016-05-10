@@ -7,17 +7,18 @@ var ready = require("./brightcove");
 var pageIndex = 0;
 var sections = $("section");
 
+var fadeIn = function(el) {
+  el.classList.add("shown");
+  var reflow = el.offsetWidth;
+  el.classList.add("fade");
+};
+
 var navigateTo = function(index) {
   sections.forEach(function(section) {
     if (index == section.getAttribute("data-index")) {
-      section.classList.add("shown");
-      var reflow = section.offsetWidth;
-      section.classList.add("fade");
+      fadeIn(section);
     } else {
-      section.classList.remove("fade");
-      setTimeout(function() {
-        section.classList.remove("shown")
-      }, 5000);
+      section.classList.remove("fade", "shown");
     }
   });
 }
@@ -26,6 +27,10 @@ document.body.addEventListener("click", function(e) {
   if (e.target.classList.contains("next")) {
     pageIndex = e.target.getAttribute("data-index");
     navigateTo(pageIndex);
+  };
+  if (e.target.classList.contains("read-more")) {
+    e.target.classList.add("hide");
+    fadeIn(document.querySelector(".editors-note .more"));
   };
 });
 

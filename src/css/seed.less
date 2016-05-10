@@ -5,6 +5,19 @@ body {
   color: white;
   text-align: center;
   font-size: 24px;
+
+  @media @mobile {
+    font-size: 20px;
+  }
+}
+
+.shown {
+  display: block;
+  opacity: 0;
+
+  &.fade {
+    opacity: 1;
+  }
 }
 
 section {
@@ -17,15 +30,21 @@ section {
   left: 0;
   bottom: 0;
   right: 0;
-  transition: opacity 1s linear;
+  overflow: auto;
+  transition: opacity 0.8s linear;
 
-  &.shown {
+  @media @mobile {
     display: block;
-    opacity: 0;
+    opacity: 1;
+    position: relative;
+  }
+}
 
-    &.fade {
-      opacity: 1;
-    }
+.next {
+  cursor: pointer;
+
+  @media @mobile {
+    display: none;
   }
 }
 
@@ -72,5 +91,33 @@ section {
     height: 100%;
     top: 0;
     left: 0;
+  }
+}
+
+.editors-note {
+  font-size: 20px;
+  text-align: left;
+
+  @media @mobile {
+    font-size: 16px;
+  }
+
+  .read-more {
+    cursor: pointer;
+    font-size: 16px;
+    font-family: @df-sans;
+    text-transform: uppercase;
+
+    &.hide {
+      display: none;
+    }
+  }
+
+  .more {
+    display: none;
+
+    &.show {
+      display: block;
+    }
   }
 }
