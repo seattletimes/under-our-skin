@@ -11,16 +11,10 @@ body {
   }
 }
 
-.shown {
-  display: block;
-  opacity: 0;
-
-  &.fade {
-    opacity: 1;
-  }
-}
-
 section {
+  .flex-direction(column);
+  .justify-content(center);
+  .align-items(center);
   margin: auto;
   padding: 20px;
   max-width: 1200px;
@@ -42,6 +36,7 @@ section {
 
 .next {
   cursor: pointer;
+  font-size: 36px;
 
   @media @mobile {
     display: none;
@@ -115,9 +110,20 @@ section {
 
   .more {
     display: none;
+    opacity: 0;
+    transition: all 0.5s linear;
+  }
+}
 
-    &.show {
-      display: block;
-    }
+.shown {
+  display: block !important;
+  opacity: 0;
+
+  section& {
+    .display-flex() !important;
+  }
+
+  &.fade {
+    opacity: 1;
   }
 }
