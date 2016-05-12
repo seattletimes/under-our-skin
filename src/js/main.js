@@ -5,7 +5,7 @@ var $ = require("./lib/qsa");
 var ready = require("./brightcove");
 
 var pageIndex = 0;
-var sections = $("section");
+var sections = $(".flex-container");
 
 var fadeIn = function(el) {
   el.classList.add("shown");
