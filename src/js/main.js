@@ -8,6 +8,7 @@ require("./form");
 var pageIndex = 0;
 var sections = $(".flex-container");
 var introPlayer = null;
+var videoPlayer = null;
 
 var fadeIn = function(el) {
   el.classList.add("shown");
@@ -31,9 +32,12 @@ var navigateTo = function(index) {
   });
   if (introPlayer) {
     if (index == 1) {
-      // auto play intro video
-    } else {
-      //stop the video
+      introPlayer.play();
+    }
+  }
+  if (videoPlayer) {
+    if (index !== 3) {
+      videoPlayer.pause();
     }
   }
 };
@@ -55,11 +59,11 @@ document.body.addEventListener("click", function(e) {
 
 var playlistID = 4884471259001;
 
+// word video player
 ready("B15NOtCZ", "player", function(player) {
-  window.player = player;
+  window.player = videoPlayer = player;
 
   var cuePlaylist = function(index, term, label) {
-    console.log(index, term, label)
     navigateTo(3);
     player.playlist.currentItem(index);
     player.play();
@@ -81,7 +85,6 @@ ready("B15NOtCZ", "player", function(player) {
     if (term) {
       
       var v = playlistItems.filter(p => p.term == term).pop();
-      console.log(term)
       cuePlaylist(v.index, v.term, v.word);
     }
 
@@ -89,9 +92,9 @@ ready("B15NOtCZ", "player", function(player) {
       var index = this.getAttribute("data-index") * 1;
       var term = e.target.getAttribute("data-term");
       var label = e.target.innerHTML;
-      // navigateTo(3);
       cuePlaylist(index, term, label);
     }));
 
   });
 });
+
