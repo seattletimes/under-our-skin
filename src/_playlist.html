@@ -14,24 +14,27 @@
   <ol class="vjs-playlist"></ol>
 </div>
 
-<div class="form">
+<div class="form-panel">
 
-  <div class="box">
+  <form>
+    Name: <input name="name" placeholder="" required>
+    Age: <input name="age" placeholder="" required>
+
     This 
-    <select>
-      <option>interested</option>
-      <option>saddened</option>
-      <option>angered</option>
-      <option>confused</option>
+    <select name="adjective">
+      <option value="interested">interested</option>
+      <option value="saddened">saddened</option>
+      <option value="angered">angered</option>
+      <option value="confused">confused</option>
     </select> 
     me because:
-    <input class="comment-box" name="response" placeholder="" required>
-  </div>
+    <input pattern=".{,300}" class="comment-box" name="comment" placeholder="" required>
+  </form>
 
   <button class="submit">SUBMIT</button>
 
-  <div class="validation error">Validation error</div>
-  <div class="message">Submitting your prediction...</div>
+  <div class="message-sending">Submitting...</div>
+  <div class="message-success">Submitted!</div>
 
 </div>
 

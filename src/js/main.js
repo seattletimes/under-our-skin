@@ -3,6 +3,7 @@
 // var track = require("./lib/tracking");
 var $ = require("./lib/qsa");
 var ready = require("./brightcove");
+require("./form");
 
 var pageIndex = 0;
 var sections = $(".flex-container");
