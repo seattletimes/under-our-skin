@@ -44,12 +44,10 @@
 
     </div>
 
-    <hr>
-
     <div class="comments">
       <% json.UOSData_Comments.forEach(function(comment) {
       if (comment.approved) { %>
-        <div class="comment">
+        <div class="comment" data-term="<%= comment.term %>">
           I was <%= comment.adjective %> because <%= comment.comment %>. &ndash; <em><%= comment.name %>, <%= comment.age %></em>
         </div>
       <% }

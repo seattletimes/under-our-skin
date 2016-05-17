@@ -21,8 +21,9 @@
 }
 
 .vjs-playlist {
+  height: 471px;
   margin: 0;
-  height: 350px;
+  background: @gray !important;
 
   @media @tablet {
     display: none;
@@ -45,6 +46,7 @@
 
 .reactions-container {
   text-align: left;
+  padding: 20px;
   .display-flex();
 
   .reactions {
@@ -62,7 +64,13 @@
   font-size: 20px;
 
   .comment {
-    padding-bottom: 10px;
+    display: none;
+    padding: 20px;
+    border-top: 1px solid @df-middle-gray;
+
+    &.visible {
+      display: block;
+    }
   }
 }
 

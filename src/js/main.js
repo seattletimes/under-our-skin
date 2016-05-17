@@ -7,6 +7,7 @@ require("./form");
 
 var pageIndex = 0;
 var sections = $(".flex-container");
+var introPlayer = null;
 
 var fadeIn = function(el) {
   el.classList.add("shown");
@@ -28,10 +29,16 @@ var navigateTo = function(index) {
       fadeOut(section);
     }
   });
-  if (index == 1) {
-    // auto play intro video
+  if (introPlayer) {
+    if (index == 1) {
+      // auto play intro video
+    } else {
+      //stop the video
+    }
   }
-}
+};
+
+ready("default", "intro-player", p => introPlayer = p);
 
 document.body.addEventListener("click", function(e) {
   if (e.target.classList.contains("next")) {
@@ -44,29 +51,46 @@ document.body.addEventListener("click", function(e) {
   };
 });
 
-var term = window.location.hash.replace("#", "");
-if (term) {
- // cue playlist 
-}
-
 // Video player
 
 var playlistID = 4884471259001;
 
-ready(function(player) {
+ready("B15NOtCZ", "player", function(player) {
   window.player = player;
+
+  var cuePlaylist = function(index, term, label) {
+    console.log(index, term, label)
+    navigateTo(3);
+    player.playlist.currentItem(index);
+    player.play();
+    window.location.hash = term;
+    document.querySelector(".title.tile").innerHTML = `"${label}"`;
+    $(".comment").forEach(function(comment){
+      if (comment.getAttribute("data-term") == term) {
+        comment.classList.add("visible");
+      } else {
+        comment.classList.remove("visible");
+      }
+    })
+  }
 
   player.catalog.getPlaylist(playlistID, function(err, playlist) {
     player.catalog.load(playlist);
 
+    var term = window.location.hash.replace("#", "");
+    if (term) {
+      
+      var v = playlistItems.filter(p => p.term == term).pop();
+      console.log(term)
+      cuePlaylist(v.index, v.term, v.word);
+    }
+
     $(".word.tile").forEach(tile => tile.addEventListener("click", function(e) {
       var index = this.getAttribute("data-index") * 1;
-      navigateTo(3);
-      player.playlist.currentItem(index);
-      player.play();
-      window.location.hash = e.target.getAttribute("data-term");
-      document.querySelector(".title.tile").innerHTML = e.target.innerHTML;
-      // display relevant content divs based on index
+      var term = e.target.getAttribute("data-term");
+      var label = e.target.innerHTML;
+      // navigateTo(3);
+      cuePlaylist(index, term, label);
     }));
 
   });
