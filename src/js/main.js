@@ -13,15 +13,24 @@ var fadeIn = function(el) {
   var reflow = el.offsetWidth;
   el.classList.add("fade");
 };
+var fadeOut = function(el) {
+  el.classList.remove("fade");
+  setTimeout(function() {
+    el.classList.remove("shown");
+  }, 500);
+};
 
 var navigateTo = function(index) {
   sections.forEach(function(section) {
     if (index == section.getAttribute("data-index")) {
       fadeIn(section);
     } else {
-      section.classList.remove("fade", "shown");
+      fadeOut(section);
     }
   });
+  if (index == 1) {
+    // auto play intro video
+  }
 }
 
 document.body.addEventListener("click", function(e) {
@@ -56,6 +65,7 @@ ready(function(player) {
       player.playlist.currentItem(index);
       player.play();
       window.location.hash = e.target.getAttribute("data-term");
+      document.querySelector(".title.tile").innerHTML = e.target.innerHTML;
       // display relevant content divs based on index
     }));
 
