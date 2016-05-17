@@ -11,7 +11,7 @@
   <body>
 
 <!-- Intro -->
-    <div class="flex-container" data-index="0">
+    <div class="shown fade flex-container" data-index="0">
       <section class="intro">
         <div>
           <%= t.include("./_intro.html") %>
@@ -20,7 +20,7 @@
     </div>
 
 <!-- Editor's note -->
-    <div class="shown fade flex-container" data-index="1">
+    <div class="flex-container" data-index="1">
       <section>
         <div>
           <%= t.include("./_note.html") %>
@@ -34,7 +34,6 @@
       <section>
         <div>
           <%= t.include("./_words.html") %>
-          <i data-index="3" class="next fa fa-chevron-circle-down" aria-hidden="true"></i>
         </div>
       </section>
     </div>

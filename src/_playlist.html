@@ -10,32 +10,59 @@
         class="video-js" controls>
       </video>
     </div>
+    <div class="label">Title goes here</div>
+    <div class="next label" data-index="4">Bio link</div>
   </div>
   <ol class="vjs-playlist"></ol>
 </div>
 
-<div class="form-panel">
+<hr>
 
-  <form>
-    Name: <input name="name" placeholder="" required>
-    Age: <input name="age" placeholder="" required>
+<div class="reactions-container">
+  <div class="reactions">
+    Reactions?
 
-    This 
-    <select name="adjective">
-      <option value="interested">interested</option>
-      <option value="saddened">saddened</option>
-      <option value="angered">angered</option>
-      <option value="confused">confused</option>
-    </select> 
-    me because:
-    <input pattern=".{,300}" class="comment-box" name="comment" placeholder="" required>
-  </form>
+    <div class="form-panel">
 
-  <button class="submit">SUBMIT</button>
+      <form>
+        <div>Name: <input name="name" placeholder="" required></div>
+        <div>Age: <input name="age" placeholder="" required></div>
 
-  <div class="message-sending">Submitting...</div>
-  <div class="message-success">Submitted!</div>
+        This 
+        <select name="adjective">
+          <option value="interested">interested</option>
+          <option value="saddened">saddened</option>
+          <option value="angered">angered</option>
+          <option value="confused">confused</option>
+        </select> 
+        me because:
+        <div><input  maxlength="500" class="comment-box" name="comment" placeholder="" required></div>
+      </form>
+
+      <button class="submit">SUBMIT</button>
+
+      <div class="message sending"><i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i></div>
+      <div class="message success"><i class="fa fa-check" aria-hidden="true"></i></div>
+
+    </div>
+
+    <hr>
+
+    <div class="comments">
+      <% json.UOSData_Comments.forEach(function(comment) {
+      if (comment.approved) { %>
+        <div class="comment">
+          I was <%= comment.adjective %> because <%= comment.comment %>. &ndash; <em><%= comment.name %>, <%= comment.age %></em>
+        </div>
+      <% }
+      }); %>
+    </div>
+  </div>
+
+  <div class="guest-essays">Guest essays link to WordPress stories</div>
+
 
 </div>
+
 
 <!-- load in all comments, auto hidden -->

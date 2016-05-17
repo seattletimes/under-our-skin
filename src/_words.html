@@ -1,13 +1,17 @@
+<div>Choose a word...</div>
+
 <% json.UOSData_Videos.forEach(function(video) {
-if (video.index < 7) { %>
-  <div data-index="<%= video.index %>" class="word tile"><%= video.word %></div>
+if (video.index < 6) { %>
+  <div data-index="<%= video.index %>" data-term="<%= video.term %>" class="word tile"><%= video.word %></div>
 <% }
 }); %>
 
 <div class="tile hed">Under our skin</div>
 
 <% json.UOSData_Videos.forEach(function(video) {
-if (video.index >= 7) { %>
-  <div data-index="<%= video.index %>" class="word tile"><%= video.word %></div>
+if (video.index >= 6) { %>
+  <div data-index="<%= video.index %>" data-term="<%= video.term %>" class="word tile"><%= video.word %></div>
 <% }
 }); %>
+
+<i data-index="3" class="next fa fa-chevron-circle-down" aria-hidden="true"></i> <div class="tiny">Watch all</div>

@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "term": "black_lives_matter",
+    "name": "Jerry",
+    "age": 23,
+    "adjective": "angered",
+    "comment": "I feel this about Black Lives Matter",
+    "approved": "x"
+  },
+  {
+    "term": "racism",
+    "name": "Anika",
+    "age": 45,
+    "adjective": "confused",
+    "comment": "I feel this about racism",
+    "approved": "x"
+  },
+  {
+    "term": "white_privilege",
+    "name": "Lauren",
+    "age": 11,
+    "adjective": "interested",
+    "comment": "I feel this about white privilege"
+  },
+  {
+    "term": "colorblindness",
+    "name": "Linda",
+    "age": 21,
+    "adjective": "angered",
+    "comment": "I feel this about colorblindess",
+    "approved": "x"
+  },
+  {
+    "term": "racist",
+    "name": "Frank",
+    "age": 22,
+    "adjective": "saddened",
+    "comment": "racism makes me sad.",
+    "approved": "x"
+  }
+]

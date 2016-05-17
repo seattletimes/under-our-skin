@@ -35,6 +35,11 @@ document.body.addEventListener("click", function(e) {
   };
 });
 
+var term = window.location.hash.replace("#", "");
+if (term) {
+ // cue playlist 
+}
+
 // Video player
 
 var playlistID = 4884471259001;
@@ -50,6 +55,7 @@ ready(function(player) {
       navigateTo(3);
       player.playlist.currentItem(index);
       player.play();
+      window.location.hash = e.target.getAttribute("data-term");
       // display relevant content divs based on index
     }));
 

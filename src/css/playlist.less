@@ -29,6 +29,39 @@
   }
 }
 
-.form {
+.form-panel {
   font-family: @df-sans;
+  font-size: 18px;
+}
+
+.message {
+  display: none;
+
+  &.visible {
+    display: inline-block;
+  }
+
+}
+
+.reactions-container {
+  text-align: left;
+  .display-flex();
+
+  .reactions {
+    .flex(3);
+  }
+  .guest-essays {
+    .flex(1);
+    font-family: @df-sans;
+    font-size: 18px;
+  }
+}
+
+.comments {
+  text-align: left;
+  font-size: 20px;
+
+  .comment {
+    padding-bottom: 10px;
+  }
 }

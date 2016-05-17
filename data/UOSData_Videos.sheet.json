@@ -2,61 +2,73 @@
   {
     "index": 0,
     "video_id": 4885889461001,
-    "word": "White Privilege"
+    "word": "White Privilege",
+    "term": "white_privilege"
   },
   {
     "index": 1,
     "video_id": 4885891367001,
-    "word": "Microaggressions"
+    "word": "Microaggressions",
+    "term": "microaggressions"
   },
   {
     "index": 2,
     "video_id": 4885887562001,
-    "word": "Black lives matter"
+    "word": "Black lives matter",
+    "term": "black_lives_matter"
   },
   {
     "index": 3,
     "video_id": 4885887651001,
-    "word": "Diversity"
+    "word": "Diversity",
+    "term": "diversity"
   },
   {
     "index": 4,
     "video_id": 4885850332001,
-    "word": "Safe spaces"
+    "word": "Safe spaces",
+    "term": "safe_spaces"
   },
   {
     "index": 5,
     "video_id": 4885891369001,
-    "word": "Person of color"
+    "word": "Person of color",
+    "term": "person_of_color"
   },
   {
     "index": 6,
     "video_id": 4885887654001,
-    "word": "White fragility"
+    "word": "White fragility",
+    "term": "white_fragility"
   },
   {
     "index": 7,
     "video_id": 4885887683001,
-    "word": "Colorblindness"
+    "word": "Colorblindness",
+    "term": "colorblindness"
   },
   {
     "index": 8,
     "video_id": 4885887566001,
-    "word": "Politically correct"
+    "word": "Politically correct",
+    "term": "politically_correct"
   },
   {
     "index": 9,
     "video_id": 4885850331001,
-    "word": "Racism"
+    "word": "Racism",
+    "term": "racism"
   },
   {
     "index": 10,
     "video_id": 4885888389001,
-    "word": "Racist"
+    "word": "Racist",
+    "term": "racist"
   },
   {
     "index": 11,
     "video_id": 4885891370001,
-    "word": "Allies"
+    "word": "Allies",
+    "term": "allies"
   }
 ]
