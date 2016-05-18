@@ -68,7 +68,6 @@ var navigateTo = function(index, silent) {
 // Insert video title, comments, and URL hash
 var loadVideoInfo = function(v) {
   var playlistItem = document.querySelector(`[data-id="${v.video_id}"]`);
-  console.log(playlistItem)
   var playing = document.querySelector(".playlist-video.playing");
   if (playing) playing.classList.remove("playing");
   playlistItem.classList.add("playing");
@@ -144,6 +143,7 @@ ready("B15NOtCZ", "player", function(player) {
     channel.removeListener("playVideo", preLoaded);
 
     channel.on("playVideo", function(v) {
+      console.log(v.term, v.index, player)
       player.playlist.currentItem(v.index);
       player.play();
     });

@@ -7,15 +7,15 @@
   },
   {
     "index": 1,
-    "video_id": 4885891367001,
-    "word": "Microaggression",
-    "term": "microaggression"
+    "video_id": 4885888389001,
+    "word": "Racist",
+    "term": "racist"
   },
   {
     "index": 2,
-    "video_id": 4885887562001,
-    "word": "Black lives matter",
-    "term": "black_lives_matter"
+    "video_id": 4885850332001,
+    "word": "Safe space",
+    "term": "safe_space"
   },
   {
     "index": 3,
@@ -25,45 +25,45 @@
   },
   {
     "index": 4,
-    "video_id": 4885850332001,
-    "word": "Safe space",
-    "term": "safe_space"
+    "video_id": 4885891367001,
+    "word": "Microaggression",
+    "term": "microaggression"
   },
   {
     "index": 5,
+    "video_id": 4885887562001,
+    "word": "Black lives matter",
+    "term": "black_lives_matter"
+  },
+  {
+    "index": 6,
     "video_id": 4885891369001,
     "word": "Person of color",
     "term": "person_of_color"
   },
   {
-    "index": 6,
+    "index": 7,
     "video_id": 4885887654001,
     "word": "White fragility",
     "term": "white_fragility"
   },
   {
-    "index": 7,
+    "index": 8,
     "video_id": 4885887683001,
     "word": "Colorblindness",
     "term": "colorblindness"
   },
   {
-    "index": 8,
+    "index": 9,
     "video_id": 4885887566001,
     "word": "Politically correct",
     "term": "politically_correct"
   },
   {
-    "index": 9,
+    "index": 10,
     "video_id": 4885850331001,
     "word": "Racism",
     "term": "racism"
-  },
-  {
-    "index": 10,
-    "video_id": 4885888389001,
-    "word": "Racist",
-    "term": "racist"
   },
   {
     "index": 11,
