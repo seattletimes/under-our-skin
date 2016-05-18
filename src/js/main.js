@@ -19,15 +19,22 @@ var fadeOut = function(el) {
   el.classList.remove("fade");
   setTimeout(function() {
     el.classList.remove("shown");
-  }, 500);
+  }, 1000);
 };
 
-var navigateTo = function(index) {
+var show = (el) => el.classList.add("fade", "shown");
+var hide = (el) => el.classList.remove("fade", "shown");
+
+var navigateTo = function(index, silent) {
   sections.forEach(function(section) {
     if (index == section.getAttribute("data-index")) {
-      fadeIn(section);
+      if (silent) {
+        show(section);
+      } else fadeIn(section);
     } else {
-      fadeOut(section);
+      if (silent) {
+        hide(section);
+      } else fadeOut(section);
     }
   });
   if (introPlayer) {
@@ -38,9 +45,15 @@ var navigateTo = function(index) {
   if (videoPlayer) {
     if (index !== 3) {
       videoPlayer.pause();
+      window.location.hash = "";
     }
   }
 };
+
+var term = window.location.hash.replace("#", "");
+if (term) {
+  navigateTo(3, true);
+}
 
 ready("default", "intro-player", p => introPlayer = p);
 
@@ -63,10 +76,7 @@ var playlistID = 4884471259001;
 ready("B15NOtCZ", "player", function(player) {
   window.player = videoPlayer = player;
 
-  var cuePlaylist = function(index, term, label) {
-    navigateTo(3);
-    player.playlist.currentItem(index);
-    player.play();
+  var loadVideoInfo = function(term, label) {
     window.location.hash = term;
     document.querySelector(".title.tile").innerHTML = `"${label}"`;
     $(".comment").forEach(function(comment){
@@ -78,12 +88,24 @@ ready("B15NOtCZ", "player", function(player) {
     })
   }
 
+  player.on("loadedmetadata", function() {
+    var id = player.mediainfo.id ;
+    var v = playlistItems.filter(p => p.video_id == id).pop();
+    loadVideoInfo(v.term, v.word);
+  });
+
+  var cuePlaylist = function(index, term, label) {
+    navigateTo(3);
+    player.playlist.currentItem(index);
+    player.play();
+    loadVideoInfo(term, label);
+  }
+
   player.catalog.getPlaylist(playlistID, function(err, playlist) {
     player.catalog.load(playlist);
 
     var term = window.location.hash.replace("#", "");
     if (term) {
-      
       var v = playlistItems.filter(p => p.term == term).pop();
       cuePlaylist(v.index, v.term, v.word);
     }

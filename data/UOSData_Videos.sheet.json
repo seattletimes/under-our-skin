@@ -8,8 +8,8 @@
   {
     "index": 1,
     "video_id": 4885891367001,
-    "word": "Microaggressions",
-    "term": "microaggressions"
+    "word": "Microaggression",
+    "term": "microaggression"
   },
   {
     "index": 2,
@@ -26,8 +26,8 @@
   {
     "index": 4,
     "video_id": 4885850332001,
-    "word": "Safe spaces",
-    "term": "safe_spaces"
+    "word": "Safe space",
+    "term": "safe_space"
   },
   {
     "index": 5,
@@ -68,7 +68,7 @@
   {
     "index": 11,
     "video_id": 4885891370001,
-    "word": "Allies",
-    "term": "allies"
+    "word": "Ally",
+    "term": "ally"
   }
 ]
