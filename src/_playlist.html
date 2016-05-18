@@ -11,9 +11,14 @@
       </video>
     </div>
     <div class="title tile"></div>
-    <div class="bio-link next" data-index="4"> <i class="fa fa-user" aria-hidden="true"></i> Who are these people??</div>
+    <div class="bio-link next" data-index="4"> <i class="fa fa-user" aria-hidden="true"></i> Meet the participants</div>
   </div>
-  <ol class="vjs-playlist"></ol>
+  <!-- <ol class="vjs-playlist"></ol> -->
+  <ul class="playlist">
+    <% json.UOSData_Videos.forEach(function(video) { %>
+      <li class="playlist-video" data-id="<%= video.video_id %>" data-term="<%= video.term %>"> <%= video.word %></li>
+    <% }); %>
+  </ul>
 </div>
 
 <div class="reactions-container">

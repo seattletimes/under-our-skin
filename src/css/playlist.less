@@ -20,13 +20,34 @@
   }
 }
 
-.vjs-playlist {
-  height: 471px;
-  margin: 0;
-  background: @gray !important;
+// .vjs-playlist {
+//   height: 471px;
+//   margin: 0;
+//   background: @gray !important;
 
-  @media @tablet {
-    display: none;
+//   @media @tablet {
+//     display: none;
+//   }
+// }
+
+.playlist {
+  list-style: none;
+  text-align: left;
+  font-size: 14px;
+  text-transform: uppercase;
+  min-width: 225px;
+  font-family: @df-sans;
+  margin: 0;
+  padding: 0;
+  letter-spacing: .1em;
+}
+li {
+  cursor: pointer;
+  padding: 10px 10px 6px 20px;
+  position: relative;
+
+  &.playing {
+    background: @df-dark-gray !important;
   }
 }
 
