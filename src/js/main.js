@@ -89,12 +89,17 @@ channel.on("updatePlaylist", loadVideoInfo);
 // If URL already contains video hash, load correct video
 var term = window.location.hash.replace("#", "");
 if (term) {
-  
   pending = playlistItems.filter(v => v.term == term).pop();
   if (pending) {
     navigateTo(3, true);
     channel.emit("updatePlaylist", pending);
+  } else {
+    navigateTo(0, true);
+    window.location.hash = "";
   }
+} else {
+  navigateTo(0, true);
+  window.location.hash = "";
 }
 
 // Load intro video player

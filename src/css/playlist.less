@@ -20,16 +20,6 @@
   }
 }
 
-// .vjs-playlist {
-//   height: 471px;
-//   margin: 0;
-//   background: @gray !important;
-
-//   @media @tablet {
-//     display: none;
-//   }
-// }
-
 .playlist {
   list-style: none;
   text-align: left;
@@ -41,13 +31,21 @@
   padding: 0;
   letter-spacing: .1em;
 }
-li {
+li.playlist-video {
   cursor: pointer;
-  padding: 10px 10px 6px 20px;
-  position: relative;
+  padding: 8px 14px 4px 14px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: black;
+  background: #d9d9d9;
+  margin-bottom: 8px;
+  margin-left: 10px;
+  display: inline-block;
+  transition: all 0.3s linear;
 
-  &.playing {
-    background: @df-dark-gray !important;
+  &.playing, &:hover {
+    color: white;
+    background: black;
   }
 }
 
@@ -95,9 +93,11 @@ li {
   }
 }
 
-.title.tile, .bio-link {
-  width: 49%;
+.title.tile {
   float: left;
+}
+.bio-link {
+  float: right;
 }
 .title.tile {
   font-size: 22px;
