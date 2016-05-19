@@ -10,14 +10,10 @@
   </head>
   <body>
 
-    <div class="nav">
-      <a href="http://www.seattletimes.com"><img class="logo" src="./assets/st-logo.png"></a>
-      <div class="tile hed">Under our skin</div>
-    </div>
-
 <!-- Intro -->
     <div class="flex-container" data-index="0">
       <section class="intro">
+        <%= t.include("./_nav.html") %>
         <div>
           <%= t.include("./_intro.html") %>
         </div>
@@ -27,6 +23,7 @@
 <!-- Editor's note -->
     <div class="flex-container" data-index="1">
       <section>
+        <%= t.include("./_nav.html") %>
         <div>
           <%= t.include("./_note.html") %>
         </div>
@@ -36,6 +33,7 @@
 <!-- Words -->
     <div class="flex-container" data-index="2">
       <section>
+        <%= t.include("./_nav.html") %>
         <div>
           <%= t.include("./_words.html") %>
         </div>
@@ -45,6 +43,7 @@
 <!-- Playlist -->
     <div class="shown fade flex-container" data-index="3">
       <section class="video">
+        <%= t.include("./_nav.html") %>
         <div>
           <%= t.include("./_playlist.html") %>
           <i data-index="4" class="next fa fa-chevron-circle-down" aria-hidden="true"></i>
@@ -55,11 +54,13 @@
 <!-- Bios -->
     <div class="flex-container" data-index="4">
       <section>
+        <%= t.include("./_nav.html") %>
         <div>
           <%= t.include("./_bios.html") %>
         </div>
       </section>
     </div>
+
     <script>
       window.playlistItems = <%= JSON.stringify(json.UOSData_Videos) %>;
     </script>

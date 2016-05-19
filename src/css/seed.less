@@ -43,8 +43,6 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  .display-flex();
-  .align-items(center);
   display: none;
   overflow: auto;
   transition: opacity 1s linear;
@@ -140,10 +138,6 @@ section {
 .shown {
   display: block !important;
   opacity: 0;
-
-  .flex-container& {
-    .display-flex() !important;
-  }
 
   &.fade {
     opacity: 1;
