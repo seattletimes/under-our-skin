@@ -74,7 +74,7 @@ var loadVideoInfo = function(v) {
   playlistItem.classList.add("playing");
 
   window.location.hash = v.term;
-  document.querySelector(".title.tile").innerHTML = `"${v.word}"`;
+  document.querySelector(".title.tile").innerHTML = v.word;
   $(".comment").forEach(function(comment){
     if (comment.getAttribute("data-term") == v.term) {
       comment.classList.add("visible");

@@ -2,7 +2,7 @@
   "s3": {
     "stage": {
       "bucket": "projects-staging.seattletimes.com",
-      "path": "colored-arc"
+      "path": "under-our-skin"
     },
     "live": {
       "bucket": "",
