@@ -39,6 +39,7 @@ var hide = (el) => el.classList.remove("fade", "shown");
 
 // Navigate to page
 var navigateTo = function(index, silent) {
+  pageIndex = index;
   sections.forEach(function(section) {
     if (index == section.getAttribute("data-index")) {
       if (silent) {
@@ -88,8 +89,12 @@ channel.on("updatePlaylist", loadVideoInfo);
 // If URL already contains video hash, load correct video
 var term = window.location.hash.replace("#", "");
 if (term) {
-  navigateTo(3, true);
+  
   pending = playlistItems.filter(v => v.term == term).pop();
+  if (pending) {
+    navigateTo(3, true);
+    channel.emit("updatePlaylist", pending);
+  }
 }
 
 // Load intro video player
@@ -135,7 +140,7 @@ ready("B15NOtCZ", "player", function(player) {
   window.player = videoPlayer = player;
 
   player.on("loadedmetadata", function() {
-    if (index == 3) {
+    if (pageIndex == 3) {
       var id = player.mediainfo.id ;
       var v = videoLookup[id];
       channel.emit("updatePlaylist", v);
