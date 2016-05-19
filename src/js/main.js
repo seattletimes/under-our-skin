@@ -118,8 +118,6 @@ document.body.addEventListener("click", function(e) {
     channel.emit("updatePlaylist", v);
   };
 
-
-
   // Playlist functionality
   if (e.target.classList.contains("playlist-video")) {
     var id = e.target.getAttribute("data-id");
@@ -137,16 +135,12 @@ ready("B15NOtCZ", "player", function(player) {
   window.player = videoPlayer = player;
 
   player.on("loadedmetadata", function() {
-    var id = player.mediainfo.id ;
-    var v = videoLookup[id];
-    channel.emit("updatePlaylist", v);
+    if (index == 3) {
+      var id = player.mediainfo.id ;
+      var v = videoLookup[id];
+      channel.emit("updatePlaylist", v);
+    }
   });
-
-  var cuePlaylist = function(index, term, label) {
-    navigateTo(3);
-    player.playlist.currentItem(index);
-    player.play();
-  }
 
   player.catalog.getPlaylist(playlistID, function(err, playlist) {
     player.catalog.load(playlist);
