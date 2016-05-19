@@ -67,10 +67,11 @@ var navigateTo = function(index, silent) {
 
 // Insert video title, comments, and URL hash
 var loadVideoInfo = function(v) {
-  var playlistItem = document.querySelector(`[data-id="${v.video_id}"]`);
+  var playlistItem = document.querySelector(`.playlist-video[data-id="${v.video_id}"]`);
   var playing = document.querySelector(".playlist-video.playing");
   if (playing) playing.classList.remove("playing");
   playlistItem.classList.add("playing");
+
   window.location.hash = v.term;
   document.querySelector(".title.tile").innerHTML = `"${v.word}"`;
   $(".comment").forEach(function(comment){
@@ -96,7 +97,6 @@ ready("default", "intro-player", p => introPlayer = p);
 
 // Set up event listeners
 document.body.addEventListener("click", function(e) {
-
   // Next buttons
   if (e.target.classList.contains("next")) {
     pageIndex = e.target.getAttribute("data-index");
@@ -108,6 +108,17 @@ document.body.addEventListener("click", function(e) {
     e.target.classList.add("hide");
     fadeIn(document.querySelector(".editors-note .more"));
   };
+
+  // Word tiles
+  if (e.target.classList.contains("word-tile")) {
+    var id = e.target.getAttribute("data-id");
+    var v = videoLookup[id];
+    navigateTo(3);
+    channel.emit("playVideo", v);
+    channel.emit("updatePlaylist", v);
+  };
+
+
 
   // Playlist functionality
   if (e.target.classList.contains("playlist-video")) {
@@ -143,7 +154,6 @@ ready("B15NOtCZ", "player", function(player) {
     channel.removeListener("playVideo", preLoaded);
 
     channel.on("playVideo", function(v) {
-      console.log(v.term, v.index, player)
       player.playlist.currentItem(v.index);
       player.play();
     });
@@ -152,13 +162,6 @@ ready("B15NOtCZ", "player", function(player) {
       player.playlist.currentItem(pending.index);
       player.play();
     }
-
-    $(".word.tile").forEach(tile => tile.addEventListener("click", function(e) {
-      var index = this.getAttribute("data-index") * 1;
-      var term = e.target.getAttribute("data-term");
-      var label = e.target.innerHTML;
-      cuePlaylist(index, term, label);
-    }));
 
   });
 });

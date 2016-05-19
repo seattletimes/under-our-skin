@@ -2,7 +2,7 @@
 
 <% json.UOSData_Videos.forEach(function(video) {
 if (video.index < 6) { %>
-  <div data-index="<%= video.index %>" data-term="<%= video.term %>" class="word tile"><%= video.word %></div>
+  <div data-id="<%= video.video_id %>" data-term="<%= video.term %>" class="word tile word-tile"><%= video.word %></div>
 <% }
 }); %>
 
@@ -10,7 +10,7 @@ if (video.index < 6) { %>
 
 <% json.UOSData_Videos.forEach(function(video) {
 if (video.index >= 6) { %>
-  <div data-index="<%= video.index %>" data-term="<%= video.term %>" class="word tile"><%= video.word %></div>
+  <div data-id="<%= video.video_id %>" data-term="<%= video.term %>" class="word tile word-tile"><%= video.word %></div>
 <% }
 }); %>
 
