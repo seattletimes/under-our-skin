@@ -25,23 +25,27 @@
 
 <div class="reactions-container">
   <div class="reactions">
-    Reactions?
+    <div class="subhed">What do you think?</div>
 
     <div class="form-panel">
 
       <form>
-        <div>Name: <input name="name" placeholder="" required></div>
-        <div>Age: <input name="age" placeholder="" required></div>
 
         This 
         <select name="adjective">
+          <option selected="selected" disabled="disabled">choose</option>
           <option value="interested">interested</option>
           <option value="saddened">saddened</option>
           <option value="angered">angered</option>
           <option value="confused">confused</option>
         </select> 
-        me because:
-        <div><input  maxlength="500" class="comment-box" name="comment" placeholder="" required></div>
+        me because
+        <div><textarea rows="3" maxlength="500" class="comment-box" name="comment" placeholder="" required></textarea></div>
+
+        <div class="name-age">
+          <div class="name">Your name <input name="name" placeholder="" required></div>
+          <div class="age">Your age <input name="age" placeholder="" required></div>
+        </div>
       </form>
 
       <button class="submit">SUBMIT</button>
@@ -50,24 +54,33 @@
       <div class="message success"><i class="fa fa-check" aria-hidden="true"></i></div>
 
     </div>
+  </div>
+</div>
 
-    <div class="comments">
-      <% json.UOSData_Comments.forEach(function(comment) {
-      if (comment.approved) { %>
-        <div class="comment" data-term="<%= comment.term %>">
-          I was <%= comment.adjective %> because <%= comment.comment %>. &ndash; <em><%= comment.name %>, <%= comment.age %></em>
-        </div>
-      <% }
-      }); %>
-    </div>
+<div class="comments-container">
+  <div class="comments">
+    <% json.UOSData_Comments.forEach(function(comment) {
+    if (comment.highlighted) { %>
+      <div class="comment highlighted" data-term="<%= comment.term %>">
+        I was <%= comment.adjective %> because <%= comment.comment %>.
+        <div class="credit">&ndash; <%= comment.name %>, <%= comment.age %></div>
+      </div>
+    <% }
+    }); %>
+    <% json.UOSData_Comments.forEach(function(comment) {
+    if (comment.approved && !comment.highlighted) { %>
+      <div class="comment" data-term="<%= comment.term %>">
+        I was <%= comment.adjective %> because <%= comment.comment %>.
+        <div class="credit">&ndash; <%= comment.name %>, <%= comment.age %></div>
+      </div>
+    <% }
+    }); %>
   </div>
 
   <div class="guest-essays">Guest essays link to WordPress stories<br>
   Guest essays link to WordPress stories<br> 
   Guest essays link to WordPress stories</div>
 
-
 </div>
-
 
 <!-- load in all comments, auto hidden -->

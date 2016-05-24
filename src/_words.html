@@ -1,7 +1,8 @@
-<div>Choose a word...</div>
-
 <% json.UOSData_Videos.forEach(function(video) { %>
   <div data-id="<%= video.video_id %>" data-term="<%= video.term %>" class="word tile word-tile"><%= video.word %></div>
+  <% if (video.index % 2 == 1) { %>
+  <br>
+  <% }; %>
 <% }); %>
 
-<i data-index="3" class="next fa fa-chevron-circle-down" aria-hidden="true"></i> <div class="tiny">Watch all</div>
+<div data-index="3" class="next tiny">Watch all</div>

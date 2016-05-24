@@ -26,7 +26,6 @@
   font-size: 14px;
   text-transform: uppercase;
   min-width: 225px;
-  font-family: @df-sans;
   margin: 0;
   padding: 0;
   letter-spacing: .1em;
@@ -46,11 +45,12 @@ li.playlist-video {
   &.playing, &:hover {
     color: white;
     background: black;
+    margin-left: 0;
+    padding-left: 24px;
   }
 }
 
 .form-panel {
-  font-family: @df-sans;
   font-size: 18px;
 }
 
@@ -65,47 +65,97 @@ li.playlist-video {
 
 .reactions-container {
   text-align: left;
-  padding: 20px;
   .display-flex();
 
   .reactions {
     .flex(3);
+    padding-bottom: 20px;
+
+    .subhed {
+      text-transform: uppercase;
+      font-size: 18px;
+      letter-spacing: 0.2em;
+      font-weight: bold;
+    }
+    input, textarea {
+      font-size: 14px;
+      padding: 8px;
+      border: none;
+    }
+    textarea.comment-box {
+      width: 100%;
+      max-width: 600px;
+      resize: none;
+    }
+    .name-age {
+      padding-top: 15px;
+    }
+    .age, .name {
+      display: inline-block;
+
+      input {
+        margin-left: 6px;
+      }
+    }
+    .age input {
+      width: 50px;
+    }
+    .name {
+      padding-right: 10px;
+    }
   }
+}
+
+.comments-container {
+  .display-flex();
+  border-top: 1px solid @df-middle-gray;
+
   .guest-essays {
     .flex(1);
-    font-family: @df-sans;
+    padding: 20px;
+    padding-left: 40px;
     font-size: 18px;
+    text-align: left;
   }
 }
 
 .comments {
   text-align: left;
-  font-size: 20px;
+  font-size: 16px;
+  .flex(3);
 
   .comment {
     display: none;
     padding: 20px;
-    border-top: 1px solid @df-middle-gray;
+    border-bottom: 1px solid @df-middle-gray;
 
     &.visible {
       display: block;
     }
+    &.highlighted {
+      font-size: 20px;
+    }
+  }
+  .credit {
+    font-style: italic;
+    text-align: right;
+    padding-top: 4px;
+    font-size: 16px;
   }
 }
 
-.title.tile {
-  float: left;
-}
 .bio-link {
   float: right;
 }
 .title.tile {
   font-size: 22px;
-  font-weight: bold;
   margin-top: 10px;
+  float: left;
+  background: black;
+  color: white;
+  font-weight: bold;
 }
 .bio-link {
-  font-family: @df-sans;
   margin-top: 20px;
   font-size: 18px;
 
