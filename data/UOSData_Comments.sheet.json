@@ -1,6 +1,6 @@
 [
   {
-    "term": "black_lives_matter",
+    "term": "all_lives_matter",
     "name": "Jerry",
     "age": 23,
     "adjective": "angered",
@@ -108,7 +108,7 @@
     "highlighted": "x"
   },
   {
-    "term": "black_lives_matter",
+    "term": "all_lives_matter",
     "name": "Jerry",
     "age": 23,
     "adjective": "angered",
@@ -204,7 +204,7 @@
     "approved": "x"
   },
   {
-    "term": "black_lives_matter",
+    "term": "all_lives_matter",
     "name": "Jerry",
     "age": 23,
     "adjective": "angered",
@@ -298,5 +298,20 @@
     "adjective": "saddened",
     "comment": "Politically correct lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultricies lobortis nulla sed commodo. Aenean in tellus velit. Phasellus euismod placerat arcu non ullamcorper. Mauris consectetur sapien sit amet risus pellentesque, sagittis vehicula odio aliquam. Praesent porta dignissim laoreet. Qan vitae interdum augue. Morbi auctor nisl ac pellentesque tempor. Sed rutrum volutpat lorem. Sed faucibus eleifend ex. Nulla mollis dapibus dui non al",
     "approved": "x"
+  },
+  {
+    "term": "white_privilege",
+    "adjective": "choose"
+  },
+  {
+    "term": "diversity",
+    "name": "fewafeafa",
+    "age": "fe",
+    "adjective": "angered"
+  },
+  {
+    "term": "all_lives_matter",
+    "name": "Corinne",
+    "adjective": "saddened"
   }
 ]

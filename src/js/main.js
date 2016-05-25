@@ -74,7 +74,7 @@ var loadVideoInfo = function(v) {
   playlistItem.classList.add("playing");
 
   window.location.hash = v.term;
-  document.querySelector(".title.tile").innerHTML = v.word;
+  document.querySelector(".question-title").innerHTML = v.word;
   $(".comment").forEach(function(comment){
     if (comment.getAttribute("data-term") == v.term) {
       comment.classList.add("visible");
@@ -117,12 +117,6 @@ document.body.addEventListener("click", function(e) {
   if (e.target.classList.contains("next")) {
     pageIndex = e.target.getAttribute("data-index");
     navigateTo(pageIndex);
-  };
-
-  // Read more button
-  if (e.target.classList.contains("read-more")) {
-    e.target.classList.add("hide");
-    fadeIn(document.querySelector(".editors-note .more"));
   };
 
   // Word tiles

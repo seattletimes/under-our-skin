@@ -3,6 +3,7 @@
 @import "note";
 @import "bios";
 @import "words";
+@import "about";
 @import "playlist";
 
 @gray: #4A5E66;
@@ -26,12 +27,15 @@ body {
   max-width: 1400px;
   padding: 20px;
 
-  .tile.hed {
-    padding: 10px 24px 6px 24px;
-    font-size: 22px;
-    margin: auto;
-    cursor: pointer;
+  // .tile.hed {
+  //   padding: 10px 24px 6px 24px;
+  //   font-size: 22px;
+  //   margin: auto;
+  //   cursor: pointer;
 
+  // }
+  .fa {
+    float: right;
   }
   .logo {
     height: 30px;
@@ -43,18 +47,18 @@ body {
 }
 
 .flex-container {
-  position: fixed;
-  top: 50px;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  display: none;
+  // position: fixed;
+  // top: 50px;
+  // left: 0;
+  // bottom: 0;
+  // right: 0;
+  // display: none;
   overflow: auto;
   transition: opacity 1s linear;
 }
 
 section {
-  margin: auto;
+  margin: 20px auto;
   padding: 20px;
   max-width: 1200px;
 
@@ -119,22 +123,6 @@ section {
 
   @media @mobile {
     font-size: 16px;
-  }
-
-  .read-more {
-    cursor: pointer;
-    font-size: 16px;
-    text-transform: uppercase;
-
-    &.hide {
-      display: none;
-    }
-  }
-
-  .more {
-    display: none;
-    opacity: 0;
-    transition: all 0.5s linear;
   }
 }
 

@@ -1,3 +1,5 @@
+<div class="question">What does the term "<span class="question-title"></span>" mean to you?</div>
+
 <div class="video-container">
   <div class="aspect-outer pending">
     <div class="aspect-inner">
@@ -10,17 +12,18 @@
         class="video-js" controls>
       </video>
     </div>
-    <div class="title tile"></div>
-    <div class="bio-link next" data-index="4"> <i class="fa fa-user" aria-hidden="true"></i> Meet the participants</div>
   </div>
-  <!-- <ol class="vjs-playlist"></ol> -->
-  <ul class="playlist">
-    <% json.UOSData_Videos.forEach(function(video) { %>
-      <div>
-        <li class="playlist-video" data-id="<%= video.video_id %>" data-term="<%= video.term %>"> <%= video.word %></li>
-      </div>
-    <% }); %>
-  </ul>
+
+  <div>
+    <ul class="playlist">
+      <% json.UOSData_Videos.forEach(function(video) { %>
+        <div>
+          <li class="playlist-video" data-id="<%= video.video_id %>" data-term="<%= video.term %>"> <%= video.word %></li>
+        </div>
+      <% }); %>
+    </ul>
+    <div class="bio-link next" data-index="4">Meet the participants</div>
+  </div>
 </div>
 
 <div class="reactions-container">
@@ -33,7 +36,7 @@
 
         This 
         <select name="adjective">
-          <option selected="selected" disabled="disabled">choose</option>
+          <option selected="selected" disabled="disabled">CHOOSE</option>
           <option value="interested">interested</option>
           <option value="saddened">saddened</option>
           <option value="angered">angered</option>
