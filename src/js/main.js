@@ -107,6 +107,12 @@ ready("default", "intro-player", p => introPlayer = p);
 
 // Set up event listeners
 document.body.addEventListener("click", function(e) {
+  // Home button
+  if (e.target.classList.contains("nav-tile")) {
+    pageIndex = 0;
+    navigateTo(pageIndex);
+  };
+
   // Next buttons
   if (e.target.classList.contains("next")) {
     pageIndex = e.target.getAttribute("data-index");

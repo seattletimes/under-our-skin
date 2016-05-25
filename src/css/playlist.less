@@ -9,6 +9,7 @@
     padding-bottom: percentage(9 / 16);
     height: 0;
     position: relative;
+    margin-bottom: 20px;
   }
 
   .video-js {
@@ -23,16 +24,16 @@
 .playlist {
   list-style: none;
   text-align: left;
-  font-size: 14px;
+  font-size: 16px;
   text-transform: uppercase;
-  min-width: 225px;
+  min-width: 240px;
   margin: 0;
   padding: 0;
   letter-spacing: .1em;
 }
 li.playlist-video {
   cursor: pointer;
-  padding: 8px 14px 4px 14px;
+  padding: 7px 16px 5px 16px;
   text-transform: uppercase;
   letter-spacing: .1em;
   color: black;
@@ -46,7 +47,7 @@ li.playlist-video {
     color: white;
     background: black;
     margin-left: 0;
-    padding-left: 24px;
+    padding-left: 26px;
   }
 }
 
@@ -65,11 +66,13 @@ li.playlist-video {
 
 .reactions-container {
   text-align: left;
+  margin-top: 40px;
   .display-flex();
 
   .reactions {
     .flex(3);
-    padding-bottom: 20px;
+    padding: 20px;
+    padding-top: 0;
 
     .subhed {
       text-transform: uppercase;
@@ -77,18 +80,47 @@ li.playlist-video {
       letter-spacing: 0.2em;
       font-weight: bold;
     }
+    button {
+      padding: 8px 14px;
+      border: none;
+      color: white;
+      background: @df-dark-gray;
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 15px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.3s linear;
+
+      &:hover {
+        background: black;
+      }
+    }
     input, textarea {
       font-size: 14px;
       padding: 8px;
       border: none;
+      margin-top: 15px;
+      color: #666;
+    }
+    input {
+      padding: 6px;
+      font-size: 12px;
+    }
+    select {
+      letter-spacing: 0.02em;
+      color: #666;
+      border: none;
+      font-size: 11px;
+      height: 24px;
+      margin: 0 4px;
+      margin-top: 15px;
+      text-transform: uppercase;
     }
     textarea.comment-box {
       width: 100%;
       max-width: 600px;
       resize: none;
-    }
-    .name-age {
-      padding-top: 15px;
     }
     .age, .name {
       display: inline-block;
@@ -144,20 +176,18 @@ li.playlist-video {
   }
 }
 
-.bio-link {
-  float: right;
-}
 .title.tile {
   font-size: 22px;
-  margin-top: 10px;
+  margin: 0;
   float: left;
   background: black;
   color: white;
-  font-weight: bold;
+  width: 400px;
 }
 .bio-link {
   margin-top: 20px;
   font-size: 18px;
+  float: right;
 
   .fa {
     display: inline-block;
