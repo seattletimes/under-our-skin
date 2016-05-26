@@ -2,6 +2,7 @@
 // require("./lib/ads");
 // var track = require("./lib/tracking");
 var $ = require("./lib/qsa");
+var debounce = require("./lib/debounce");
 var ready = require("./brightcove");
 require("./form");
 
@@ -12,7 +13,7 @@ var videoLookup = {};
 playlistItems.forEach(i => videoLookup[i.video_id] = i);
 
 var pageIndex = 0;
-var sections = $(".flex-container");
+var sections = $(".scroll-aware");
 var introPlayer = null;
 var videoPlayer = null;
 
@@ -34,8 +35,22 @@ var fadeOut = function(el) {
   }, 1000);
 };
 
-var show = (el) => el.classList.add("fade", "shown");
-var hide = (el) => el.classList.remove("fade", "shown");
+// var show = (el) => el.classList.add("fade", "shown");
+// var hide = (el) => el.classList.remove("fade", "shown");
+var show = function() {};
+var hide = function() {};
+
+// Scroll listener
+window.addEventListener("scroll", debounce(function(e) {
+  sections.forEach(function(section) {
+    var bounds = section.getBoundingClientRect();
+    if (bounds.top <= window.innerHeight * 0.7 && bounds.bottom > window.innerHeight * 0.5) {
+      section.classList.add("visible");
+    } else {
+      section.classList.remove("visible");
+    }
+  });
+}));
 
 // Navigate to page
 var navigateTo = function(index, silent) {
