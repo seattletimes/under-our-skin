@@ -15,7 +15,7 @@ module.exports = function(element, done = noop) {
   var finish = start + bounds.top - 10;
   var distance = finish - start;
   if (Math.abs(distance) < 10) return;
-  var duration = 500;
+  var duration = 800;
 
   var frame = function() {
     var t = Date.now();

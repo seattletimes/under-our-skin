@@ -121,14 +121,14 @@ var term = window.location.hash.replace("#", "");
 if (term) {
   pending = playlistItems.filter(v => v.term == term).pop();
   if (pending) {
-    // navigateTo(3, true);
+    animateScroll("#playlist");
     channel.emit("updatePlaylist", pending);
   } else {
-    // navigateTo(0, true);
+    animateScroll("#intro");
     window.location.hash = "";
   }
 } else {
-  // navigateTo(0, true);
+  animateScroll("#intro");
   window.location.hash = "";
 }
 
@@ -138,9 +138,9 @@ ready("default", "intro-player", p => introPlayer = p);
 // Set up event listeners
 document.body.addEventListener("click", function(e) {
   // Home button
-  if (e.target.classList.contains("nav-tile")) {
+  if (e.target.classList.contains("nav-label")) {
     pageIndex = 0;
-    // navigateTo(pageIndex);
+    animateScroll("#intro");
   };
 
   // // Next buttons
@@ -153,7 +153,7 @@ document.body.addEventListener("click", function(e) {
   if (e.target.classList.contains("word-tile")) {
     var id = e.target.getAttribute("data-id");
     var v = videoLookup[id];
-    // navigateTo(3);
+    animateScroll("#playlist");
     channel.emit("playVideo", v);
     channel.emit("updatePlaylist", v);
   };
