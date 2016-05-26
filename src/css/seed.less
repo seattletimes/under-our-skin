@@ -43,15 +43,50 @@ body {
   width: 100%;
   z-index: 9;
 
+  .nav-container {
+    padding: 0 24px;
+    position: relative;
+    float: right;
+  }
+
   .inner-nav {
     margin: auto;
     max-width: 1200px;
+
+    .fa {
+      cursor: pointer;
+    }
+
+    ul {
+      display: none;
+      position: absolute;
+      right: 0;
+      list-style: none;
+      padding: 0;
+      background: @df-charcoal;
+      margin: 0;
+      top: 39px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 14px;
+      width: 100%;
+
+      li {
+        padding: 12px 24px;
+
+        &:first-child {
+          border-top: 1px solid @df-dark-gray;
+        }
+      }
+    }
   }
 
-  .fa {
+  .nav-bars {
     float: right;
   }
   .nav-label {
+    cursor: pointer;
     float: right;
     text-transform: uppercase;
     font-size: 15px;

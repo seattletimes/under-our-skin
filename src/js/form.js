@@ -8,9 +8,14 @@ var messageSuccess = panel.find(".message.success")
 var submit = panel.find(".submit");
 var form = panel.find("form");
 var inputs = form.find("input, select, textarea");
+var textarea = form.find("textarea");
+var charLimit = $(".char-limit");
 var validated = false;
 
-form.on("change keydown", function(){
+form.on("change keyup", function(){
+  console.log(textarea[0].value)
+  var count = 500 - textarea[0].value.length;
+  charLimit.html(count);
   validated = true;
   inputs.each(function(i, el) {
     if (!el.value || el.value == "choose") validated = false;
@@ -50,6 +55,7 @@ submit.on("click", function(e) {
   submission.done(function(data) {
     messageSending.removeClass("visible");
     messageSuccess.addClass("visible");
+    charLimit.html("500");
     validated = false;
     form.removeClass("validated");
     inputs.each(function(i, el) {

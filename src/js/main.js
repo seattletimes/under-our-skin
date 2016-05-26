@@ -53,6 +53,11 @@ window.addEventListener("scroll", debounce(function(e) {
   });
 }));
 
+// Hamburger
+document.querySelector(".inner-nav .fa").addEventListener(function() {
+  
+});
+
 // Navigation within page
 $(".jump a").forEach(function(a) {
   a.addEventListener("click", function(e) {

@@ -117,11 +117,25 @@ li.playlist-video {
       margin: 0 4px;
       margin-top: 15px;
     }
-    textarea.comment-box {
+    .comment-box {
+      position: relative;
       width: 100%;
       max-width: 600px;
-      resize: none;
+
+      textarea {
+        resize: none;
+        width: 100%;
+        padding-right: 30px;
+      }
+      .char-limit {
+        position: absolute;
+        color: #999;
+        font-size: 12px;
+        right: 7px;
+        bottom: 10px;
+      }
     }
+    
     .age, .name {
       display: inline-block;
 

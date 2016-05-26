@@ -41,13 +41,18 @@
         This 
         <select name="adjective">
           <option value="choose" selected="selected" disabled="disabled">CHOOSE</option>
-          <option value="interested">interested</option>
-          <option value="saddened">saddened</option>
-          <option value="angered">angered</option>
+          <option value="surprised">surprised</option>
           <option value="confused">confused</option>
+          <option value="frustrated">frustrated</option>
+          <option value="saddened">saddened</option>
+          <option value="interested">interested</option>
+          <option value="resonated">resonated with</option>
         </select> 
         me because
-        <div><textarea rows="3" maxlength="500" class="comment-box" name="comment" placeholder="" required></textarea></div>
+        <div class="comment-box">
+          <textarea rows="3" maxlength="500" name="comment" placeholder="" required></textarea>
+          <div class="char-limit">500</div>
+        </div>
 
         <div>
           <div class="name">Your name <input name="name" placeholder="" required></div>
