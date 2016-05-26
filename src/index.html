@@ -13,7 +13,7 @@
     <%= t.include("./_nav.html") %>
 
 <!-- Intro -->
-    <div class="flex-container" data-index="0">
+    <div class="scroll-aware" data-index="0">
       <section class="intro">
         <div class="main-text">
           <%= t.include("./_intro.html") %>
@@ -22,7 +22,7 @@
     </div>
 
 <!-- Editor's note -->
-    <div class="flex-container" data-index="1">
+    <div class="scroll-aware" data-index="1">
       <section>
         <div class="main-text">
           <%= t.include("./_note.html") %>
@@ -31,7 +31,7 @@
     </div>
 
 <!-- Words -->
-    <div class="flex-container" data-index="2">
+    <div class="scroll-aware" data-index="2">
       <section class="words">
         <div class="main-text">
           <%= t.include("./_words.html") %>
@@ -40,17 +40,16 @@
     </div>
 
 <!-- Playlist -->
-    <div class="shown fade flex-container" data-index="3">
+    <div class="shown fade scroll-aware" data-index="3">
       <section class="video">
         <div class="main-text">
           <%= t.include("./_playlist.html") %>
-          <i data-index="4" class="next fa fa-chevron-circle-down" aria-hidden="true"></i>
         </div>
       </section>
     </div>
 
 <!-- Bios -->
-    <div class="flex-container" data-index="4">
+    <div class="scroll-aware" data-index="4">
       <section>
         <div class="main-text">
           <%= t.include("./_bios.html") %>
@@ -59,7 +58,7 @@
     </div>
 
 <!-- About -->
-    <div class="flex-container" data-index="5">
+    <div class="scroll-aware" data-index="5">
       <section class="about">
         <div class="main-text">
           <%= t.include("./_about.html") %>

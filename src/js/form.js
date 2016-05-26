@@ -7,17 +7,34 @@ var messageSending = panel.find(".message.sending");
 var messageSuccess = panel.find(".message.success")
 var submit = panel.find(".submit");
 var form = panel.find("form");
+var inputs = form.find("input, select, textarea");
+var validated = false;
+
+form.on("change keydown", function(){
+  validated = true;
+  inputs.each(function(i, el) {
+    if (!el.value || el.value == "choose") validated = false;
+  });
+
+  if (validated) {
+    submit.addClass("validated");
+  } else {
+    submit.removeClass("validated");
+  }
+})
 
 submit.on("click", function(e) {
+  if (!validated) return;
+
   var self = this;
   e.preventDefault();
 
   //handle form elements correctly
   var packet = {};
-  var inputs = form.find("input, select");
   inputs.each(function(i, el) {
     packet[el.name] = el.value;
   });
+  
   packet.term = window.location.hash.replace("#", "");
   packet.method = "comment";
 
@@ -33,8 +50,15 @@ submit.on("click", function(e) {
   submission.done(function(data) {
     messageSending.removeClass("visible");
     messageSuccess.addClass("visible");
-    inputs.each(function(i) {
-      console.log(i.val)
+    validated = false;
+    form.removeClass("validated");
+    inputs.each(function(i, el) {
+      if (el.name == "adjective") {
+        el.value = "choose";
+      } else {
+        el.value = "";
+      }
     })
   });
+
 });

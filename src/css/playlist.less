@@ -57,6 +57,7 @@ li.playlist-video {
 
 .message {
   display: none;
+  margin-left: 4px;
 
   &.visible {
     display: inline-block;
@@ -74,26 +75,26 @@ li.playlist-video {
     padding: 20px;
     padding-top: 0;
 
-    .subhed {
-      text-transform: uppercase;
-      font-size: 18px;
-      letter-spacing: 0.2em;
-      font-weight: bold;
-    }
     button {
       padding: 8px 14px;
       border: none;
-      color: white;
       background: @df-dark-gray;
       font-size: 14px;
       font-weight: bold;
       margin-top: 15px;
       border-radius: 2px;
-      cursor: pointer;
+      color: white;
+      opacity: 0.5;
       transition: all 0.3s linear;
 
-      &:hover {
-        background: black;
+      &.validated {
+        opacity: 1;
+        cursor: pointer;
+        background: @df-charcoal;
+
+        &:hover {
+          background: black;
+        }
       }
     }
     input, textarea {
@@ -176,12 +177,9 @@ li.playlist-video {
 }
 
 .question {
+  font-size: 20px;
   text-align: left;
   margin-bottom: 20px;
-
-  .question-title {
-    text-transform: lowercase;
-  }
 }
 
 .bio-link {
