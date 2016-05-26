@@ -3,6 +3,7 @@
 // var track = require("./lib/tracking");
 var $ = require("./lib/qsa");
 var debounce = require("./lib/debounce");
+var animateScroll = require("./lib/animateScroll");
 var ready = require("./brightcove");
 require("./form");
 
@@ -22,29 +23,29 @@ var preLoaded = v => pending = v;
 channel.on("playVideo", preLoaded);
 
 
-// Page transitions
-var fadeIn = function(el) {
-  el.classList.add("shown");
-  var reflow = el.offsetWidth;
-  el.classList.add("fade");
-};
-var fadeOut = function(el) {
-  el.classList.remove("fade");
-  setTimeout(function() {
-    el.classList.remove("shown");
-  }, 1000);
-};
+// // Page transitions
+// var fadeIn = function(el) {
+//   el.classList.add("shown");
+//   var reflow = el.offsetWidth;
+//   el.classList.add("fade");
+// };
+// var fadeOut = function(el) {
+//   el.classList.remove("fade");
+//   setTimeout(function() {
+//     el.classList.remove("shown");
+//   }, 1000);
+// };
 
-// var show = (el) => el.classList.add("fade", "shown");
-// var hide = (el) => el.classList.remove("fade", "shown");
-var show = function() {};
-var hide = function() {};
+// // var show = (el) => el.classList.add("fade", "shown");
+// // var hide = (el) => el.classList.remove("fade", "shown");
+// var show = function() {};
+// var hide = function() {};
 
 // Scroll listener
 window.addEventListener("scroll", debounce(function(e) {
   sections.forEach(function(section) {
     var bounds = section.getBoundingClientRect();
-    if (bounds.top <= window.innerHeight * 0.7 && bounds.bottom > window.innerHeight * 0.5) {
+    if (bounds.top <= window.innerHeight * 0.7) {
       section.classList.add("visible");
     } else {
       section.classList.remove("visible");
@@ -52,34 +53,48 @@ window.addEventListener("scroll", debounce(function(e) {
   });
 }));
 
-// Navigate to page
-var navigateTo = function(index, silent) {
-  pageIndex = index;
-  sections.forEach(function(section) {
-    if (index == section.getAttribute("data-index")) {
-      if (silent) {
-        show(section);
-      } else fadeIn(section);
-    } else {
-      if (silent) {
-        hide(section);
-      } else fadeOut(section);
-    }
+// Navigation within page
+$(".jump a").forEach(function(a) {
+  a.addEventListener("click", function(e) {
+    var href = this.getAttribute("href");
+    if (href.indexOf("#") != 0) return;
+    var section = document.querySelector(href);
+    if (!section) return;
+    e.preventDefault();
+    
+    animateScroll(section);
+    window.history.pushState(href, href, href);
   });
-  if (introPlayer) {
-    if (index == 1) {
-      introPlayer.play();
-    } else {
-      introPlayer.pause();
-    }
-  }
-  if (videoPlayer) {
-    if (index !== 3) {
-      videoPlayer.pause();
-      window.location.hash = "";
-    }
-  }
-};
+});
+
+// Navigate to page
+// var navigateTo = function(index, silent) {
+//   pageIndex = index;
+//   sections.forEach(function(section) {
+//     if (index == section.getAttribute("data-index")) {
+//       if (silent) {
+//         show(section);
+//       } else fadeIn(section);
+//     } else {
+//       if (silent) {
+//         hide(section);
+//       } else fadeOut(section);
+//     }
+//   });
+//   if (introPlayer) {
+//     if (index == 1) {
+//       introPlayer.play();
+//     } else {
+//       introPlayer.pause();
+//     }
+//   }
+//   if (videoPlayer) {
+//     if (index !== 3) {
+//       videoPlayer.pause();
+//       window.location.hash = "";
+//     }
+//   }
+// };
 
 // Insert video title, comments, and URL hash
 var loadVideoInfo = function(v) {
@@ -106,14 +121,14 @@ var term = window.location.hash.replace("#", "");
 if (term) {
   pending = playlistItems.filter(v => v.term == term).pop();
   if (pending) {
-    navigateTo(3, true);
+    // navigateTo(3, true);
     channel.emit("updatePlaylist", pending);
   } else {
-    navigateTo(0, true);
+    // navigateTo(0, true);
     window.location.hash = "";
   }
 } else {
-  navigateTo(0, true);
+  // navigateTo(0, true);
   window.location.hash = "";
 }
 
@@ -125,20 +140,20 @@ document.body.addEventListener("click", function(e) {
   // Home button
   if (e.target.classList.contains("nav-tile")) {
     pageIndex = 0;
-    navigateTo(pageIndex);
+    // navigateTo(pageIndex);
   };
 
-  // Next buttons
-  if (e.target.classList.contains("next")) {
-    pageIndex = e.target.getAttribute("data-index");
-    navigateTo(pageIndex);
-  };
+  // // Next buttons
+  // if (e.target.classList.contains("next")) {
+  //   pageIndex = e.target.getAttribute("data-index");
+  //   navigateTo(pageIndex);
+  // };
 
   // Word tiles
   if (e.target.classList.contains("word-tile")) {
     var id = e.target.getAttribute("data-id");
     var v = videoLookup[id];
-    navigateTo(3);
+    // navigateTo(3);
     channel.emit("playVideo", v);
     channel.emit("updatePlaylist", v);
   };

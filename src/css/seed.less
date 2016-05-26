@@ -28,7 +28,7 @@ body {
   font-weight: bold;
 
   &.larger {
-    font-size: 24px;
+    font-size: 26px;
     letter-spacing: 0.15em;
     padding-bottom: 10px;
   }
@@ -68,9 +68,15 @@ body {
 .fa {
   display: block;
 }
+.fa-chevron-down {
+  margin-top: 20px;
+}
+.jump a {
+  color: white;
+}
 
 .scroll-aware {
-  transition: opacity 1s linear;
+  transition: opacity 0.5s linear;
   margin-bottom: 300px;
   opacity: 0;
 
@@ -99,18 +105,18 @@ section {
   }
 }
 
-.next {
-  cursor: pointer;
+// .next {
+//   cursor: pointer;
   
-  &.fa {
-    font-size: 36px;
-    padding-top: 20px;
-  }
+//   &.fa {
+//     font-size: 36px;
+//     padding-top: 20px;
+//   }
 
-  @media @mobile {
-    display: none;
-  }
-}
+//   @media @mobile {
+//     display: none;
+//   }
+// }
 
 .tile {
   text-transform: uppercase;
