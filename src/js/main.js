@@ -54,9 +54,9 @@ window.addEventListener("scroll", debounce(function(e) {
 }));
 
 // Hamburger
-document.querySelector(".inner-nav .fa").addEventListener(function() {
-  
-});
+// document.querySelector(".inner-nav .fa").addEventListener(function() {
+
+// });
 
 // Navigation within page
 $(".jump a").forEach(function(a) {
@@ -138,7 +138,7 @@ if (term) {
 }
 
 // Load intro video player
-ready("default", "intro-player", p => introPlayer = p);
+ready("B15NOtCZ", "intro-player", p => introPlayer = p);
 
 // Set up event listeners
 document.body.addEventListener("click", function(e) {
