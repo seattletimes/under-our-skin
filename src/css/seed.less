@@ -8,6 +8,25 @@
 
 @gray: #4A5E66;
 
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  
+  to {
+    opacity: 1;
+  }
+}
+
 body {
   background: @gray;
   color: white;
@@ -38,42 +57,53 @@ body {
   position: fixed;
   top: 0;
   text-align: left;
-  padding-top: 10px;
   background: @df-charcoal;
   width: 100%;
   z-index: 9;
 
   .nav-container {
-    padding: 0 24px;
+    padding: 5px 24px;
     position: relative;
     float: right;
+    margin-top: 4px;
+
+    &:hover {
+      .nav-list {
+        display: block;
+        -webkit-animation: fade 0.2s linear;
+        animation: fade 0.2s linear;
+      }
+    }
   }
 
   .inner-nav {
     margin: auto;
     max-width: 1200px;
 
-    .fa {
-      cursor: pointer;
-    }
-
-    ul {
+    ul.nav-list {
       display: none;
       position: absolute;
       right: 0;
       list-style: none;
       padding: 0;
-      background: @df-charcoal;
       margin: 0;
-      top: 39px;
+      top: 30px;
+      padding-top: 14px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       font-weight: bold;
       font-size: 14px;
       width: 100%;
 
-      li {
-        padding: 12px 24px;
+      li.nav-item {
+        background: @df-charcoal;
+        padding: 15px 24px 12px 24px;
+        cursor: pointer;
+        transition: background 0.2s linear;
+
+        &:hover {
+          background: @df-dark-gray;
+        }
 
         &:first-child {
           border-top: 1px solid @df-dark-gray;
@@ -84,9 +114,9 @@ body {
 
   .nav-bars {
     float: right;
+    transition: color .2s linear;
   }
   .nav-label {
-    cursor: pointer;
     float: right;
     text-transform: uppercase;
     font-size: 15px;
@@ -94,9 +124,16 @@ body {
     font-weight: bold;
     padding-right: 15px;
     padding-top: 5px;
+    transition: all 0.1s linear;
+    cursor: pointer;
+
+    &:hover {
+      color: @df-border-gray;
+    }
   }
   .logo {
     height: 25px;
+    margin-top: 12px;
   }
 }
 

@@ -5,7 +5,6 @@ var loading = {};
 module.exports = function(player, id, callback) {
   var later = function() {
     var player = videojs(id);
-    console.log("player", id, player);
     callback(player);
   };
 
@@ -19,7 +18,6 @@ module.exports = function(player, id, callback) {
   var script = document.createElement("script");
   script.src = src;
   script.onload = function() {
-    console.log("loaded", player);
     deferred.resolve();
   };
   document.head.appendChild(script);

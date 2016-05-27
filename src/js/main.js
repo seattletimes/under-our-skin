@@ -140,12 +140,34 @@ if (term) {
 // Load intro video player
 ready("B15NOtCZ", "intro-player", p => introPlayer = p);
 
+// Hamburger dropdown
+// var navBars = document.querySelector(".nav-bars");
+// navBars.addEventListener("click", function() {
+//     document.querySelector(".nav-list").classList.add("visible");
+// });
+// navBars.addEventListener("mouseover", function() {
+//     document.querySelector(".nav-list").classList.add("visible");
+// });
+// document.querySelector(".nav-container").addEventListener("mouseleave", function() {
+//     console.log("out")
+//     document.querySelector(".nav-list").classList.remove("visible");
+// });
+
 // Set up event listeners
 document.body.addEventListener("click", function(e) {
   // Home button
   if (e.target.classList.contains("nav-label")) {
     pageIndex = 0;
+    e.preventDefault();
     animateScroll("#intro");
+  };
+
+  // Nav items
+  if (e.target.classList.contains("nav-item")) {
+    var hash = e.target.getAttribute("data-nav");
+    // pageIndex = 0;
+    e.preventDefault();
+    animateScroll(`#${hash}`);
   };
 
   // // Next buttons
@@ -158,6 +180,7 @@ document.body.addEventListener("click", function(e) {
   if (e.target.classList.contains("word-tile")) {
     var id = e.target.getAttribute("data-id");
     var v = videoLookup[id];
+    e.preventDefault();
     animateScroll("#playlist");
     channel.emit("playVideo", v);
     channel.emit("updatePlaylist", v);

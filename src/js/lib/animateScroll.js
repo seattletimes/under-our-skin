@@ -21,7 +21,7 @@ module.exports = function(element, done = noop) {
     var t = Date.now();
     var elapsed = t - now;
     var d = elapsed / duration;
-    document.body.scrollTop = document.documentElement.scrollTop = start - 100 + distance * ease(d);
+    document.body.scrollTop = document.documentElement.scrollTop = start - 75 + distance * ease(d);
     if (elapsed > duration) return animating = false;
     raf(frame);
   };
