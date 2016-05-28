@@ -13,33 +13,15 @@ var channel = new EventEmitter();
 var videoLookup = {};
 playlistItems.forEach(i => videoLookup[i.video_id] = i);
 
-var pageIndex = 0;
+var pageIndex = "intro";
 var sections = $(".scroll-aware");
-var introPlayer = null;
-var videoPlayer = null;
 
 var pending = null;
 var preLoaded = v => pending = v;
 channel.on("playVideo", preLoaded);
 
-
-// // Page transitions
-// var fadeIn = function(el) {
-//   el.classList.add("shown");
-//   var reflow = el.offsetWidth;
-//   el.classList.add("fade");
-// };
-// var fadeOut = function(el) {
-//   el.classList.remove("fade");
-//   setTimeout(function() {
-//     el.classList.remove("shown");
-//   }, 1000);
-// };
-
-// // var show = (el) => el.classList.add("fade", "shown");
-// // var hide = (el) => el.classList.remove("fade", "shown");
-// var show = function() {};
-// var hide = function() {};
+var players = {};
+var playerDelay = null;
 
 // Scroll listener
 window.addEventListener("scroll", debounce(function(e) {
@@ -51,12 +33,24 @@ window.addEventListener("scroll", debounce(function(e) {
       section.classList.remove("visible");
     }
   });
+  for (var p in players) {
+    var player = players[p];
+    var element = player.el();
+    var bounds = element.getBoundingClientRect();
+    if (playerDelay) clearTimeout(playerDelay);
+    if (bounds.top > 0 && bounds.bottom < window.innerHeight) {
+      playerDelay = setTimeout(function() {
+        var newBounds = element.getBoundingClientRect();
+        if (newBounds.top > 0 && newBounds.bottom < window.innerHeight) {
+          player.play();
+        }
+      }, 300);
+      break;
+    } else {
+      player.pause();
+    }
+  }
 }));
-
-// Hamburger
-// document.querySelector(".inner-nav .fa").addEventListener(function() {
-
-// });
 
 // Navigation within page
 $(".jump a").forEach(function(a) {
@@ -68,38 +62,10 @@ $(".jump a").forEach(function(a) {
     e.preventDefault();
     
     animateScroll(section);
+    pageIndex = section.id;
     window.history.pushState(href, href, href);
   });
 });
-
-// Navigate to page
-// var navigateTo = function(index, silent) {
-//   pageIndex = index;
-//   sections.forEach(function(section) {
-//     if (index == section.getAttribute("data-index")) {
-//       if (silent) {
-//         show(section);
-//       } else fadeIn(section);
-//     } else {
-//       if (silent) {
-//         hide(section);
-//       } else fadeOut(section);
-//     }
-//   });
-//   if (introPlayer) {
-//     if (index == 1) {
-//       introPlayer.play();
-//     } else {
-//       introPlayer.pause();
-//     }
-//   }
-//   if (videoPlayer) {
-//     if (index !== 3) {
-//       videoPlayer.pause();
-//       window.location.hash = "";
-//     }
-//   }
-// };
 
 // Insert video title, comments, and URL hash
 var loadVideoInfo = function(v) {
@@ -127,54 +93,41 @@ if (term) {
   pending = playlistItems.filter(v => v.term == term).pop();
   if (pending) {
     animateScroll("#playlist");
+    pageIndex = "playlist";
     channel.emit("updatePlaylist", pending);
   } else {
     animateScroll("#intro");
+    pageIndex = "intro";
     window.location.hash = "";
   }
 } else {
   animateScroll("#intro");
+  pageIndex = "intro";
   window.location.hash = "";
 }
 
 // Load intro video player
-ready("B15NOtCZ", "intro-player", p => introPlayer = p);
-
-// Hamburger dropdown
-// var navBars = document.querySelector(".nav-bars");
-// navBars.addEventListener("click", function() {
-//     document.querySelector(".nav-list").classList.add("visible");
-// });
-// navBars.addEventListener("mouseover", function() {
-//     document.querySelector(".nav-list").classList.add("visible");
-// });
-// document.querySelector(".nav-container").addEventListener("mouseleave", function() {
-//     console.log("out")
-//     document.querySelector(".nav-list").classList.remove("visible");
-// });
+ready("B15NOtCZ", "intro-player", p => players.intro = p);
 
 // Set up event listeners
 document.body.addEventListener("click", function(e) {
   // Home button
   if (e.target.classList.contains("nav-label")) {
-    pageIndex = 0;
+    pageIndex = "intro";
     e.preventDefault();
     animateScroll("#intro");
+    window.location.hash = "";
+    pageIndex = "intro";
   };
 
   // Nav items
   if (e.target.classList.contains("nav-item")) {
     var hash = e.target.getAttribute("data-nav");
-    // pageIndex = 0;
+    pageIndex = hash;
     e.preventDefault();
     animateScroll(`#${hash}`);
+    pageIndex = hash;
   };
-
-  // // Next buttons
-  // if (e.target.classList.contains("next")) {
-  //   pageIndex = e.target.getAttribute("data-index");
-  //   navigateTo(pageIndex);
-  // };
 
   // Word tiles
   if (e.target.classList.contains("word-tile")) {
@@ -182,6 +135,7 @@ document.body.addEventListener("click", function(e) {
     var v = videoLookup[id];
     e.preventDefault();
     animateScroll("#playlist");
+    pageIndex = "playlist";
     channel.emit("playVideo", v);
     channel.emit("updatePlaylist", v);
   };
@@ -200,10 +154,10 @@ document.body.addEventListener("click", function(e) {
 var playlistID = 4884471259001;
 
 ready("B15NOtCZ", "player", function(player) {
-  window.player = videoPlayer = player;
+  window.player = players.main = player;
 
   player.on("loadedmetadata", function() {
-    if (pageIndex == 3) {
+    if (pageIndex == "playlist") {
       var id = player.mediainfo.id ;
       var v = videoLookup[id];
       channel.emit("updatePlaylist", v);
