@@ -33,15 +33,16 @@ window.addEventListener("scroll", debounce(function(e) {
       section.classList.remove("visible");
     }
   });
+
   for (var p in players) {
     var player = players[p];
     var element = player.el();
     var bounds = element.getBoundingClientRect();
     if (playerDelay) clearTimeout(playerDelay);
-    if (bounds.top > 0 && bounds.bottom < window.innerHeight) {
+    if (bounds.top < window.innerHeight * 0.7 && bounds.bottom > window.innerHeight * 0.3) {
       playerDelay = setTimeout(function() {
         var newBounds = element.getBoundingClientRect();
-        if (newBounds.top > 0 && newBounds.bottom < window.innerHeight) {
+        if (newBounds.top < window.innerHeight * 0.7 && newBounds.bottom > window.innerHeight * 0.3) {
           player.play();
         }
       }, 300);
