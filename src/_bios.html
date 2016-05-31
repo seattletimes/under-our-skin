@@ -1,23 +1,23 @@
+<div class="bio-video">
+  <div class="aspect-outer">
+    <div class="aspect-inner">
+      <i class="close-bio  fa fa-times" aria-hidden="true"></i>
+      <video
+        data-account="1509317113"
+        data-player="B15NOtCZ"
+        data-embed="default"
+        id="bio-player"
+        class="video-js" controls>
+      </video>
+    </div>
+  </div>
+</div>
+
 <div class="larger subhed">Meet the participants</div>
 
-<img class="grid-img" src="./assets/autumn_still.jpg">
-<img class="grid-img" src="./assets/cynthia_still.jpg">
-<img class="grid-img" src="./assets/darrell_still.jpg">
-<img class="grid-img" src="./assets/duck_still.jpg">
-<img class="grid-img" src="./assets/greg_still.jpg">
-<img class="grid-img" src="./assets/jerrell_still.jpg">
-<img class="grid-img" src="./assets/keli_still.jpg">
-<img class="grid-img" src="./assets/leija_still.jpg">
-<img class="grid-img" src="./assets/lorena_still.jpg">
-<img class="grid-img" src="./assets/louis_still.jpg">
-<img class="grid-img" src="./assets/lucas_still.jpg">
-<img class="grid-img" src="./assets/marcelas_still.jpg">
-<img class="grid-img" src="./assets/mark_still.jpg">
-<img class="grid-img" src="./assets/michael_still.jpg">
-<img class="grid-img" src="./assets/rachael_still.jpg">
-<img class="grid-img" src="./assets/sean_still.jpg">
-<img class="grid-img" src="./assets/tariqa_still.jpg">
-<img class="grid-img" src="./assets/varisha_still.jpg">
+<% json.UOSData_Bios.forEach(function(bio) { %>
+  <img data-id="<%=bio.id%>" class="bio-grid-img" src="./assets/<%=bio.name%>_still.jpg">
+<% }); %>
 
 <div class="jump">
   <a href="#about">

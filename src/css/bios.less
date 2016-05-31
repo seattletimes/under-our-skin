@@ -1,4 +1,42 @@
-img.grid-img {
+img.bio-grid-img {
   max-width: 300px;
   margin: 8px;
+  cursor: pointer;
+}
+
+.bio-video {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  .align-items(center);
+  overflow: auto;
+  background: rgba(0,0,0,0.6);
+  transition: all 0.3s linear;
+
+  &.lightboxed {
+    .display-flex();
+  }
+
+  &.faded {
+    opacity: 1;
+  }
+
+  .aspect-outer {
+    width: 100%;
+    max-width: 1160px;
+    margin: auto;
+
+    .close-bio {
+      cursor: pointer;
+      position: absolute;
+      color: white;
+      right: 10px;
+      top: 10px;
+      z-index: 9;
+    }
+  }
 }

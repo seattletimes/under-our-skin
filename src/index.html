@@ -68,6 +68,7 @@
 
     <script>
       window.playlistItems = <%= JSON.stringify(json.UOSData_Videos) %>;
+      window.bioData = <%= JSON.stringify(json.UOSData_Bios) %>;
     </script>
     <script src="app.js" async></script>
     <% if (json.project.production) { %>

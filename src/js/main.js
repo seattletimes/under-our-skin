@@ -13,6 +13,9 @@ var channel = new EventEmitter();
 var videoLookup = {};
 playlistItems.forEach(i => videoLookup[i.video_id] = i);
 
+var bioLookup = {};
+bioData.forEach(i => bioLookup[i.id] = i);
+
 var pageIndex = "intro";
 var sections = $(".scroll-aware");
 
@@ -110,6 +113,24 @@ if (term) {
 // Load intro video player
 ready("B15NOtCZ", "intro-player", p => players.intro = p);
 
+
+// Bio videos
+var gridImages = $(".bio-grid-img");
+var bioVideo = document.querySelector(".bio-video");
+
+gridImages.forEach(function(img) {
+  img.addEventListener("click", function(e) {
+    var id = e.target.getAttribute("data-id");
+    var b = bioLookup[id];
+    bioVideo.classList.add("lightboxed");
+    setTimeout(function() {
+      bioVideo.classList.add("faded")
+      channel.emit("playBioVideo", b);
+    }, 300)
+  });
+});
+
+
 // Set up event listeners
 document.body.addEventListener("click", function(e) {
   // Home button
@@ -148,8 +169,13 @@ document.body.addEventListener("click", function(e) {
     channel.emit("playVideo", v);
     channel.emit("updatePlaylist", v);
   };
-});
 
+  // Bio video close button
+  if (e.target.classList.contains("close-bio")) {
+    bioVideo.classList.remove("faded");
+    bioVideo.classList.remove("lightboxed");
+  };
+});
 
 // Load words video player
 var playlistID = 4884471259001;
@@ -179,6 +205,28 @@ ready("B15NOtCZ", "player", function(player) {
       player.playlist.currentItem(pending.index);
       player.play();
     }
+
+  });
+});
+
+
+// Load bio video player
+var bioPlaylistID = 4902235697001;
+
+ready("B15NOtCZ", "bio-player", function(player) {
+  window.player = players.bio = player;
+
+  document.body.addEventListener("click", function(e) {
+    if (e.target.classList.contains("close-bio")) player.pause();
+  });
+
+  player.catalog.getPlaylist(bioPlaylistID, function(err, playlist) {
+    player.catalog.load(playlist);
+
+    channel.on("playBioVideo", function(b) {
+      player.playlist.currentItem(b.index);
+      player.play();
+    });
 
   });
 });
