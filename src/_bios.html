@@ -15,9 +15,14 @@
 
 <div class="larger subhed">Meet the participants</div>
 
-<% json.UOSData_Bios.forEach(function(bio) { %>
-  <img data-id="<%=bio.id%>" class="bio-grid-img" src="./assets/<%=bio.name%>_still.jpg">
-<% }); %>
+<div class="bios-container">
+  <% json.UOSData_Bios.forEach(function(bio) { %>
+    <div class="grid-container">
+      <img data-id="<%=bio.id%>" class="bio-grid-img" src="./assets/<%=bio.first_name%>_still.jpg">
+      <div class="bio-label"><%=bio.first_name%> <%=bio.last_name%></div>
+    </div>
+  <% }); %>
+</div>
 
 <div class="jump">
   <a href="#about">

@@ -1,7 +1,8 @@
 .about {
   text-align: left;
   font-size: 18px;
-  max-width: 60%;
+  width: 100%;
+  max-width: 900px;
   line-height: 1.6em;
 }
 
@@ -14,4 +15,18 @@
   font-weight: bold;
   color: @df-border-gray;
   letter-spacing: 0.08em;
+}
+
+.reporting {
+  .display-flex();
+  @media @mobile {
+    display: inline-block;
+  }
+}
+
+.credit-chunk {
+  // display: inline-block;
+  padding-right: 30px;
+
+
 }

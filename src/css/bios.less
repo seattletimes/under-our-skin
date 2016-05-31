@@ -1,7 +1,38 @@
+.bios {
+  .subhed {
+    text-align: left;
+  }
+}
+
+.bios-container {
+  .display-flex();
+  .flex-wrap(wrap);
+  padding-top: 20px;
+}
+
+.grid-container {
+  .flex(1);
+  margin-bottom: 30px;
+  text-align: left;
+
+  &:hover {
+    .bio-grid-img {
+      opacity: 0.7;
+    }
+  }
+}
+
 img.bio-grid-img {
-  max-width: 300px;
-  margin: 8px;
+  max-width: 350px;
   cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.bio-label {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-align: left;
 }
 
 .bio-video {
@@ -16,6 +47,7 @@ img.bio-grid-img {
   overflow: auto;
   background: rgba(0,0,0,0.6);
   transition: all 0.3s linear;
+  z-index: 9;
 
   &.lightboxed {
     .display-flex();
@@ -37,6 +69,11 @@ img.bio-grid-img {
       right: 10px;
       top: 10px;
       z-index: 9;
+      transition: all 0.2s linear;
+
+      &:hover {
+        color: @df-border-gray;
+      }
     }
   }
 }

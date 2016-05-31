@@ -35,7 +35,13 @@ window.addEventListener("scroll", debounce(function(e) {
     } else {
       section.classList.remove("visible");
     }
+    if (section.id == "bios" && bounds.bottom <= window.innerHeight * 0.3) {
+      section.classList.remove("visible");
+      players.bio.pause();
+    }
   });
+
+  console.log(players)
 
   for (var p in players) {
     var player = players[p];
@@ -79,7 +85,7 @@ var loadVideoInfo = function(v) {
   playlistItem.classList.add("playing");
 
   window.location.hash = v.term;
-  document.querySelector(".question-title").innerHTML = v.word;
+  document.querySelector(".question-title").innerHTML = `${v.word}`;
   $(".comment").forEach(function(comment){
     if (comment.getAttribute("data-term") == v.term) {
       comment.classList.add("visible");
@@ -173,7 +179,9 @@ document.body.addEventListener("click", function(e) {
   // Bio video close button
   if (e.target.classList.contains("close-bio")) {
     bioVideo.classList.remove("faded");
-    bioVideo.classList.remove("lightboxed");
+    setTimeout(function() {
+      bioVideo.classList.remove("lightboxed");
+    }, 300);
   };
 });
 

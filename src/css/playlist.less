@@ -2,6 +2,13 @@
   .display-flex();
 }
 
+.note {
+  font-style: italic;
+  font-size: 12px;
+  padding-top: 20px;
+  color: @df-off-white;
+}
+
 .aspect-outer {
   width: 100%;
 
@@ -143,7 +150,7 @@ li.playlist-video {
       }
     }
     
-    .age, .name {
+    .age, .name, .email {
       display: inline-block;
 
       input {
@@ -155,6 +162,9 @@ li.playlist-video {
     }
     .name {
       padding-right: 20px;
+    }
+    .email input {
+      width: 200px;
     }
   }
 }
@@ -201,6 +211,11 @@ li.playlist-video {
   font-size: 20px;
   text-align: left;
   margin-bottom: 20px;
+
+  .question-title {
+    font-size: 26px;
+    padding: 0 4px;
+  }
 }
 
 .bio-link {
