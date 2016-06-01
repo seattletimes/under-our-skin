@@ -16,9 +16,16 @@ iframe.intro-video {
 }
 
 .editors-note {
-  max-width: 80%;
+  width: 100%;
+  max-width: 1000px;
   margin: auto;
   font-size: 25px;
   margin-bottom: 80px;
   line-height: 1.8em;
+
+  @media @mobile {
+    font-size: 18px;
+    margin: 0;
+    margin-bottom: 80px;
+  }
 }

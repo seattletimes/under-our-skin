@@ -2,7 +2,6 @@
 @import "intro";
 @import "note";
 @import "bios";
-@import "words";
 @import "about";
 @import "playlist";
 @import "recirc";
@@ -99,13 +98,17 @@ body {
       list-style: none;
       padding: 0;
       margin: 0;
-      top: 30px;
+      top: 32px;
       padding-top: 12px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       font-weight: bold;
       font-size: 14px;
       width: 100%;
+
+      @media @mobile {
+        top: 22px;
+      }
 
       li.nav-item {
         background: @df-charcoal;
@@ -127,6 +130,10 @@ body {
   .nav-bars {
     float: right;
     transition: color .2s linear;
+
+    @media @mobile {
+      padding-top: 3px;
+    }
   }
   .nav-label {
     float: right;
@@ -141,10 +148,22 @@ body {
     &:hover {
       color: @df-border-gray;
     }
+
+    @media @mobile {
+      padding-top: 3px;
+    }
   }
   .logo {
     height: 25px;
     margin-top: 12px;
+    margin-left: 10px;
+
+    @media @mobile {
+      height: 18px;
+      margin-top: 14px;
+      margin-bottom: 4px;
+
+    }
   }
 }
 
@@ -185,6 +204,7 @@ section {
 
   &.intro {
     max-width: 1400px;
+    padding: 0;
   }
 
   &.video {
@@ -208,6 +228,10 @@ section {
   background: #d9d9d9;
   margin: 5px;
 
+  @media @mobile {
+    padding: 10px 20px 8px 20px;
+  }
+
   &.hed {
     color: white;
     background: black;
@@ -225,6 +249,15 @@ section {
   }
 }
 
+.words {
+  .word.tile {
+    margin: 8px;
+
+    @media @mobile {
+      margin: 4px;
+    }
+  }
+}
 
 .shown {
   display: block !important;
