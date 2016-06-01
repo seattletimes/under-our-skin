@@ -66,6 +66,9 @@
       </section>
     </div>
 
+    <%= t.include("./_recirc.html") %>
+    <%= t.include("./partials/_navBottom.html") %>
+
     <script>
       window.playlistItems = <%= JSON.stringify(json.UOSData_Videos) %>;
       window.bioData = <%= JSON.stringify(json.UOSData_Bios) %>;
