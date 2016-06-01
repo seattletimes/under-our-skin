@@ -2,8 +2,8 @@
 
 .thin-div {
   font-family: @df-sans;
-  border-bottom: 1px solid @df-light-gray;
-  margin-bottom: 15px;
+  border-bottom: 1px solid @df-border-gray;
+  margin: 15px;
 
   .center {
     position: relative;
@@ -24,6 +24,11 @@
   margin-bottom: 20px;
   text-align: left;
   font-size: 15px;
+  padding: 0 15px;
+
+  @media @mobile {
+    font-size: 14px;
+  }
 
   .story {
     .flex(0 0 25%);
@@ -36,9 +41,13 @@
     padding: 10px;
   }
   .small {
-    font-weight: bold;
+    font-weight: 400;
     font-size: 14px;
     color: white;
+
+    @media @mobile {
+      font-size: 13px;
+    }
   }
   img {
     width: 100%;

@@ -56,10 +56,20 @@ body {
   letter-spacing: 0.2em;
   font-weight: bold;
 
+  @media @mobile {
+    letter-spacing: 0.1em;
+    font-size: 16px;
+  }
+
   &.larger {
     font-size: 26px;
     letter-spacing: 0.15em;
     padding-bottom: 10px;
+
+    @media @mobile {
+      font-size: 20px;
+      letter-spacing: 0.1em;
+    }
   }
 }
 
@@ -77,6 +87,10 @@ body {
     float: right;
     margin-top: 4px;
     cursor: pointer;
+
+    @media @mobile {
+      padding: 5px 15px;
+    }
 
     &:hover {
       .nav-list {
@@ -107,7 +121,8 @@ body {
       width: 100%;
 
       @media @mobile {
-        top: 22px;
+        font-size: 11px;
+        top: 26px;
       }
 
       li.nav-item {
@@ -132,7 +147,7 @@ body {
     transition: color .2s linear;
 
     @media @mobile {
-      padding-top: 3px;
+      font-size: 25px;
     }
   }
   .nav-label {
@@ -150,7 +165,8 @@ body {
     }
 
     @media @mobile {
-      padding-top: 3px;
+      font-size: 12px;
+      padding-right: 10px;
     }
   }
   .logo {
@@ -159,7 +175,7 @@ body {
     margin-left: 10px;
 
     @media @mobile {
-      height: 18px;
+      height: 16px;
       margin-top: 14px;
       margin-bottom: 4px;
 
@@ -199,7 +215,7 @@ body {
 
 section {
   margin: 20px auto;
-  padding: 20px;
+  padding: 15px;
   max-width: 1200px;
 
   &.intro {
@@ -229,6 +245,7 @@ section {
   margin: 5px;
 
   @media @mobile {
+    font-size: 15px;
     padding: 10px 20px 8px 20px;
   }
 
