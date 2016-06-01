@@ -41,8 +41,6 @@ window.addEventListener("scroll", debounce(function(e) {
     }
   });
 
-  console.log(players)
-
   for (var p in players) {
     var player = players[p];
     var element = player.el();

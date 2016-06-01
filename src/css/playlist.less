@@ -152,11 +152,22 @@ li.playlist-video {
       }
     }
     
-    .age, .name, .email {
+    .age, .name, .email, .adjective {
       display: inline-block;
 
       input {
         margin-left: 6px;
+        height: 24px;
+      }
+    }
+    .adjective {
+      input {
+        display: none;
+        margin-right: 6px;
+
+        &.visible {
+          display: inline-block;
+        }
       }
     }
     .age input {

@@ -9,11 +9,18 @@ var submit = panel.find(".submit");
 var form = panel.find("form");
 var inputs = form.find("input, select, textarea");
 var textarea = form.find("textarea");
+var select = form.find("select");
 var charLimit = $(".char-limit");
 var validated = false;
 
+select.on("change", function() {
+  if (select.val() == "other") {
+    select.remove();
+    document.querySelector(".adjective input").classList.add("visible");
+  }
+})
+
 form.on("change keyup", function(){
-  console.log(textarea[0].value)
   var count = 500 - textarea[0].value.length;
   charLimit.html(count);
   validated = true;
