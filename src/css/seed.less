@@ -28,17 +28,27 @@
   }
 }
 
+.vjs-control-bar.header-bar-container {
+  display: none !important;
+}
+
 body {
   background: @gray;
   color: white;
   text-align: center;
   font-size: 28px;
-  font-family: @df-sans;
+  font-family: @df-block;
   letter-spacing: 0.02em;
 
   @media @mobile {
     font-size: 20px;
   }
+}
+
+.sans {
+  font-family: @df-sans;
+  font-weight: 200;
+  letter-spacing: 0.08em;
 }
 
 .subhed {
@@ -190,7 +200,7 @@ section {
 
 .tile {
   text-transform: uppercase;
-  letter-spacing: .2em;
+  letter-spacing: .1em;
   display: inline-block;
   margin: auto;
   padding: 15px 25px 10px 25px;
