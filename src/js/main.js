@@ -42,6 +42,7 @@ window.addEventListener("scroll", debounce(function(e) {
   });
 
   for (var p in players) {
+    if (pending && p == "main") continue;
     var player = players[p];
     var element = player.el();
     var bounds = element.getBoundingClientRect();
@@ -192,9 +193,8 @@ document.body.addEventListener("click", function(e) {
 var playlistID = 4884471259001;
 
 ready("B15NOtCZ", "player", function(player) {
-  window.player = players.main = player;
 
-  player.on("loadedmetadata", function() {
+  player.on("playing", function() {
     if (pageIndex == "playlist") {
       var id = player.mediainfo.id ;
       var v = videoLookup[id];
@@ -204,17 +204,21 @@ ready("B15NOtCZ", "player", function(player) {
 
   player.catalog.getPlaylist(playlistID, function(err, playlist) {
     player.catalog.load(playlist);
+    window.player = players.main = player;
 
     channel.removeListener("playVideo", preLoaded);
 
     channel.on("playVideo", function(v) {
-      player.playlist.currentItem(v.index);
-      player.play();
+      player.playID(v.id);
+      //player.playlist.currentItem(v.index);
+      // player.play();
     });
 
     if (pending) {
-      player.playlist.currentItem(pending.index);
-      player.play();
+      console.log("PENDING", pending);
+      player.playID(pending.video_id);
+      //player.playlist.currentItem(pending.index);
+      // player.play();
     }
 
   });
