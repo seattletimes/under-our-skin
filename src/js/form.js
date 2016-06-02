@@ -15,7 +15,11 @@ var validated = false;
 
 select.on("change", function() {
   if (select.val() == "other") {
-    select.remove();
+    document.querySelector(".adjective").innerHTML = `
+      <select name="adjective">
+        <input maxlength="100" name="adjective" placeholder="" required>
+      </select> 
+    `;
     document.querySelector(".adjective input").classList.add("visible");
   }
 })
@@ -64,6 +68,21 @@ submit.on("click", function(e) {
     messageSuccess.addClass("visible");
     charLimit.html("500");
     validated = false;
+    document.querySelector(".adjective").innerHTML = `
+      <select name="adjective">
+        <option value="choose" selected="selected" disabled="disabled">CHOOSE</option>
+        <option value="surprised">surprised</option>
+        <option value="interested">interested</option>
+        <option value="inspired">inspired</option>
+        <option value="resonated">resonated with</option>
+        <option value="confused">confused</option>
+        <option value="frustrated">frustrated</option>
+        <option value="saddened">saddened</option>
+        <option value="angered">angered</option>
+        <option value="other">(write your own)</option>
+        <input maxlength="100" name="adjective" placeholder="" required>
+      </select> 
+    `;
     form.removeClass("validated");
     inputs.each(function(i, el) {
       if (el.name == "adjective") {

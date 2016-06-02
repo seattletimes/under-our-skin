@@ -1,5 +1,5 @@
-.hed-container {
-  margin-top: 48px;
+#intro {
+  padding-top: 46px;
 }
 
 .intro {
@@ -14,10 +14,16 @@
 
 .center {
   position: absolute;
-  top: 40%;
+  top: 30%;
   width: 100%;
-  max-width: 1400px;
   text-align: center;
+
+  .inner-center {
+    display: inline-block;
+    background: rgba(0,0,0,0.5);
+    padding: 50px 70px;
+    border-radius: 4px;
+  }
 }
 
 .teaser {
@@ -27,8 +33,8 @@
 
 .warning {
   font-style: italic;
-  padding-top: 10px;
-  font-size: 12px;
+  padding: 20px 0;
+  font-size: 14px;
   color: @df-light-gray;
 }
 

@@ -182,16 +182,18 @@ body {
   }
 }
 
-.fa {
-  display: block;
-}
 .fa-chevron-down {
+  display: none;
   margin-top: 50px;
   transition: all 0.2s linear;
-  display: inline-block;
+  // display: inline-block;
 
   &:hover {
     color: @df-border-gray;
+  }
+
+  @media @tablet {
+    display: none;
   }
 }
 .jump a {
@@ -220,12 +222,12 @@ body {
 }
 
 section {
-  margin: 20px auto;
+  margin: auto;
   padding: 15px;
   max-width: 1200px;
 
   &.intro {
-    max-width: 1400px;
+    max-width: 100%;
     padding: 0;
   }
 
