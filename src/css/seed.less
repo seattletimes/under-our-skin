@@ -223,7 +223,7 @@ body {
 
 section {
   margin: auto;
-  padding: 15px;
+  padding: 40px;
   max-width: 1200px;
 
   &.intro {
@@ -258,8 +258,8 @@ section {
   }
 
   &.hed {
-    color: white;
-    background: black;
+    // color: white;
+    // background: black;
     font-weight: bold;
   }
 
@@ -290,5 +290,28 @@ section {
 
   &.fade {
     opacity: 1;
+  }
+}
+
+.dots {
+  position: fixed;
+  bottom: 45%;
+  right: 0;
+  z-index: 9;
+  padding: 0;
+  margin: 0;
+  color: fade(white, 80%);
+  font-size: 28px;
+  line-height: .75;
+
+  @media @mobile {
+    line-height: 10px;
+  }
+
+  .dot {
+
+    &.active {
+      color: @df-charcoal;
+    }
   }
 }

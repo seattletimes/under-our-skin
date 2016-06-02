@@ -12,6 +12,16 @@
     
     <%= t.include("./_nav.html") %>
 
+
+    <ul class="dots">
+      <li class="dot" data-index="1">
+      <li class="dot" data-index="2">
+      <li class="dot" data-index="3">
+      <li class="dot" data-index="4">
+      <li class="dot" data-index="5">
+    </ul>
+
+
 <!-- Intro -->
     <div id="intro" class="visible scroll-aware">
       <section class="intro">
@@ -22,7 +32,7 @@
     </div>
 
 <!-- Editor's note -->
-    <div id="note" class="scroll-aware">
+    <div data-index="1" id="note" class="scroll-aware">
       <section>
         <div class="main-text">
           <%= t.include("./_note.html") %>
@@ -31,7 +41,7 @@
     </div>
 
 <!-- Words -->
-    <div id="words" class="scroll-aware">
+    <div data-index="2" id="words" class="scroll-aware">
       <section class="words">
         <div class="main-text">
           <%= t.include("./_words.html") %>
@@ -40,7 +50,7 @@
     </div>
 
 <!-- Playlist -->
-    <div id="playlist" class="scroll-aware">
+    <div data-index="3" id="playlist" class="scroll-aware">
       <section class="video">
         <div class="main-text">
           <%= t.include("./_playlist.html") %>
@@ -49,7 +59,7 @@
     </div>
 
 <!-- Bios -->
-    <div id="bios" class="scroll-aware">
+    <div data-index="4" id="bios" class="scroll-aware">
       <section class="bios">
         <div class="main-text">
           <%= t.include("./_bios.html") %>
@@ -58,7 +68,7 @@
     </div>
 
 <!-- About -->
-    <div id="about" class="scroll-aware">
+    <div data-index="5" id="about" class="scroll-aware">
       <section class="about">
         <div class="main-text">
           <%= t.include("./_about.html") %>

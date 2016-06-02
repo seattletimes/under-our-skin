@@ -26,12 +26,24 @@ channel.on("playVideo", preLoaded);
 var players = {};
 var playerDelay = null;
 
+var dots = $(".dot");
+
 // Scroll listener
 window.addEventListener("scroll", debounce(function(e) {
   sections.forEach(function(section) {
     var bounds = section.getBoundingClientRect();
     if (bounds.top <= window.innerHeight * 0.7) {
       section.classList.add("visible");
+      if (bounds.bottom >= window.innerHeight * 0.3) {
+        var index = section.getAttribute("data-index");
+        dots.forEach(function(d) {
+          if (d.getAttribute("data-index") == index) {
+            d.classList.add("active");
+          } else {
+            d.classList.remove("active");
+          }
+        })
+      }
     } else {
       section.classList.remove("visible");
     }
