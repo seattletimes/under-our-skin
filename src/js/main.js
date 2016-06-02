@@ -47,10 +47,14 @@ window.addEventListener("scroll", debounce(function(e) {
     var bounds = element.getBoundingClientRect();
     if (playerDelay) clearTimeout(playerDelay);
     if (bounds.top < window.innerHeight * 0.7 && bounds.bottom > window.innerHeight * 0.3) {
+      
+      if (player.hasBeenPlayed) return;
+
       playerDelay = setTimeout(function() {
         var newBounds = element.getBoundingClientRect();
         if (newBounds.top < window.innerHeight * 0.7 && newBounds.bottom > window.innerHeight * 0.3) {
           player.play();
+          player.hasBeenPlayed = true;
         }
       }, 300);
       break;
@@ -68,10 +72,10 @@ $(".jump a").forEach(function(a) {
     var section = document.querySelector(href);
     if (!section) return;
     e.preventDefault();
-    
+
     animateScroll(section);
     pageIndex = section.id;
-    window.history.pushState(href, href, href);
+    window.history.replaceState(href, href, href);
   });
 });
 
@@ -99,6 +103,7 @@ channel.on("updatePlaylist", loadVideoInfo);
 var term = window.location.hash.replace("#", "");
 if (term) {
   pending = playlistItems.filter(v => v.term == term).pop();
+
   if (pending) {
     animateScroll("#playlist");
     pageIndex = "playlist";

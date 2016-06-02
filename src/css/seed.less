@@ -47,7 +47,7 @@ body {
 .sans {
   font-family: @df-sans;
   font-weight: 200;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 
 .subhed {
@@ -63,12 +63,11 @@ body {
 
   &.larger {
     font-size: 26px;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     padding-bottom: 10px;
 
     @media @mobile {
       font-size: 20px;
-      letter-spacing: 0.1em;
     }
   }
 }
@@ -201,7 +200,7 @@ body {
 
 .scroll-aware {
   transition: opacity 0.5s linear;
-  margin-bottom: 300px;
+  margin-bottom: 200px;
   opacity: 0;
 
   &.visible {
@@ -211,6 +210,13 @@ body {
   &#about {
     margin-bottom: 0;
   }
+}
+
+.main-text {
+  padding-top: 70px;
+}
+.intro .main-text {
+  padding-top: 0;
 }
 
 section {

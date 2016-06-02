@@ -11,12 +11,16 @@
 }
 
 .credits {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5em;
 }
 
 .position {
-  font-weight: 400;
+  font-weight: bold;
+  font-family: @df-block;
+  text-transform: uppercase;
+  color: #AAA;
+  letter-spacing: 0.1em;
 }
 
 .reporting {
@@ -26,9 +30,20 @@
   }
 }
 
+.larger-chunk {
+  display: inline-block;
+
+   @media @mobile {
+    display: block;
+  }
+}
+
 .credit-chunk {
-  // display: inline-block;
+  vertical-align: top;
   padding-right: 30px;
+  display: inline-block;
 
-
+  @media @tablet {
+    display: block;
+  }
 }
