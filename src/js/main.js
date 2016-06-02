@@ -28,6 +28,13 @@ var playerDelay = null;
 
 var dots = $(".dot");
 
+var closeVideo = function() {
+  bioVideo.classList.remove("faded");
+  setTimeout(function() {
+    bioVideo.classList.remove("lightboxed");
+  }, 300);
+}
+
 // Scroll listener
 window.addEventListener("scroll", debounce(function(e) {
   sections.forEach(function(section) {
@@ -48,6 +55,9 @@ window.addEventListener("scroll", debounce(function(e) {
             d.classList.remove("active");
           }
         })
+        if (section.id !== "bios") {
+          closeVideo();
+        }
       }
     } else {
       section.classList.remove("visible");
@@ -215,10 +225,7 @@ document.body.addEventListener("click", function(e) {
 
   // Bio video close button
   if (e.target.classList.contains("close-bio")) {
-    bioVideo.classList.remove("faded");
-    setTimeout(function() {
-      bioVideo.classList.remove("lightboxed");
-    }, 300);
+    closeVideo();
   };
 });
 

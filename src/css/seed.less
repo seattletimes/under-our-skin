@@ -309,6 +309,15 @@ section {
     cursor: pointer;
     text-align: right;
     margin-right: 8px;
+    transition: all 0.1s linear;
+
+    &:hover {
+      color: @df-border-gray;
+    }
+
+    @media @tablet {
+      display: none;
+    }
   }
 
   ul {
