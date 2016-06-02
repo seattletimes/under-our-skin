@@ -42,13 +42,11 @@ window.addEventListener("scroll", debounce(function(e) {
   });
 
   for (var p in players) {
-    if (pending && p == "main") continue;
     var player = players[p];
     var element = player.el();
     var bounds = element.getBoundingClientRect();
     if (playerDelay) clearTimeout(playerDelay);
     if (bounds.top < window.innerHeight * 0.7 && bounds.bottom > window.innerHeight * 0.3) {
-      
       if (player.hasBeenPlayed) return;
 
       playerDelay = setTimeout(function() {
@@ -76,8 +74,7 @@ $(".jump a").forEach(function(a) {
 
     animateScroll(section);
     pageIndex = section.id;
-    window.history.replaceState(href, href, href);
-    window.location.hash = "";
+    window.history.replaceState("#", "#", "#");
   });
 });
 
@@ -88,7 +85,7 @@ var loadVideoInfo = function(v) {
   if (playing) playing.classList.remove("playing");
   playlistItem.classList.add("playing");
 
-  window.location.hash = v.term;
+  window.history.replaceState(`#${v.term}`, `#${v.term}`, `#${v.term}`);
   document.querySelector(".question-title").innerHTML = `${v.word}`;
   $(".comment").forEach(function(comment){
     if (comment.getAttribute("data-term") == v.term) {
@@ -113,12 +110,12 @@ if (term) {
   } else {
     animateScroll("#intro");
     pageIndex = "intro";
-    window.location.hash = "";
+    window.history.replaceState("#", "#", "#");
   }
 } else {
   animateScroll("#intro");
   pageIndex = "intro";
-  window.location.hash = "";
+  window.history.replaceState("#", "#", "#");
 }
 
 // Load intro video player
@@ -149,7 +146,7 @@ document.body.addEventListener("click", function(e) {
     pageIndex = "intro";
     e.preventDefault();
     animateScroll("#intro");
-    window.location.hash = "";
+    window.history.replaceState("#", "#", "#");
     pageIndex = "intro";
   };
 
@@ -159,6 +156,7 @@ document.body.addEventListener("click", function(e) {
     pageIndex = hash;
     e.preventDefault();
     animateScroll(`#${hash}`);
+    window.history.replaceState("#", "#", "#");
     pageIndex = hash;
   };
 
@@ -175,7 +173,6 @@ document.body.addEventListener("click", function(e) {
 
   // Playlist functionality
   if (e.target.classList.contains("playlist-video")) {
-    // players.main.hasBeenPlayed = false; 
     var id = e.target.getAttribute("data-id");
     var v = videoLookup[id];
     channel.emit("playVideo", v);
