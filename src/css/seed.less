@@ -182,20 +182,8 @@ body {
   }
 }
 
-.fa-chevron-down {
-  display: none;
-  margin-top: 50px;
-  transition: all 0.2s linear;
-  // display: inline-block;
 
-  &:hover {
-    color: @df-border-gray;
-  }
 
-  @media @tablet {
-    display: none;
-  }
-}
 .jump a {
   color: white;
 }
@@ -239,6 +227,8 @@ section {
     display: block;
     opacity: 1;
     position: relative;
+    padding: 10px;
+    padding-right: 20px;
   }
 }
 
@@ -297,19 +287,35 @@ section {
   position: fixed;
   bottom: 45%;
   right: 0;
-  z-index: 9;
+  z-index: 8;
   padding: 0;
   margin: 0;
   color: fade(white, 80%);
   font-size: 28px;
   line-height: .75;
 
+  &.hidden {
+    display: none;
+  }
+
   @media @mobile {
-    line-height: 10px;
+    line-height: 16px;
+    right: -8px;
+  }
+
+  .arrow {
+    display: block;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: right;
+    margin-right: 8px;
+  }
+
+  ul {
+    margin: 0;
   }
 
   .dot {
-
     &.active {
       color: @df-charcoal;
     }

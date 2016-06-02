@@ -36,6 +36,11 @@ window.addEventListener("scroll", debounce(function(e) {
       section.classList.add("visible");
       if (bounds.bottom >= window.innerHeight * 0.3) {
         var index = section.getAttribute("data-index");
+        if (section.id == "intro") {
+          document.querySelector(".dots").classList.add("hidden");
+        } else {
+          document.querySelector(".dots").classList.remove("hidden");
+        }
         dots.forEach(function(d) {
           if (d.getAttribute("data-index") == index) {
             d.classList.add("active");
@@ -74,6 +79,23 @@ window.addEventListener("scroll", debounce(function(e) {
     }
   }
 }));
+
+var indexLookup = ["intro", "note", "words", "playlist", "bios", "about"];
+
+// Dots/arrows navigation
+$(".arrow").forEach(function(arrow) {
+  arrow.addEventListener("click", function(e) {
+    var index = document.querySelector(".dot.active").getAttribute("data-index") * 1;
+    if (e.target.classList.contains("up")) {
+      index -= 1;
+    } else if (e.target.classList.contains("down")) {
+      index += 1;
+    }
+    if (index > 5) index = 5;
+
+    animateScroll(`#${indexLookup[index]}`);
+  })
+})
 
 // Navigation within page
 $(".jump a").forEach(function(a) {
