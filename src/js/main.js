@@ -223,6 +223,13 @@ document.body.addEventListener("click", function(e) {
     channel.emit("updatePlaylist", v);
   };
 
+  // More comments
+  // if (e.target.classList.contains("more-comments")) {
+  //   $(".comment.approved").forEach(function (c) {
+  //     c.classList.add(".more")
+  //   }
+  // };
+
   // Bio video close button
   if (e.target.classList.contains("close-bio")) {
     closeVideo();
