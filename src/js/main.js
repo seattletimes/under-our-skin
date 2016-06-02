@@ -11,7 +11,7 @@ var EventEmitter = require("events");
 var channel = new EventEmitter();
 
 var videoLookup = {};
-playlistItems.forEach(i => videoLookup[i.video_id] = i);
+playlistItems.forEach(i => videoLookup[i.id] = i);
 
 var bioLookup = {};
 bioData.forEach(i => bioLookup[i.id] = i);
@@ -77,12 +77,13 @@ $(".jump a").forEach(function(a) {
     animateScroll(section);
     pageIndex = section.id;
     window.history.replaceState(href, href, href);
+    window.location.hash = "";
   });
 });
 
 // Insert video title, comments, and URL hash
 var loadVideoInfo = function(v) {
-  var playlistItem = document.querySelector(`.playlist-video[data-id="${v.video_id}"]`);
+  var playlistItem = document.querySelector(`.playlist-video[data-id="${v.id}"]`);
   var playing = document.querySelector(".playlist-video.playing");
   if (playing) playing.classList.remove("playing");
   playlistItem.classList.add("playing");
@@ -174,6 +175,7 @@ document.body.addEventListener("click", function(e) {
 
   // Playlist functionality
   if (e.target.classList.contains("playlist-video")) {
+    // players.main.hasBeenPlayed = false; 
     var id = e.target.getAttribute("data-id");
     var v = videoLookup[id];
     channel.emit("playVideo", v);
@@ -215,8 +217,7 @@ ready("B15NOtCZ", "player", function(player) {
     });
 
     if (pending) {
-      console.log("PENDING", pending);
-      player.playID(pending.video_id);
+      player.playID(pending.id);
       //player.playlist.currentItem(pending.index);
       // player.play();
     }

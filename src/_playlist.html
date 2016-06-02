@@ -17,7 +17,7 @@
     <ul class="playlist">
       <% json.UOSData_Videos.forEach(function(video) { %>
         <div>
-          <li class="playlist-video <%= video.class %>" data-id="<%= video.video_id %>" data-term="<%= video.term %>"> <%= video.word %></li>
+          <li class="playlist-video <%= video.class %>" data-id="<%= video.id %>" data-term="<%= video.term %>"> <%= video.word %></li>
         </div>
       <% }); %>
     </ul>
