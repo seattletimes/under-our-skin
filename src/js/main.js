@@ -224,11 +224,20 @@ document.body.addEventListener("click", function(e) {
   };
 
   // More comments
-  // if (e.target.classList.contains("more-comments")) {
-  //   $(".comment.approved").forEach(function (c) {
-  //     c.classList.add(".more")
-  //   }
-  // };
+  if (e.target.classList.contains("read-more")) {
+    $(".comment.visible").forEach(function (c) {
+      c.classList.add("more");
+    });
+    document.querySelector(".read-fewer").classList.remove("hidden");
+    document.querySelector(".read-more").classList.add("hidden");
+  };
+  if (e.target.classList.contains("read-fewer")) {
+    $(".comment.visible").forEach(function (c) {
+      c.classList.remove("more");
+    });
+    document.querySelector(".read-fewer").classList.add("hidden");
+    document.querySelector(".read-more").classList.remove("hidden");
+  };
 
   // Bio video close button
   if (e.target.classList.contains("close-bio")) {

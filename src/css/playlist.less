@@ -252,6 +252,23 @@
       font-size: 16px;
     }
   }
+  .expand {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 400;
+    padding-top: 10px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+
+    &:hover {
+      color: @df-border-gray;
+    }
+
+    .hidden {
+      display: none;
+    }
+  }
 }
 
 .comments {
@@ -270,18 +287,13 @@
     }
 
     &.visible {
-      display: block;
+      &.highlighted, &.more {
+        display: block;
+      }
 
       @media @mobile {
         font-size: 13px;
       }
-    }
-    &.highlighted {
-      // font-size: 18px;
-
-      // @media @mobile {
-      //   font-size: 15px;
-      // }
     }
   }
   .credit {
