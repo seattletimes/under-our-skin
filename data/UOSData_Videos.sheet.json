@@ -1,73 +1,61 @@
 [
   {
-    "index": 0,
     "id": 4885889461001,
     "word": "White Privilege",
     "term": "white_privilege",
     "class": "playing"
   },
   {
-    "index": 1,
     "id": 4885888389001,
     "word": "Racist",
     "term": "racist"
   },
   {
-    "index": 2,
     "id": 4885850332001,
     "word": "Safe space",
     "term": "safe_space"
   },
   {
-    "index": 3,
     "id": 4885887651001,
     "word": "Diversity",
     "term": "diversity"
   },
   {
-    "index": 4,
     "id": 4885891367001,
     "word": "Microaggression",
     "term": "microaggression"
   },
   {
-    "index": 5,
     "id": 4885887562001,
     "word": "All lives matter",
     "term": "all_lives_matter"
   },
   {
-    "index": 6,
     "id": 4885891369001,
     "word": "Person of color",
     "term": "person_of_color"
   },
   {
-    "index": 7,
     "id": 4885887654001,
     "word": "White fragility",
     "term": "white_fragility"
   },
   {
-    "index": 8,
     "id": 4885887683001,
     "word": "Colorblindness",
     "term": "colorblindness"
   },
   {
-    "index": 9,
     "id": 4885887566001,
     "word": "Politically correct",
     "term": "politically_correct"
   },
   {
-    "index": 10,
     "id": 4885850331001,
     "word": "Racism",
     "term": "racism"
   },
   {
-    "index": 11,
     "id": 4885891370001,
     "word": "Ally",
     "term": "ally"

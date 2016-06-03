@@ -1,4 +1,5 @@
 var $ = require("jquery");
+var moment = window.moment = require("moment");
 
 var panel = $(".form-panel");
 var endpoint = "https://script.google.com/macros/s/AKfycbxAKynaAYvBQ6Nhc9fjfyKbVs424nMPYg7fC407Bh0VWUivXVY/exec";
@@ -50,6 +51,8 @@ submit.on("click", function(e) {
   });
   
   packet.term = window.location.hash.replace("#", "");
+  packet.timestamp = Date.now();
+  packet.date = moment(packet.timestamp).format('MM/DD/YY h:mm a');
   packet.method = "comment";
 
   var submission = $.ajax({
