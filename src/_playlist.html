@@ -1,33 +1,36 @@
 <div class="subhed question">What does <span class="question-title">white privilege</span> mean to you?</div>
 
 <div class="video-container">
-  <div class="aspect-outer pending">
-    <div class="aspect-inner">
-      <video
-        data-account="1509317113"
-        data-player="B15NOtCZ"
-        data-embed="default"
-        id="player"
-        class="video-js" controls>
-      </video>
+  <div class="inner-flex">
+    <div class="aspect-outer pending">
+      <div class="aspect-inner">
+        <video
+          data-account="1509317113"
+          data-player="B15NOtCZ"
+          data-embed="default"
+          id="player"
+          class="video-js" controls>
+        </video>
+      </div>
     </div>
   </div>
 
   <div>
     <ul class="playlist">
       <% json.UOSData_Videos.forEach(function(video) { %>
-        <div>
-          <li class="playlist-video <%= video.class %>" data-id="<%= video.id %>" data-term="<%= video.term %>"> <%= video.word %></li>
+        <div class="playlist-tile">
+          <div class="playlist-video <%= video.class %>" data-id="<%= video.id %>" data-term="<%= video.term %>"> <%= video.word %></div>
         </div>
       <% }); %>
     </ul>
+  </div>
+</div>
+
     <div class="jump">
       <a href="#bios">
         <div class="sans bio-link">Meet the participants</div>
       </a>
     </div>
-  </div>
-</div>
 
 <div class="reactions-container">
   <div class="reactions">

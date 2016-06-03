@@ -18,14 +18,21 @@
   }
 }
 
-.aspect-outer {
+.inner-flex {
+  .display-flex();
+  .align-items(center);
   width: 100%;
+  background: black;
+}
+
+.aspect-outer {
+  .flex(1);
+  margin-top: -1px;
 
   .aspect-inner {
     padding-bottom: percentage(9 / 16);
     height: 0;
     position: relative;
-    margin-bottom: 20px;
   }
 
   .video-js {
@@ -51,14 +58,21 @@
     display: none;
   }
 }
-li.playlist-video {
+.playlist-tile {
+  margin-bottom: 8px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.playlist-video {
+  display: inline-block;
   cursor: pointer;
   padding: 7px 16px 5px 16px;
   text-transform: uppercase;
   letter-spacing: .1em;
   color: black;
   background: #d9d9d9;
-  margin-bottom: 8px;
   margin-left: 10px;
   display: inline-block;
   transition: all 0.3s linear;
