@@ -13,6 +13,25 @@ iframe.intro-video {
   @media @tablet {
     width: 100%;
   }
+
+  .skip-intro {
+    position: absolute;
+    top: 10px; 
+    right: 10px;
+    color: @df-border-gray;
+    font-family: @df-sans;
+    font-size: 12px;
+    cursor: pointer;
+    transition: color 0.2s linear;
+
+    @media @mobile {
+      font-size: 11px;
+    }
+
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 .editors-note {

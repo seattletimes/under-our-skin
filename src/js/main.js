@@ -204,6 +204,13 @@ document.body.addEventListener("click", function(e) {
     pageIndex = hash;
   };
 
+  // Skip intro
+  if (e.target.classList.contains("skip-intro")) {
+    animateScroll("#words");
+    pageIndex = "words";
+    window.history.replaceState("#", "#", "#");
+  };
+
   // Word tiles
   if (e.target.classList.contains("word-tile")) {
     var id = e.target.getAttribute("data-id");
