@@ -1,6 +1,8 @@
 require("./lib/social");
 // require("./lib/ads");
-// var track = require("./lib/tracking");
+
+require("./tracking.js");
+
 var $ = require("./lib/qsa");
 var debounce = require("./lib/debounce");
 var animateScroll = require("./lib/animateScroll");
@@ -307,4 +309,5 @@ ready("B15NOtCZ", "bio-player", function(player) {
 
   });
 });
+
 
