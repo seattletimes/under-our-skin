@@ -53,7 +53,6 @@ window.addEventListener("scroll", debounce(function(e) {
         if (foundSection) return;
         foundSection = true;
         pageIndex = section.id;
-            console.log(pageIndex)
         var index = section.getAttribute("data-index");
         if (section.id == "intro") {
           document.querySelector(".dots").classList.add("hidden");
@@ -316,6 +315,7 @@ var bioPlaylistID = 4902235697001;
 
 ready("B15NOtCZ", "bio-player", function(player) {
   window.player = players.bio = player;
+  player.playlist.autoadvance(null);
 
   document.body.addEventListener("click", function(e) {
     if (e.target.classList.contains("close-bio")) player.pause();
@@ -323,7 +323,6 @@ ready("B15NOtCZ", "bio-player", function(player) {
 
   player.on("ended", function() {
     closeVideo();
-    bioVideo.pause();
   });
 
   player.catalog.getPlaylist(bioPlaylistID, function(err, playlist) {
