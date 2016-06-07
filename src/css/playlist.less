@@ -65,7 +65,7 @@
   }
 }
 .playlist-tile {
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 
   &:last-child {
     margin-bottom: 0;
@@ -107,6 +107,11 @@
 
 .form-panel {
   font-size: 16px;
+  padding-left: 20px;
+  
+  @media @mobile {
+    padding-left: 0;
+  }
 }
 
 .message {
@@ -121,16 +126,49 @@
 
 .reactions-container {
   text-align: left;
+  margin-top: 30px;
   margin-bottom: 20px;
   .display-flex();
 
+  @media @tablet {
+    display: block;
+  }
+
+  .jump {
+    .flex(1);
+    padding: 20px;
+    padding-left: 40px;
+
+    @media @tablet {
+      display: none;
+    }
+
+    .bio-link {
+      font-size: 14px;
+      text-transform: uppercase;
+      padding-bottom: 10px;
+    }
+    img {
+      transition: all 0.1s linear;
+    }
+
+    &:hover {
+      img {
+        opacity: 0.7;
+      }
+    }
+  }
+
   .reactions {
     .flex(3);
-    padding: 20px;
-    padding-top: 0;
+    padding-bottom: 20px;
 
-    @media @mobile {
-      padding: 0;
+    .subhed {
+      padding-left: 20px;
+
+      @media @mobile {
+        padding-left: 0;
+      }
     }
 
     button {
@@ -205,6 +243,8 @@
         bottom: 10px;
       }
     }
+
+
     
     .age, .name, .email, .adjective {
       display: inline-block;
@@ -333,14 +373,5 @@
     @media @mobile {
       font-size: 18px;
     }
-  }
-}
-
-.bio-link {
-  margin-top: 20px;
-  font-size: 18px;
-
-  .fa {
-    display: inline-block;
   }
 }
