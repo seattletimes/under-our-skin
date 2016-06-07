@@ -73,6 +73,15 @@ body {
   }
 }
 
+.scroll-note {
+  display: none;
+  padding-top: 20px;
+
+  @media @tablet {
+    display: block;
+  }
+}
+
 .share {
   display: inline-block !important;
   float: right;
@@ -356,10 +365,8 @@ section {
     display: none;
   }
 
-  @media @mobile {
-    line-height: 16px;
-    right: -10px;
-    font-size: 26px;
+  @media @tablet {
+    display: none;
   }
 
   .arrow {

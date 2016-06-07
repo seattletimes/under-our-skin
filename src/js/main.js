@@ -175,7 +175,12 @@ if (term) {
 }
 
 // Load intro video player
-ready("B15NOtCZ", "intro-player", p => players.intro = p);
+ready("B15NOtCZ", "intro-player", function(p) {
+  players.intro = p;
+  p.on("ended", function() {
+    animateScroll("#words");
+  })
+});
 
 
 // Bio videos
