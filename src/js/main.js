@@ -52,6 +52,8 @@ window.addEventListener("scroll", debounce(function(e) {
       if (bounds.bottom >= window.innerHeight * 0.3) {
         if (foundSection) return;
         foundSection = true;
+        pageIndex = section.id;
+            console.log(pageIndex)
         var index = section.getAttribute("data-index");
         if (section.id == "intro") {
           document.querySelector(".dots").classList.add("hidden");
@@ -279,7 +281,6 @@ document.body.addEventListener("click", function(e) {
 var playlistID = 4884471259001;
 
 ready("B15NOtCZ", "player", function(player) {
-
   player.on("playing", function() {
     if (pageIndex == "playlist") {
       var id = player.mediainfo.id ;
