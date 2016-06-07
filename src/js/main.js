@@ -32,6 +32,8 @@ var playerDelay = null;
 
 var dots = $(".dot");
 
+var bioVideo = document.querySelector(".bio-video");
+
 var closeVideo = function() {
   bioVideo.classList.remove("faded");
   setTimeout(function() {
@@ -177,7 +179,6 @@ ready("B15NOtCZ", "intro-player", p => players.intro = p);
 
 // Bio videos
 var gridImages = $(".bio-grid-img");
-var bioVideo = document.querySelector(".bio-video");
 
 gridImages.forEach(function(img) {
   img.addEventListener("click", function(e) {
@@ -317,6 +318,11 @@ ready("B15NOtCZ", "bio-player", function(player) {
 
   document.body.addEventListener("click", function(e) {
     if (e.target.classList.contains("close-bio")) player.pause();
+  });
+
+  player.on("ended", function() {
+    closeVideo();
+    bioVideo.pause();
   });
 
   player.catalog.getPlaylist(bioPlaylistID, function(err, playlist) {
