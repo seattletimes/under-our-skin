@@ -39,11 +39,15 @@ var closeVideo = function() {
 
 // Scroll listener
 window.addEventListener("scroll", debounce(function(e) {
+  var foundSection;
+  
   sections.forEach(function(section) {
     var bounds = section.getBoundingClientRect();
     if (bounds.top <= window.innerHeight * 0.7) {
       section.classList.add("visible");
       if (bounds.bottom >= window.innerHeight * 0.3) {
+        if (foundSection) return;
+        foundSection = true;
         var index = section.getAttribute("data-index");
         if (section.id == "intro") {
           document.querySelector(".dots").classList.add("hidden");
@@ -98,6 +102,7 @@ var indexLookup = ["intro", "note", "words", "playlist", "bios", "about"];
 $(".arrow").forEach(function(arrow) {
   arrow.addEventListener("click", function(e) {
     var index = document.querySelector(".dot.active").getAttribute("data-index") * 1;
+
     if (e.target.classList.contains("up")) {
       index -= 1;
     } else if (e.target.classList.contains("down")) {
