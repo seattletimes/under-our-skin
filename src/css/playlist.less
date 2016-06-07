@@ -55,7 +55,9 @@
   letter-spacing: .1em;
 
   @media @tablet {
-    display: none;
+    font-size: 9px;
+    margin-top: 10px;
+    text-align: center;
   }
 }
 .playlist-tile {
@@ -63,6 +65,11 @@
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  @media @tablet {
+    display: inline-block;
+    margin-bottom: 4px;
   }
 }
 .playlist-video {
@@ -82,6 +89,15 @@
     background: black;
     margin-left: 0;
     padding-left: 26px;
+  }
+
+  @media @tablet {
+    margin-left: 0;
+    padding: 7px 10px 5px 10px;
+
+    &.playing, &:hover {
+      padding-left: 10px;
+    }
   }
 }
 
@@ -319,7 +335,7 @@
     font-weight: 400;
 
     @media @mobile {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
 }

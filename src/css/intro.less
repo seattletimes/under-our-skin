@@ -1,12 +1,16 @@
 #intro {
   padding-top: 46px;
+
+  @media @mobile {
+    padding-top: 42px;
+  }
 }
 
 .intro {
   letter-spacing: 0.02em;
 
   .jump {
-    font-size: 20px;
+    font-size: 22px;
 
     a {
       transition: all .3s linear;
@@ -18,42 +22,71 @@
     }
   }
 
+  .homescreen {
+    display: none;
+
+    @media @tablet {
+      display: block;
+    }
+  }
+
   video {
     max-width: 100%;
 
     @media (max-aspect-ratio: 16/9) {
       height: 100vh;
       transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
       left: 50%;
       position: relative;
       max-width: none;
+    }
+
+    @media @tablet {
+      display: none;
     }
   }
 }
 
 .center {
   position: absolute;
-  top: 30%;
+  top: 33%;
   width: 100%;
   text-align: center;
+
+  @media @tablet {
+    position: relative;
+  }
 
   .inner-center {
     display: inline-block;
     background: rgba(0,0,0,0.8);
     padding: 50px 70px;
     border-radius: 4px;
+
+    @media @tablet {
+      width: 100%;
+    }
+
+    @media @mobile {
+      padding: 50px 20px;
+    }
   }
 }
 
 .teaser {
   padding-bottom: 20px;
   font-size: 20px;
+
+  @media @mobile {
+    font-size: 18px;
+  }
 }
 
 .warning {
   font-style: italic;
   padding: 20px 0;
-  font-size: 14px;
+  font-size: 13px;
   color: @df-light-gray;
 }
 

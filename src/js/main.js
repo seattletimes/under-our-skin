@@ -30,12 +30,6 @@ var playerDelay = null;
 
 var dots = $(".dot");
 
-// window.addEventListener("resize", function() {
-//   window.innerWidth / window.innerHeight > 16 / 9;
-// })
-
-
-
 var closeVideo = function() {
   bioVideo.classList.remove("faded");
   setTimeout(function() {
