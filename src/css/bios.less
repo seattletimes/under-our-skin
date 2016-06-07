@@ -2,6 +2,25 @@
   .subhed {
     text-align: left;
   }
+
+  .playlist {
+    padding: 10px 20px 20px 20px;
+    background: black;
+  }
+  .playlist-tile {
+    display: inline-block;
+
+    .playlist-video {
+      margin-left: 0;
+      font-size: 12px;
+
+        &:hover {
+          color: white;
+          background: @df-dark-gray;
+          padding: 7px 16px 5px 16px;
+        }
+    }
+  }
 }
 
 .bios-container {
@@ -9,6 +28,15 @@
   .justify-content(space-between);
   .flex-wrap(wrap);
   padding-top: 20px;
+}
+
+.bio-name {
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 14px;
+  background: black;
+  padding-top: 20px;
+  padding-left: 20px;
 }
 
 .grid-container {
@@ -72,7 +100,7 @@ img.bio-grid-img {
 
   .aspect-outer {
     width: 100%;
-    max-width: 1160px;
+    max-width: 1100px;
     padding: 20px;
     margin: auto;
 
@@ -88,6 +116,10 @@ img.bio-grid-img {
       top: 10px;
       z-index: 9;
       transition: all 0.2s linear;
+
+      @media @mobile {
+        padding: 3px;
+      }
 
       &:hover {
         color: @df-border-gray;

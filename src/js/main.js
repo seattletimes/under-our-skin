@@ -3,6 +3,8 @@ require("./lib/social");
 
 require("./tracking.js");
 
+var template = require("./lib/dot").compile(require("./_bioPanel.html"));
+
 var $ = require("./lib/qsa");
 var debounce = require("./lib/debounce");
 var animateScroll = require("./lib/animateScroll");

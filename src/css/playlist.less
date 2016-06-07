@@ -16,6 +16,10 @@
     padding-top: 5px;
     font-style: normal;
   }
+
+  @media @mobile {
+    font-size: 13px;
+  }
 }
 
 .inner-flex {
@@ -55,7 +59,7 @@
   letter-spacing: .1em;
 
   @media @tablet {
-    font-size: 9px;
+    font-size: 10px;
     margin-top: 10px;
     text-align: center;
   }
@@ -103,10 +107,6 @@
 
 .form-panel {
   font-size: 16px;
-
-  @media @mobile {
-    font-size: 14px;
-  }
 }
 
 .message {
@@ -305,10 +305,6 @@
     &.visible {
       &.highlighted, &.more {
         display: block;
-      }
-
-      @media @mobile {
-        font-size: 13px;
       }
     }
   }
