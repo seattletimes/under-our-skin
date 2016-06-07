@@ -184,6 +184,13 @@ gridImages.forEach(function(img) {
     var id = e.target.getAttribute("data-id");
     var b = bioLookup[id];
     bioVideo.classList.add("lightboxed");
+    var data = {};
+    data.name = b.first_name;
+    data.terms = [];
+    playlistItems.forEach(function(v) {
+      if (v[b.first_name]) data.terms.push(v);
+    });
+    document.querySelector(".bio-panel").innerHTML = template(data);
     setTimeout(function() {
       bioVideo.classList.add("faded")
       channel.emit("playBioVideo", b);
@@ -237,6 +244,12 @@ document.body.addEventListener("click", function(e) {
     var v = videoLookup[id];
     channel.emit("playVideo", v);
     channel.emit("updatePlaylist", v);
+  };
+
+  // Bio playlist functionality
+  if (e.target.classList.contains("bio-playlist-video")) {
+    closeVideo();
+    animateScroll("#playlist");
   };
 
   // More comments
