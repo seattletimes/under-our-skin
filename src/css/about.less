@@ -23,6 +23,25 @@
   }
 }
 
+.setup-imgs {
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.setup {
+  display: inline-block;
+  width: 49%;
+
+  @media @tablet {
+    display: block;
+    width: 100%;
+
+    &:first-child {
+      padding-bottom: 20px;
+    }
+  }
+}
+
 .credits {
   font-size: 15px;
   line-height: 1.5em;
@@ -41,22 +60,33 @@
 
 .reporting {
   .display-flex();
-  
-  @media @mobile {
-    display: inline-block;
-  }
+  .justify-content(space-between);
+  .flex-wrap(wrap);
 }
 
-.larger-chunk {
-  display: inline-block;
-}
-
-.credit-chunk {
-  vertical-align: top;
-  padding-right: 30px;
-  display: inline-block;
+.reporting-credit {
+  .flex(0 0 23%);
+  margin-bottom: 15px;
 
   @media @tablet {
-    display: block;
+    .flex(0 0 32%);
   }
+  @media @mobile {
+    .flex(0 0 49%);
+    margin-bottom: 20px;
+  }
+
+  &.filler {
+    @media @mobile {
+      display: none;
+    }
+  }
+}
+
+.reporting-name {
+  padding-left: 4px;
+}
+
+.credit-img {
+  // max-width: 200px;
 }

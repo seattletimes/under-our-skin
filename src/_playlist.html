@@ -83,7 +83,7 @@
   </div>
   <div class="jump">
     <a href="#bios">
-      <div class="bio-link">Meet the participants</div>
+      <div class="subhed bio-link">Meet the participants</div>
       <img src="./assets/homescreen_thumb.jpg">
     </a>
   </div>
@@ -92,7 +92,7 @@
 <div class="comments-container">
   
   <div class="comments">
-    <div class="subhed">Readers' responses: "<span class="comment-title"></span>"</div>
+    <div class="subhed">Responses to the video: "<span class="comment-title">white privilege</span>"</div>
     <% json.UOSData_Comments.forEach(function(comment) {
     if (comment.highlighted) { %>
       <div class="sans comment highlighted" data-term="<%= comment.term %>">
@@ -104,24 +104,26 @@
 
     <% json.UOSData_Comments.forEach(function(comment) {
     if (comment.approved && !comment.highlighted) { %>
-      <div class="comment approved" data-term="<%= comment.term %>">
+      <div class="sans comment approved" data-term="<%= comment.term %>">
         I was <%= comment.adjective %> because <%= comment.comment %>.
         <div class="credit">&ndash; <%= comment.name %>, <%= comment.age %></div>
       </div>
     <% }
     }); %>
 
-    <div class="expand">
+    <div class="sans expand">
       <span class="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i> More comments</span>
       <span class="read-fewer hidden"><i class="fa fa-angle-double-up" aria-hidden="true"></i> Fewer comments</span>
     </div>
   </div>
 
   <div class="sans guest-essays">
+    <div class="subhed">Guest essays</div>
     <p>Guest essays link to WordPress stories
 
-    <p>Do you have reactions to this project that you'd like to share? Email ___@seattletimes.com to submit a guest essay.
+    <p class="submit">Do you have reactions to this project that you'd like to share? Email <span class="email">underourskin@seattletimes.com</span> to submit a guest essay.
 
+      <div class="subhed">Newsletter</div>
     <p><%= t.include("./_mailchimp.html") %>
   </div>
 

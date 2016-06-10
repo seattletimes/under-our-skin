@@ -134,7 +134,7 @@
   }
 
   .jump {
-    .flex(1);
+    .flex(2);
     padding-right: 20px;
     padding-left: 40px;
 
@@ -143,9 +143,7 @@
     }
 
     .bio-link {
-      font-size: 14px;
-      text-transform: uppercase;
-      padding-bottom: 10px;
+      padding-bottom: 20px;
     }
     img {
       transition: all 0.1s linear;
@@ -159,7 +157,7 @@
   }
 
   .reactions {
-    .flex(3);
+    .flex(5);
     padding-bottom: 20px;
 
     .subhed {
@@ -286,18 +284,28 @@
 .comments-container {
   .display-flex();
   border-top: 1px solid @df-middle-gray;
+  padding-top: 30px;
+  padding-left: 20px;
 
   @media @tablet {
     display: block;
   }
 
   .guest-essays {
-    .flex(1);
+    .flex(2);
     padding: 20px;
     padding-left: 40px;
     padding-top: 0;
     font-size: 18px;
     text-align: left;
+
+    .submit {
+      font-size: 16px;
+    }
+
+    .email {
+      font-weight: 400;
+    }
 
     @media @tablet {
       padding-left: 0;
@@ -330,12 +338,14 @@
 .comments {
   text-align: left;
   font-size: 15px;
-  .flex(3);
+  .flex(5);
 
   .comment {
     letter-spacing: 0.08em;
     display: none;
     padding: 20px;
+    padding-left: 0;
+    max-width: 650px;
     border-bottom: 1px solid @df-middle-gray;
 
     @media @mobile {
