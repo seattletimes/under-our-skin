@@ -30,6 +30,10 @@
   <div class="reactions">
     <div class="subhed">What's your reaction to this video?</div>
 
+    <div class="sans second note">
+      Seattle Times staff will select thoughtful responses for each video to be featured below.
+    </div>
+
     <div class="sans form-panel">
 
       <form>
@@ -70,10 +74,6 @@
         *Required field. Your email address will not be displayed publicly.
       </div>
 
-      <div class="second note">
-        Seattle Times staff will select thoughtful responses for each video to be featured below.
-      </div>
-
       <button class="submit">SUBMIT</button>
 
       <div class="message sending"><i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i></div>
@@ -92,7 +92,7 @@
 <div class="comments-container">
   
   <div class="comments">
-    <div class="subhed">Responses to the video: "<span class="comment-title">white privilege</span>"</div>
+    <div class="subhed">Responses to "<span class="comment-title">white privilege</span>"</div>
     <% json.UOSData_Comments.forEach(function(comment) {
     if (comment.highlighted) { %>
       <div class="sans comment highlighted" data-term="<%= comment.term %>">
@@ -118,12 +118,17 @@
   </div>
 
   <div class="sans guest-essays">
-    <div class="subhed">Guest essays</div>
+
+    <div class="subhed">Join the conversation</div>
+    <p>Ask our staff and interviewees questions during a Reddit AMA on tktk
+
+    <div class="subhed">Read other viewpoints</div>
+    <p>Guest essays link to WordPress stories
     <p>Guest essays link to WordPress stories
 
-    <p class="submit">Do you have reactions to this project that you'd like to share? Email <span class="email">underourskin@seattletimes.com</span> to submit a guest essay.
+    <p class="submit">Do you have reactions to this project that you'd like to share? Read our guidelines and email <span class="email">underourskin@seattletimes.com</span> to submit a guest essay.
 
-      <div class="subhed">Newsletter</div>
+    <div class="subhed">Get updates</div>
     <p><%= t.include("./_mailchimp.html") %>
   </div>
 
