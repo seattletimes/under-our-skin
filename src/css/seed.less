@@ -73,6 +73,13 @@ body {
   }
 }
 
+.divider {
+  border-top: 1px solid @df-middle-gray;
+  max-width: 1200px;
+  margin: auto;
+  width: 90%;
+}
+
 .scroll-note {
   display: none;
   padding-top: 20px;
@@ -254,8 +261,13 @@ body {
 
 .scroll-aware {
   transition: opacity 0.5s linear;
+  margin-top: 200px;
   margin-bottom: 200px;
   opacity: 0;
+
+  &#intro {
+    margin-top: 0;
+  }
 
   &.visible {
     opacity: 1;
@@ -266,9 +278,6 @@ body {
   }
 }
 
-.main-text {
-  padding-top: 70px;
-}
 .intro .main-text {
   padding-top: 0;
 }

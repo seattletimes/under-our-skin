@@ -21,7 +21,7 @@ module.exports = function(element, done = noop) {
     var d = elapsed / duration;
     var bounds = element.getBoundingClientRect();
     var offset = bounds.top + getScroll();
-    var distance = offset - start;
+    var distance = offset - start - 70;
     document.body.scrollTop = document.documentElement.scrollTop = start + distance * ease(d);
     if (elapsed > duration) {
       setTimeout(() => document.body.scrollTop = document.documentElement.scrollTop = start + distance, 10);

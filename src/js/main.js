@@ -143,6 +143,7 @@ var loadVideoInfo = function(v) {
 
   window.history.replaceState(`#${v.term}`, `#${v.term}`, `#${v.term}`);
   document.querySelector(".question-title").innerHTML = `${v.word}`;
+  document.querySelector(".comment-title").innerHTML = `${v.word}`;
   $(".comment").forEach(function(comment){
     if (comment.getAttribute("data-term") == v.term) {
       comment.classList.add("visible");
@@ -334,8 +335,12 @@ ready("B15NOtCZ", "bio-player", function(player) {
     player.catalog.load(playlist);
 
     channel.on("playBioVideo", function(b) {
-      player.playlist.currentItem(b.index);
-      player.play();
+      player.playID(b.id);
+      // player.playlist.currentItem(b.index);
+      // player.on("loadedmetadata", function() {
+      //   console.log("loaded")
+      //   player.play();
+      // });
     });
 
   });

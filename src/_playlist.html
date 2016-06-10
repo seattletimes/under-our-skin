@@ -89,11 +89,13 @@
   </div>
 </div>
 
-<div class="sans comments-container">
+<div class="comments-container">
+  
   <div class="comments">
+    <div class="subhed">Readers' responses: "<span class="comment-title"></span>"</div>
     <% json.UOSData_Comments.forEach(function(comment) {
     if (comment.highlighted) { %>
-      <div class="comment highlighted" data-term="<%= comment.term %>">
+      <div class="sans comment highlighted" data-term="<%= comment.term %>">
         I was <%= comment.adjective %> because <%= comment.comment %>.
         <div class="credit">&ndash; <%= comment.name %>, <%= comment.age %></div>
       </div>
