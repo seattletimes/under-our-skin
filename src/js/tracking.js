@@ -47,3 +47,10 @@ document.querySelector(".read-more").addEventListener("click", function(e) {
 document.querySelector(".read-fewer").addEventListener("click", function(e) {
   track("interactive", "uos-read-fewer", "read-fewer");
 });
+
+// Bio video word tiles
+$(".bio-playlist-video").forEach(function(item) {
+  item.addEventListener("click", function(e) {
+    track("interactive", "uos-bio-tiles", e.target.getAttribute("data-term"));
+  });
+});

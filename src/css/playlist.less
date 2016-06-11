@@ -7,20 +7,19 @@
 }
 
 .note {
-  font-style: italic;
   font-size: 15px;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-left: 20px;
   color: @df-off-white;
-
-  &.second {
-    padding-top: 5px;
-    font-style: normal;
-  }
 
   @media @mobile {
     font-size: 13px;
   }
+}
+.second-note {
+  font-size: 12px;
+  padding-top: 15px;
+  font-style: italic;
 }
 
 .inner-flex {
@@ -293,9 +292,10 @@
   }
 
   .required.email {
-    font-size: 14px;
-    padding: 8px;
-    display: none;
+    font-size: 12px;
+    padding: 4px;
+    display: block;
+    margin-top: 10px;
     border: none;
     color: #666;
     border-radius: 2px;
@@ -313,8 +313,36 @@
       font-size: 16px;
     }
 
-    .email {
+    .email a {
       font-weight: 400;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    .mc-button {
+      .button {
+        padding: 6px 9px;
+        border: none;
+        font-size: 10px;
+        margin-top: 10px;
+        border-radius: 2px;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: all 0.3s linear;
+        cursor: pointer;
+        background: @df-dark-gray;
+        letter-spacing: 0.1em;
+        transition: all 0.2s linear;
+
+        &:hover {
+          background: @df-charcoal;
+        }
+      }
     }
 
     @media @tablet {
