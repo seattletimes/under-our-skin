@@ -10,6 +10,7 @@ var debounce = require("./lib/debounce");
 var animateScroll = require("./lib/animateScroll");
 var ready = require("./brightcove");
 require("./form");
+require("./lazy-video");
 
 var EventEmitter = require("events");
 var channel = new EventEmitter();
