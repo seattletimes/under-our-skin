@@ -12,7 +12,8 @@ module.exports = function(player, id, callback) {
     //when videos are loaded, check to see if they're in our request queue
     //if so, immediately play them.
     player.on("loadedmetadata", function() {
-      if (player.mediainfo.id == playQueue[0].id) {
+      var first = playQueue[0];
+      if (first && player.mediainfo.id == first.id) {
         playQueue.shift();
         player.play();
       }

@@ -5,7 +5,7 @@ var strings = {
   },
   requestAnimationFrame: {
     on: window,
-    props: ["webkitRequestAnimationFrame", "requestAnimationFrame", "setTimeout"]
+    props: ["requestAnimationFrame", "webkitRequestAnimationFrame", "setTimeout"]
   },
   requestFullScreen: {
     on: document.body,
