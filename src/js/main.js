@@ -36,7 +36,7 @@ var dots = $(".dot");
 var bioVideo = document.querySelector(".bio-video");
 
 var closeVideo = function() {
-  bioVideo.classList.remove("faded", "playing");
+  bioVideo.classList.remove("faded");
   setTimeout(function() {
     bioVideo.classList.remove("lightboxed");
   }, 300);
@@ -330,10 +330,6 @@ ready("B15NOtCZ", "bio-player", function(player) {
 
   player.on("ended", function() {
     closeVideo();
-  });
-  
-  player.on("loadeddata", function() {
-    bioVideo.classList.add("playing");
   });
 
   player.catalog.getPlaylist(bioPlaylistID, function(err, playlist) {
