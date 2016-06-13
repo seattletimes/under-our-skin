@@ -346,6 +346,9 @@ ready("B15NOtCZ", "bio-player", function(player) {
   player.on("loadeddata", function() {
     bioVideo.classList.add("playing");
   });
+  player.on("playing", function() {
+    bioVideo.classList.add("playing");
+  });
 
   player.catalog.getPlaylist(bioPlaylistID, function(err, playlist) {
     player.catalog.load(playlist);
