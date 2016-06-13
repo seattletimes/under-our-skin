@@ -19,7 +19,7 @@
 <div class="bios-container">
   <% json.UOSData_Bios.forEach(function(bio) { %>
     <div class="grid-container">
-      <img data-id="<%=bio.id%>" class="bio-grid-img" src="./assets/<%=bio.first_name%>_still.jpg">
+      <img data-id="<%=bio.id%>" class="bio-grid-img" src="./assets/stills/<%=bio.first_name%>_still.jpg">
       <div class="bio-label"><%= bio.display %> <%= bio.last_name %></div>
     </div>
   <% }); %>
