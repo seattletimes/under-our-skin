@@ -301,7 +301,6 @@ section {
     opacity: 1;
     position: relative;
     padding: 10px;
-    padding-right: 20px;
   }
 }
 
@@ -371,6 +370,10 @@ section {
   font-size: 28px;
   line-height: .75;
 
+  .dot {
+    display: block;
+  }
+
   &.hidden {
     display: none;
   }
@@ -398,11 +401,20 @@ section {
 
   ul {
     margin: 0;
+    list-style-type: none;
   }
 
   .dot {
-    &.active {
-      color: @df-charcoal;
+    &::before {
+      content: "";
+      display: block;
+      height: 8px;
+      width: 8px;
+      border-radius: 100%;
+      background: white;
+    }
+    &.active::before {
+      background: @df-charcoal;
     }
   }
 }

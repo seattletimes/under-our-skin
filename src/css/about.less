@@ -13,7 +13,11 @@
     letter-spacing: 0.1em;
   }
 
-  a {
+  .about-text {
+    padding-bottom: 15px;
+  }
+
+  .about-text a {
     color: @df-border-gray;
     transition: all 0.1s linear;
 
@@ -56,6 +60,10 @@
   font-family: @df-block;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+
+  &.interviews {
+    padding-bottom: 10px;
+  }
 }
 
 .reporting {
@@ -74,12 +82,6 @@
   @media @mobile {
     .flex(0 0 49%);
     margin-bottom: 20px;
-  }
-
-  &.filler {
-    @media @mobile {
-      display: none;
-    }
   }
 }
 
@@ -121,9 +123,10 @@
     font-weight: bold;
     font-size: 14px;
     letter-spacing: .08em;
+    transition: all 0.2s linear;
 
     &:hover {
-      /*background: @orange;*/
+      background: @df-middle-gray;
     }
   }
 

@@ -31,6 +31,7 @@ module.exports = function(player, id, callback) {
         var index = player.playlist.indexOf(matching);
         player.playlist.currentItem(index);
       }
+     
     };
 
     callback(player);

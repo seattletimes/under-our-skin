@@ -36,7 +36,8 @@ var dots = $(".dot");
 var bioVideo = document.querySelector(".bio-video");
 
 var closeVideo = function() {
-  bioVideo.classList.remove("faded");
+  // bioVideo.classList.remove("faded");
+  bioVideo.classList.remove("faded", "playing");
   setTimeout(function() {
     bioVideo.classList.remove("lightboxed");
   }, 300);
@@ -69,6 +70,9 @@ window.addEventListener("scroll", debounce(function(e) {
         })
         if (section.id !== "bios") {
           closeVideo();
+        }
+        if (section.id !== "playlist") {
+          window.history.replaceState("#", "#", "#");
         }
       }
     } else {
@@ -134,6 +138,14 @@ $(".jump a").forEach(function(a) {
     window.history.replaceState("#", "#", "#");
   });
 });
+
+$(".comment").forEach(function(comment){
+  if (comment.getAttribute("data-term") == "white_privilege") {
+    comment.classList.add("visible");
+  } else {
+    comment.classList.remove("visible");
+  }
+})
 
 // Insert video title, comments, and URL hash
 var loadVideoInfo = function(v) {
@@ -330,6 +342,9 @@ ready("B15NOtCZ", "bio-player", function(player) {
 
   player.on("ended", function() {
     closeVideo();
+  });
+  player.on("loadeddata", function() {
+    bioVideo.classList.add("playing");
   });
 
   player.catalog.getPlaylist(bioPlaylistID, function(err, playlist) {

@@ -106,6 +106,19 @@ img.bio-grid-img {
 
   &.faded {
     opacity: 1;
+
+    .video-js {
+      opacity: .01;
+      transition: all .3s linear;
+    }
+    
+    &.playing .video-js {
+      opacity: 1;
+    }
+
+    &.playing .loading {
+      opacity: 0;
+    }
   }
 
   .aspect-outer {
@@ -135,6 +148,18 @@ img.bio-grid-img {
       &:hover {
         color: @df-border-gray;
       }
+    }
+
+    .loading {
+      position: absolute;
+      opacity: 1;
+      color: white;
+      transition: all .3s linear;
+      left: 10px;
+      top: 10px;
+      z-index: 9;
+      font-size: 18px;
+      text-transform: uppercase;
     }
   }
 }
