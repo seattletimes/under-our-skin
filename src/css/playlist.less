@@ -9,12 +9,10 @@
 .note {
   font-size: 15px;
   padding-top: 10px;
-  padding-left: 20px;
   color: @df-off-white;
 
   @media @mobile {
     font-size: 13px;
-    padding-left: 0;
   }
 }
 .second-note {
@@ -107,11 +105,7 @@
 
 .form-panel {
   font-size: 16px;
-  padding-left: 20px;
-  
-  @media @mobile {
-    padding-left: 0;
-  }
+  padding-bottom: 50px;
 }
 
 .message {
@@ -134,11 +128,86 @@
     display: block;
   }
 
-  .jump {
+  .sidebar {
     .flex(2);
-    padding-right: 20px;
     padding-left: 40px;
 
+    @media @tablet {
+      padding-left: 0;
+    }
+
+    .required.email {
+      font-size: 12px;
+      padding: 4px;
+      display: inline-block;
+      margin-top: 10px;
+      border: none;
+      color: #666;
+      border-radius: 2px;
+    }
+
+    .guest-essays {
+      padding-top: 50px;
+      font-size: 16px;
+      text-align: left;
+
+      @media @tablet {
+        padding-top: 0;
+      }
+
+      @media @mobile {
+        font-size: 15px;
+      }
+
+      .guest-essay {
+        font-weight: 400;
+      }
+
+      .submit {
+        font-size: 16px;
+      }
+
+      .padded {
+        padding-top: 15px;
+      }
+
+      .email a {
+        font-weight: 400;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+          color: white;
+        }
+      }
+
+      .mc-button {
+        display: inline-block;
+
+        .button {
+          padding: 6px 9px;
+          border: none;
+          font-size: 10px;
+          margin-top: 15px;
+          border-radius: 2px;
+          color: white;
+          font-weight: bold;
+          text-transform: uppercase;
+          transition: all 0.3s linear;
+          cursor: pointer;
+          background: @df-dark-gray;
+          letter-spacing: 0.1em;
+          transition: all 0.2s linear;
+
+          &:hover {
+            background: @df-charcoal;
+          }
+        }
+      }
+    }
+  }
+
+  .jump {
     @media @tablet {
       display: none;
     }
@@ -160,13 +229,10 @@
   .reactions {
     .flex(5);
     padding-bottom: 20px;
+    padding-left: 20px;
 
-    .subhed {
-      padding-left: 20px;
-
-      @media @mobile {
-        padding-left: 0;
-      }
+    @media @tablet {
+      padding-left: 0;
     }
 
     button {
@@ -241,8 +307,6 @@
         bottom: 10px;
       }
     }
-
-
     
     .age, .name, .email, .adjective {
       display: inline-block;
@@ -282,119 +346,27 @@
   }
 }
 
-.comments-container {
-  .display-flex();
-  border-top: 1px solid @df-middle-gray;
-  padding-top: 30px;
-  padding-left: 20px;
+.expand {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 400;
+  padding-top: 10px;
+  cursor: pointer;
+  transition: all 0.2s linear;
 
   @media @tablet {
-    display: block;
-    padding-left: 0;
+    margin-bottom: 20px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid @df-middle-gray;
   }
 
-  .required.email {
-    font-size: 12px;
-    padding: 4px;
-    display: inline-block;
-    margin-top: 10px;
-    border: none;
-    color: #666;
-    border-radius: 2px;
+  &:hover {
+    color: @df-border-gray;
   }
 
-  .guest-essays {
-    .flex(2);
-    padding: 20px;
-    padding-left: 40px;
-    padding-top: 0;
-    font-size: 16px;
-    text-align: left;
-
-    @media @mobile {
-      font-size: 15px;
-    }
-
-    .guest-essay {
-      font-size: 18px;
-      @media @mobile {
-        font-size: 16px;
-      }
-    }
-
-    .submit {
-      font-size: 16px;
-    }
-
-    .padded {
-      padding-top: 15px;
-    }
-
-    .email a {
-      font-weight: 400;
-      color: white;
-      cursor: pointer;
-
-      &:hover {
-        color: white;
-      }
-    }
-
-    .mc-button {
-      display: inline-block;
-
-      .button {
-        padding: 6px 9px;
-        border: none;
-        font-size: 10px;
-        margin-top: 15px;
-        border-radius: 2px;
-        color: white;
-        font-weight: bold;
-        text-transform: uppercase;
-        transition: all 0.3s linear;
-        cursor: pointer;
-        background: @df-dark-gray;
-        letter-spacing: 0.1em;
-        transition: all 0.2s linear;
-
-        &:hover {
-          background: @df-charcoal;
-        }
-      }
-    }
-
-    @media @tablet {
-      padding-left: 0;
-    }
-
-    @media @mobile {
-      padding: 20px 0;
-      font-size: 16px;
-    }
-  }
-  .expand {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 400;
-    padding-top: 10px;
-    cursor: pointer;
-    transition: all 0.2s linear;
-
-    @media @tablet {
-      margin-bottom: 20px;
-      padding-bottom: 7px;
-      border-bottom: 1px solid @df-middle-gray;
-    }
-
-    &:hover {
-      color: @df-border-gray;
-    }
-
-    .hidden {
-      display: none;
-    }
+  .hidden {
+    display: none;
   }
 }
 

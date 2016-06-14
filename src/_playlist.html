@@ -80,64 +80,68 @@
       <div class="message success"><i class="fa fa-check" aria-hidden="true"></i></div>
 
     </div>
-  </div>
-  <div class="jump">
-    <a href="#bios">
-      <div class="subhed bio-link">Meet the participants</div>
-      <img src="./assets/homescreen_thumb.jpg">
-    </a>
-  </div>
-</div>
 
-<div class="comments-container">
-  
-  <div class="comments">
-    <div class="subhed">Responses to "<span class="comment-title">white privilege</span>"</div>
-    <% json.UOSData_Comments.forEach(function(comment) {
-    if (comment.highlighted) { %>
-      <div class="sans comment highlighted" data-term="<%= comment.term %>">
-        I was <%= comment.adjective %> because <%= comment.comment %>.
-        <div class="credit">&ndash; <%= comment.name %>, <%= comment.age %></div>
+    <div class="comments">
+      <div class="subhed">Responses to "<span class="comment-title">white privilege</span>"</div>
+      <% json.UOSData_Comments.forEach(function(comment) {
+      if (comment.highlighted) { %>
+        <div class="sans comment highlighted" data-term="<%= comment.term %>">
+          I was <%= comment.adjective %> because <%= comment.comment %>.
+          <div class="credit">&ndash; <%= comment.name %>, <%= comment.age %></div>
+        </div>
+      <% }
+      }); %>
+
+      <% json.UOSData_Comments.forEach(function(comment) {
+      if (comment.approved && !comment.highlighted) { %>
+        <div class="sans comment approved" data-term="<%= comment.term %>">
+          I was <%= comment.adjective %> because <%= comment.comment %>.
+          <div class="credit">&ndash; <%= comment.name %>, <%= comment.age %></div>
+        </div>
+      <% }
+      }); %>
+
+      <div class="sans expand">
+        <span class="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i> More comments</span>
+        <span class="read-fewer hidden"><i class="fa fa-angle-double-up" aria-hidden="true"></i> Fewer comments</span>
       </div>
-    <% }
-    }); %>
-
-    <% json.UOSData_Comments.forEach(function(comment) {
-    if (comment.approved && !comment.highlighted) { %>
-      <div class="sans comment approved" data-term="<%= comment.term %>">
-        I was <%= comment.adjective %> because <%= comment.comment %>.
-        <div class="credit">&ndash; <%= comment.name %>, <%= comment.age %></div>
-      </div>
-    <% }
-    }); %>
-
-    <div class="sans expand">
-      <span class="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i> More comments</span>
-      <span class="read-fewer hidden"><i class="fa fa-angle-double-up" aria-hidden="true"></i> Fewer comments</span>
     </div>
+
   </div>
 
-  <div class="sans guest-essays">
 
-    <div class="subhed">Join the conversation</div>
-    <p>Ask our staff and interviewees questions during a Reddit AMA on tktk
-
-    <div class="padded subhed">Read other viewpoints</div>
-    <p class="guest-essay">Guest essays link to WordPress stories
-    <p class="guest-essay">Guest essays link to WordPress stories
-
-    <p class="submit">Do you have reactions to this project that you'd like to share? 
-    <p class="submit">Read our guidelines and email <span class="email"><a href="mailto:underourskin@seattletimes.com?Subject=Under Our Skin guest essay">underourskin@seattletimes.com</a></span> to submit a guest essay.
-
-    <div class="padded subhed">Get updates</div>
-    <p><%= t.include("./_mailchimp.html") %>
-  </div>
-
-  <div class="submit-guest-essay">
+  <div class="sidebar">
+    <div class="jump">
+      <a href="#bios">
+        <div class="subhed bio-link">Meet the participants</div>
+        <img src="./assets/homescreen_thumb.jpg">
+      </a>
+    </div>
     
-  </div>
+    <div class="sans guest-essays">
 
+      <div class="subhed">Join the conversation</div>
+      <p>Ask our staff and interviewees questions during a Reddit AMA on tktk
+
+      <div class="padded subhed">Read other viewpoints</div>
+      <p class="guest-essay">Guest essays link to WordPress stories
+      <p class="guest-essay">Guest essays link to WordPress stories
+
+      <p class="submit">Do you have reactions to this project that you'd like to share? 
+      <p class="submit">Read our guidelines and email <span class="email"><a href="mailto:underourskin@seattletimes.com?Subject=Under Our Skin guest essay">underourskin@seattletimes.com</a></span> to submit a guest essay.
+
+      <div class="padded subhed">Get updates</div>
+      <p><%= t.include("./_mailchimp.html") %>
+    </div>
+
+    <div class="submit-guest-essay">
+      
+    </div>
+
+  </div>
 </div>
+
+
 
 <div class="scroll-note"><img src="./assets/chevron.svg"></div>
 
