@@ -93,8 +93,6 @@
       window.playlistItems = <%= JSON.stringify(json.UOSData_Videos) %>;
       window.bioData = <%= JSON.stringify(json.UOSData_Bios) %>;
     </script>
-    <script src="https://use.typekit.net/nkk1kqm.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
     <script src="app.js" async></script>
     <% if (json.project.production) { %>
     <%= !json.project.embedded ? t.include("partials/_foot.html") : "" %>

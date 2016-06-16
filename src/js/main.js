@@ -140,7 +140,7 @@ $(".jump a").forEach(function(a) {
 });
 
 $(".comment").forEach(function(comment){
-  if (comment.getAttribute("data-term") == "white_privilege") {
+  if (comment.getAttribute("data-term") == "institutional_racism") {
     comment.classList.add("visible");
   } else {
     comment.classList.remove("visible");

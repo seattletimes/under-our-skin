@@ -22,7 +22,8 @@ var makeShare = function(selector, position, url) {
         url: addQuery(here, utm("google+"))
       },
       twitter: {
-        url: addQuery(here, utm("twitter"))
+        url: addQuery(here, utm("twitter")),
+        description: "What does 'white privilege' really mean? We asked 18 people to discuss terms about race. Here’s what they said."
       },
       facebook: {
         url: addQuery(here, utm("facebook"))
