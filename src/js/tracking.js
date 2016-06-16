@@ -41,11 +41,14 @@ $(".playlist-video").forEach(function(item) {
 });
 
 // Read more
-document.querySelector(".read-more").addEventListener("click", function(e) {
-  track("interactive", "uos-read-more", "read-more");
-});
-document.querySelector(".read-fewer").addEventListener("click", function(e) {
-  track("interactive", "uos-read-fewer", "read-fewer");
+
+document.querySelector(".comment-box").addEventListener("click", function(e) {
+  if (e.target.class.contains("read-more")) {
+    track("interactive", "uos-read-more", "read-more");
+  }
+  if (e.target.class.contains("read-fewer")) {
+    track("interactive", "uos-read-fewer", "read-fewer");
+  }
 });
 
 // Bio video word tiles
