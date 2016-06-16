@@ -96,11 +96,12 @@
             bucketed[comment.term].approved.push(comment);
           }
         });
+        
       %>
       <% for (var term in bucketed) { %>
         <div class="comment-bucket" data-term="<%= term %>">
           <% if (!bucketed[term].highlighted.length && !bucketed[term].approved.length) { %>
-            <div class="be-the-first">Be the first to leave a comment.</div>
+            <div class="be-the-first">Be the first to submit a reaction.</div>
           <% } else { %>
             <div class="highlighted">
               <% bucketed[term].highlighted.forEach(function(comment) { %>
