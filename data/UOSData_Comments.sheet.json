@@ -9,15 +9,6 @@
     "highlighted": "x"
   },
   {
-    "term": "racism",
-    "name": "Anika",
-    "age": 45,
-    "adjective": "confused",
-    "comment": "Highlighted Racism lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultricies lobortis nulla sed commodo. Aenean in tellus velit. Phasellus euismod placerat arcu non ullamcorper. Mauris consectetur sapien sit amet risus pellentesque, sagittis vehicula odio aliquam. Praesent porta dignissim laoreet. Quisque ultricies pellentesque urna nec mollis. Aenean vitae interdum augue. Morbi auctor nisl ac pellentesque tempor. Sed rutrum volutpat lorem. Sed faucibus eleifend ex. Nulla mollis dapibus dui non al",
-    "approved": "x",
-    "highlighted": "x"
-  },
-  {
     "term": "white_privilege",
     "name": "Lauren",
     "age": 11,
@@ -116,14 +107,6 @@
     "approved": "x"
   },
   {
-    "term": "racism",
-    "name": "Anika",
-    "age": 45,
-    "adjective": "confused",
-    "comment": "Racism lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultricies lobortis nulla sed commodo. Aenean in tellus velit. Phasellus euismod placerat arcu non ullamcorper. Mauris consectetur sapien sit amet risus pellentesque, sagittis vehicula odio aliquam. Praesent porta dignissim laoreet. Quisque ultricies pellentesque urna nec mollis. Aenean vitae interdum augue. Morbi auctor nisl ac pellentesque tempor. Sed rutrum volutpat lorem. Sed faucibus eleifend ex. Nulla mollis dapibus dui non al",
-    "approved": "x"
-  },
-  {
     "term": "white_privilege",
     "name": "Lauren",
     "age": 11,
@@ -209,14 +192,6 @@
     "age": 23,
     "adjective": "angered",
     "comment": "BLM lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultricies lobortis nulla sed commodo. Aenean in tellus velit. Phasellus euismod placerat arcu non ullamcorper. Mauris consectetur sapien sit amet risus pellentesque, sagittis vehicula odio aliquam. Praesent porta dignissim laoreet. ",
-    "approved": "x"
-  },
-  {
-    "term": "racism",
-    "name": "Anika",
-    "age": 45,
-    "adjective": "confused",
-    "comment": "Racism lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultricies lobortis nulla sed commodo. Aenean in tellus velit. Phasellus euismod placerat arcu non ullamcorper. Mauris consectetur sapien sit amet risus pellentesque, sagittis vehicula odio aliquam. Praesent porta dignissim laoreet. Quisque ultricies pellentesque urna nec mollis. Aenean vitae interdum augue. Morbi auctor nisl ac pellentesque tempor. Sed rutrum volutpat lorem. Sed faucibus eleifend ex. Nulla mollis dapibus dui non al",
     "approved": "x"
   },
   {

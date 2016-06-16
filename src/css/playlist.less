@@ -353,7 +353,7 @@
   text-align: center;
   text-transform: uppercase;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 400 !important;
   padding-top: 10px;
   cursor: pointer;
   transition: all 0.2s linear;
@@ -367,9 +367,6 @@
   &:hover {
     color: @df-border-gray;
   }
-  .read-more {
-    font-weight: 400;
-  }
 
   .hidden {
     display: none;
@@ -381,9 +378,33 @@
   font-size: 15px;
   .flex(5);
 
+  .comment-bucket {
+    display: none;
+
+    &.selected{
+      display: block;
+    }
+
+    .comment.approved {
+      display: none;
+    }
+
+    &.more {
+      .comment.approved {
+        display: block;
+      }
+    }
+
+    .be-the-first {
+      text-align: center;
+      font-family: @df-sans;
+      font-style: italic;
+      font-weight: 200;
+    }
+  }
+
   .comment {
     letter-spacing: 0.08em;
-    display: none;
     padding: 20px;
     padding-left: 0;
     max-width: 650px;
@@ -391,12 +412,6 @@
 
     @media @mobile {
       padding: 20px 0;
-    }
-
-    &.visible {
-      &.highlighted, &.more {
-        display: block;
-      }
     }
   }
   .credit {

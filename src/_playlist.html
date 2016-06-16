@@ -28,7 +28,7 @@
 
 <div class="reactions-container">
   <div class="reactions">
-    <div class="subhed">What's your reaction to "<span class="comment-title">institutional racism</span>"?</div>
+    <div class="subhed">What's your reaction to &ldquo;<span class="comment-title">institutional racism</span>&rdquo;?</div>
 
     <div class="sans note">
       Seattle Times staff will select thoughtful responses for each video to be featured below.
@@ -82,28 +82,49 @@
     </div>
 
     <div class="comments">
-      <% json.UOSData_Comments.forEach(function(comment) {
-      if (comment.highlighted) { %>
-        <div class="sans comment highlighted" data-term="<%= comment.term %>">
-          I was <%= comment.adjective %> because <%= comment.comment %>.
-          <div class="credit">&ndash; <%= comment.name %>, <%= comment.age %></div>
+      <% var bucketed = {};
+        json.UOSData_Videos.forEach(function(video) {
+          bucketed[video.term] = {
+            highlighted: [],
+            approved: []
+          };
+        });
+        json.UOSData_Comments.forEach(function(comment) {
+          if (comment.highlighted) {
+            bucketed[comment.term].highlighted.push(comment);
+          } else if (comment.approved) {
+            bucketed[comment.term].approved.push(comment);
+          }
+        });
+      %>
+      <% for (var term in bucketed) { %>
+        <div class="comment-bucket" data-term="<%= term %>">
+          <% if (!bucketed[term].highlighted.length && !bucketed[term].approved.length) { %>
+            <div class="be-the-first">Be the first to leave a comment.</div>
+          <% } else { %>
+            <div class="highlighted">
+              <% bucketed[term].highlighted.forEach(function(comment) { %>
+                <div class="sans comment highlighted" data-term="<%= comment.term %>">
+                  I was <%= comment.adjective %> because <%= comment.comment %>.
+                  <div class="credit">&ndash; <%= comment.name %>, <%= comment.age %></div>
+                </div>
+              <% }); %>
+            </div>
+            <div class="approved">
+              <% bucketed[term].approved.forEach(function(comment) { %>
+                <div class="sans comment approved" data-term="<%= comment.term %>">
+                  I was <%= comment.adjective %> because <%= comment.comment %>.
+                  <div class="credit">&ndash; <%= comment.name %>, <%= comment.age %></div>
+                </div>
+              <% }); %>
+            </div>
+            <div class="sans expand">
+              <span class="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i> More comments</span>
+              <span class="read-fewer hidden"><i class="fa fa-angle-double-up" aria-hidden="true"></i> Fewer comments</span>
+            </div>
+          <% }; %>
         </div>
-      <% }
-      }); %>
-
-      <% json.UOSData_Comments.forEach(function(comment) {
-      if (comment.approved && !comment.highlighted) { %>
-        <div class="sans comment approved" data-term="<%= comment.term %>">
-          I was <%= comment.adjective %> because <%= comment.comment %>.
-          <div class="credit">&ndash; <%= comment.name %>, <%= comment.age %></div>
-        </div>
-      <% }
-      }); %>
-
-      <div class="sans expand">
-        <span class="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i> More comments</span>
-        <span class="read-fewer hidden"><i class="fa fa-angle-double-up" aria-hidden="true"></i> Fewer comments</span>
-      </div>
+      <% }; %>
     </div>
 
   </div>

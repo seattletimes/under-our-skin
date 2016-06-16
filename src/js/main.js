@@ -139,11 +139,11 @@ $(".jump a").forEach(function(a) {
   });
 });
 
-$(".comment").forEach(function(comment){
-  if (comment.getAttribute("data-term") == "institutional_racism") {
-    comment.classList.add("visible");
+$(".comment-bucket").forEach(function(bucket){
+  if (bucket.getAttribute("data-term") == "institutional_racism") {
+    bucket.classList.add("selected");
   } else {
-    comment.classList.remove("visible");
+    bucket.classList.remove("selected");
   }
 })
 
@@ -157,11 +157,11 @@ var loadVideoInfo = function(v) {
   window.history.replaceState(`#${v.term}`, `#${v.term}`, `#${v.term}`);
   document.querySelector(".question-title").innerHTML = `${v.word}`;
   document.querySelector(".comment-title").innerHTML = `${v.word}`;
-  $(".comment").forEach(function(comment){
-    if (comment.getAttribute("data-term") == v.term) {
-      comment.classList.add("visible");
+  $(".comment-bucket").forEach(function(bucket){
+    if (bucket.getAttribute("data-term") == v.term) {
+      bucket.classList.add("selected");
     } else {
-      comment.classList.remove("visible");
+      bucket.classList.remove("selected");
     }
   })
 }
@@ -275,18 +275,15 @@ document.body.addEventListener("click", function(e) {
 
   // More comments
   if (e.target.classList.contains("read-more")) {
-    $(".comment.visible").forEach(function (c) {
-      c.classList.add("more");
-    });
-    document.querySelector(".read-fewer").classList.remove("hidden");
-    document.querySelector(".read-more").classList.add("hidden");
+    document.querySelector(".comment-bucket.selected").classList.add("more");
+    console.log(document.querySelector(".read-more"))
+    document.querySelector(".comment-bucket.selected .read-fewer").classList.remove("hidden");
+    document.querySelector(".comment-bucket.selected .read-more").classList.add("hidden");
   };
   if (e.target.classList.contains("read-fewer")) {
-    $(".comment.visible").forEach(function (c) {
-      c.classList.remove("more");
-    });
-    document.querySelector(".read-fewer").classList.add("hidden");
-    document.querySelector(".read-more").classList.remove("hidden");
+    document.querySelector(".comment-bucket.selected").classList.remove("more");
+    document.querySelector(".comment-bucket.selected .read-fewer").classList.add("hidden");
+    document.querySelector(".comment-bucket.selected .read-more").classList.remove("hidden");
   };
 
   // Bio video close button
