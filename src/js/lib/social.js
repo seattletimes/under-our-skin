@@ -19,17 +19,17 @@ var makeShare = function(selector, position, url) {
     },
     networks: {
       google_plus: {
-        url: addQuery(here, utm("google+"))
+        url: "st.news/under-our-skin"
       },
       twitter: {
-        url: addQuery(here, utm("twitter")),
-        description: "What does 'white privilege' really mean? We asked 18 people to discuss terms about race. Here’s what they said."
+        url: "st.news/under-our-skin",
+        description: "What does 'white privilege' really mean to you? We asked 18 people to discuss terms about race. Here’s what they said. st.news/under-our-skin"
       },
       facebook: {
-        url: addQuery(here, utm("facebook"))
+        url: "st.news/under-our-skin"
       },
       pinterest: {
-        url: addQuery(here, utm("pinterest"))
+        url: "st.news/under-our-skin"
       }
     }
   };

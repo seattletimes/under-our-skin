@@ -253,6 +253,7 @@ document.body.addEventListener("click", function(e) {
     var id = e.target.getAttribute("data-id");
     var v = videoLookup[id];
     e.preventDefault();
+    players.main.hasBeenPlayed = false;
     animateScroll("#playlist");
     pageIndex = "playlist";
     channel.emit("playVideo", v);
@@ -269,6 +270,7 @@ document.body.addEventListener("click", function(e) {
 
   // Bio playlist functionality
   if (e.target.classList.contains("bio-playlist-video")) {
+    players.main.hasBeenPlayed = false;
     closeVideo();
     animateScroll("#playlist");
   };
