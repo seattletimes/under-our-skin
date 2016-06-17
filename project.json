@@ -5,8 +5,8 @@
       "path": "under-our-skin"
     },
     "live": {
-      "bucket": "",
-      "path": ""
+      "bucket": "projects.seattletimes.com",
+      "path": "2016/under-our-skin"
     }
   },
   "title": "Under Our Skin",
@@ -16,6 +16,7 @@
   "tags": [],
   "image": "assets/homescreen_social.jpg",
   "sheets": ["1x5XQnt99k6mxJAelUtNR4d5IGfh0QWE9dnBQZ-4vgDo"],
-  "production": false,
-  "embedded": true
+  "production": true,
+  "embedded": false,
+  "embargo": ["index.html"]
 }
