@@ -168,6 +168,15 @@
 
       .submit {
         font-size: 16px;
+
+        a {
+          color: @df-border-gray;
+          transition: all 0.2s linear;
+
+          &:hover {
+            color: white;
+          }
+        }
       }
 
       .padded {
@@ -175,8 +184,8 @@
       }
 
       .email a {
-        font-weight: 400;
-        color: white;
+        // font-weight: 400;
+        color: @df-border-gray;
         cursor: pointer;
 
         &:hover {
