@@ -1,7 +1,21 @@
+@tablet: ~"(max-width: 768px)";
+
 body {
   margin: 0;
 
   video {
     max-width: 100%;
+
+    @media @tablet {
+      display: none;
+    }
+  }
+  img {
+    display: none;
+    max-width: 100%;
+
+    @media @tablet {
+      display: block;
+    }
   }
 }
