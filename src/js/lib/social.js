@@ -23,7 +23,7 @@ var makeShare = function(selector, position, url) {
       },
       twitter: {
         url: "st.news/under-our-skin",
-        description: "What does 'white privilege' really mean to you? We asked 18 people to discuss terms about race. Here’s what they said. st.news/under-our-skin"
+        description: "What does 'white privilege' mean to you? We asked 18 people to discuss terms about race. Here’s what they said. st.news/under-our-skin"
       },
       facebook: {
         url: "st.news/under-our-skin"
