@@ -50,9 +50,10 @@ submit.on("click", function(e) {
     packet[el.name] = el.value;
   });
   
-  packet.term = document.querySelector(".comment-title").innerHTML;
+  packet.term = document.querySelector(".comment-title").innerHTML.toLowerCase().replace(" ", "_");
   packet.timestamp = Date.now();
   packet.adjective = document.querySelector(".adjective select").value;
+  if (packet.adjective == "resonated") packet.adjective = "resonated with";
   packet.fillin = input.value;
   packet.date = moment(packet.timestamp).format('MM/DD/YY h:mm a');
   packet.method = "comment";

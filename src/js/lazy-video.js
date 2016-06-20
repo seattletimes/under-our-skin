@@ -1,7 +1,7 @@
 var video = document.querySelector(".hed-container video");
 
 // when are we below tablet?
-var mediaQuery = window.matchMedia("(max-width: 768px)");
+var mediaQuery = window.matchMedia("(max-width: 480px)");
 
 var updateVideo = function() {
   if (!mediaQuery.matches) {

@@ -90,9 +90,9 @@
           };
         });
         json.UOSData_Comments.forEach(function(comment) {
-          if (comment.highlighted) {
+          if (comment.highlighted && bucketed[comment.term]) {
             bucketed[comment.term].highlighted.push(comment);
-          } else if (comment.approved) {
+          } else if (comment.approved && bucketed[comment.term]) {
             bucketed[comment.term].approved.push(comment);
           }
         });
@@ -105,7 +105,7 @@
             <div class="highlighted">
               <% bucketed[term].highlighted.forEach(function(comment) { %>
                 <div class="sans comment highlighted" data-term="<%= comment.term %>">
-                  I was <%= comment.adjective %> because <%= comment.comment %>.
+                  This video <span style="font-weight: 400; font-style: italic;"><%= comment.adjective == "other" ? comment.fillin : comment.adjective %></span> me because: <%= comment.comment %>
                   <div class="credit">&ndash; <%= comment.name %>, <%= comment.age %></div>
                 </div>
               <% }); %>
@@ -113,7 +113,7 @@
             <div class="approved">
               <% bucketed[term].approved.forEach(function(comment) { %>
                 <div class="sans comment approved" data-term="<%= comment.term %>">
-                  I was <%= comment.adjective %> because <%= comment.comment %>.
+                  This video <span style="font-weight: 400; font-style: italic;"><%= omment.adjective == "other" ? comment.fillin : comment.adjective %></span> me because: <%= comment.comment %>
                   <div class="credit">&ndash; <%= comment.name %>, <%= comment.age %></div>
                 </div>
               <% }); %>
