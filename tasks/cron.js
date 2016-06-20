@@ -11,7 +11,7 @@ var interval = 1000 * 60 * 30; //every hour
 var commands = [
   "git checkout " + branch,
   "git pull origin " + branch,
-  "grunt sheets static publish:live"
+  "grunt sheets template bundle less publish:live"
 ];
 
 /** end config **/
