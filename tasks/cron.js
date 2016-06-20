@@ -7,7 +7,7 @@ Runs tasks on an automated basis
 /** config variables **/
 
 var branch = "master"; //Git branch for deployment
-var interval = 1000 * 60 * 60; //every hour
+var interval = 1000 * 60 * 30; //every hour
 var commands = [
   "git checkout " + branch,
   "git pull origin " + branch,
