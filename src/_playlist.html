@@ -113,7 +113,7 @@
             <div class="approved">
               <% bucketed[term].approved.forEach(function(comment) { %>
                 <div class="sans comment approved" data-term="<%= comment.term %>">
-                  This video <span style="font-weight: 400; font-style: italic;"><%= omment.adjective == "other" ? comment.fillin : comment.adjective %></span> me because: <%= comment.comment %>
+                  This video <span style="font-weight: 400; font-style: italic;"><%= comment.adjective == "other" ? comment.fillin : comment.adjective %></span> me because: <%= comment.comment %>
                   <div class="credit">&ndash; <%= comment.name %>, <%= comment.age %></div>
                 </div>
               <% }); %>
