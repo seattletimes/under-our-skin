@@ -11,12 +11,11 @@
   },
   "title": "Under Our Skin",
   "description": "What does 'white privilege' mean? We asked 18 people to discuss terms about race",
-  "url": "http://projects-staging.seattletimes.com/under-our-skin/",
+  "url": "http://projects.seattletimes.com/under-our-skin/",
   "slug": "",
   "tags": [],
   "image": "assets/homescreen_social.jpg",
   "sheets": ["1x5XQnt99k6mxJAelUtNR4d5IGfh0QWE9dnBQZ-4vgDo"],
   "production": true,
-  "embedded": false,
-  "embargo": ["index.html"]
+  "embedded": false
 }

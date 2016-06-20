@@ -50,8 +50,10 @@ submit.on("click", function(e) {
     packet[el.name] = el.value;
   });
   
-  packet.term = window.location.hash.replace("#", "");
+  packet.term = document.querySelector(".comment-title").innerHTML;
   packet.timestamp = Date.now();
+  packet.adjective = document.querySelector(".adjective select").value;
+  packet.fillin = input.value;
   packet.date = moment(packet.timestamp).format('MM/DD/YY h:mm a');
   packet.method = "comment";
 
@@ -73,7 +75,6 @@ submit.on("click", function(e) {
     input.classList.remove("visible");
     form.removeClass("validated");
     inputs.each(function(i, el) {
-      console.log(el.name)
       if (el.name == "select-adjective") {
         el.value = "choose";
       } else if (el.name == "input-adjective") {
