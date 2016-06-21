@@ -1,4 +1,5 @@
 var $ = require("./lib/qsa");
+var jquery = require("jquery");
 var track = require("./lib/tracking");
 
 // Dropdown
@@ -42,7 +43,7 @@ $(".playlist-video").forEach(function(item) {
 
 // Read more
 
-document.querySelector(".comment-box").addEventListener("click", function(e) {
+document.querySelector(".comment-bucket").addEventListener("click", function(e) {
   if (e.target.class.contains("read-more")) {
     track("interactive", "uos-read-more", "read-more");
   }
@@ -52,8 +53,6 @@ document.querySelector(".comment-box").addEventListener("click", function(e) {
 });
 
 // Bio video word tiles
-$(".bio-playlist-video").forEach(function(item) {
-  item.addEventListener("click", function(e) {
-    track("interactive", "uos-bio-tiles", e.target.getAttribute("data-term"));
-  });
+jquery(".bio-video").on("click", ".bio-playlist-video", function(e) {
+  track("interactive", "uos-bio-tiles", e.target.getAttribute("data-term"));
 });

@@ -2,6 +2,7 @@ require("./lib/social");
 // require("./lib/ads");
 
 require("./tracking.js");
+var track = require("./lib/tracking");
 
 var template = require("./lib/dot").compile(require("./_bioPanel.html"));
 
@@ -51,6 +52,7 @@ window.addEventListener("scroll", debounce(function(e) {
     var bounds = section.getBoundingClientRect();
     if (bounds.top <= window.innerHeight * 0.7) {
       section.classList.add("visible");
+      track("interactive", "uos-section", section.id);
       if (bounds.bottom >= window.innerHeight * 0.3) {
         if (foundSection) return;
         foundSection = true;
