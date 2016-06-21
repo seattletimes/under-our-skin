@@ -89,9 +89,16 @@
             approved: []
           };
         });
+        json.UOSData_Comments.sort(function(a,b) {
+          return b.timestamp - a.timestamp
+        });
         json.UOSData_Comments.forEach(function(comment) {
           if (comment.highlighted && bucketed[comment.term]) {
-            bucketed[comment.term].highlighted.push(comment);
+            if (bucketed[comment.term].highlighted.length < 6) {
+              bucketed[comment.term].highlighted.push(comment);
+            } else {
+              bucketed[comment.term].approved.push(comment);
+            }
           } else if (comment.approved && bucketed[comment.term]) {
             bucketed[comment.term].approved.push(comment);
           }
