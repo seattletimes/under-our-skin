@@ -96,6 +96,14 @@
             bucketed[comment.term].approved.push(comment);
           }
         });
+        for (var term in bucketed) {
+          bucketed[term].highlighted.sort(function(a,b) {
+            return b.timestamp - a.timestamp
+          })
+          bucketed[term].approved.sort(function(a,b) {
+            return b.timestamp - a.timestamp
+          })
+        }
       %>
       <% for (var term in bucketed) { %>
         <div class="comment-bucket" data-term="<%= term %>">
