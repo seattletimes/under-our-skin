@@ -172,17 +172,22 @@ channel.on("updatePlaylist", loadVideoInfo);
 
 // If URL already contains video hash, load correct video
 var term = window.location.hash.replace("#", "");
-if (term) {
-  pending = playlistItems.filter(v => v.term == term).pop();
 
-  if (pending) {
-    animateScroll("#playlist");
-    pageIndex = "playlist";
-    channel.emit("updatePlaylist", pending);
+if (term) {
+  if (term == "about") {
+    animateScroll("#about");
+    pageIndex = "about";
   } else {
-    animateScroll("#intro");
-    pageIndex = "intro";
-    window.history.replaceState("#", "#", "#");
+    pending = playlistItems.filter(v => v.term == term).pop();
+    if (pending) {
+      animateScroll("#playlist");
+      pageIndex = "playlist";
+      channel.emit("updatePlaylist", pending);
+    } else {
+      animateScroll("#intro");
+      pageIndex = "intro";
+      window.history.replaceState("#", "#", "#");
+    }
   }
 } else {
   animateScroll("#intro");
