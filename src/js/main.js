@@ -196,7 +196,7 @@ if (term) {
 }
 
 // Load intro video player
-ready("B15NOtCZ", "intro-player", function(p) {
+ready("HkuMzyxJl", "intro-player", function(p) {
   players.intro = p;
   p.on("ended", function() {
     animateScroll("#words");
@@ -304,7 +304,7 @@ document.body.addEventListener("click", function(e) {
 // Load words video player
 var playlistID = 4884471259001;
 
-ready("B15NOtCZ", "player", function(player) {
+ready("HkuMzyxJl", "player", function(player) {
   player.on("playing", function() {
     if (pageIndex == "playlist") {
       var id = player.mediainfo.id ;
@@ -338,7 +338,7 @@ ready("B15NOtCZ", "player", function(player) {
 // Load bio video player
 var bioPlaylistID = 4902235697001;
 
-ready("B15NOtCZ", "bio-player", function(player) {
+ready("HkuMzyxJl", "bio-player", function(player) {
   window.player = players.bio = player;
   player.playlist.autoadvance(null);
 
