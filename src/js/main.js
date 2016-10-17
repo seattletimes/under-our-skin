@@ -304,7 +304,7 @@ document.body.addEventListener("click", function(e) {
 // Load words video player
 var playlistID = 4884471259001;
 
-ready("HkuMzyxJl", "player", function(player) {
+ready("BJvNJNM1g", "player", function(player) {
   player.on("playing", function() {
     if (pageIndex == "playlist") {
       var id = player.mediainfo.id ;
@@ -312,10 +312,10 @@ ready("HkuMzyxJl", "player", function(player) {
       channel.emit("updatePlaylist", v);
     }
   });
-
+window.player = player;
   player.catalog.getPlaylist(playlistID, function(err, playlist) {
     player.catalog.load(playlist);
-    window.player = players.main = player;
+    players.main = player;
 
     channel.removeListener("playVideo", preLoaded);
 
@@ -338,8 +338,8 @@ ready("HkuMzyxJl", "player", function(player) {
 // Load bio video player
 var bioPlaylistID = 4902235697001;
 
-ready("HkuMzyxJl", "bio-player", function(player) {
-  window.player = players.bio = player;
+ready("BJvNJNM1g", "bio-player", function(player) {
+  players.bio = player;
   player.playlist.autoadvance(null);
 
   document.body.addEventListener("click", function(e) {
