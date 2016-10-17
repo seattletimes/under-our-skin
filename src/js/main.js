@@ -196,7 +196,7 @@ if (term) {
 }
 
 // Load intro video player
-ready("HkuMzyxJl", "intro-player", function(p) {
+ready("BJvNJNM1g", "intro-player", function(p) {
   players.intro = p;
   p.on("ended", function() {
     animateScroll("#words");
