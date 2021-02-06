@@ -1,4 +1,4 @@
-require("./lib/social");
+// require("./lib/social");
 // require("./lib/ads");
 
 require("./tracking.js");
@@ -9,7 +9,7 @@ var template = require("./lib/dot").compile(require("./_bioPanel.html"));
 var $ = require("./lib/qsa");
 var debounce = require("./lib/debounce");
 var animateScroll = require("./lib/animateScroll");
-var ready = require("./brightcove");
+// var ready = require("./brightcove");
 require("./form");
 require("./lazy-video");
 
@@ -17,10 +17,10 @@ var EventEmitter = require("events");
 var channel = new EventEmitter();
 
 var videoLookup = {};
-playlistItems.forEach(i => videoLookup[i.id] = i);
+playlistItems.forEach(i => videoLookup[i.jw_id] = i);
 
 var bioLookup = {};
-bioData.forEach(i => bioLookup[i.id] = i);
+bioData.forEach(i => bioLookup[i.jw_id] = i);
 
 var pageIndex = "intro";
 var sections = $(".scroll-aware");
@@ -47,7 +47,7 @@ var closeVideo = function() {
 // Scroll listener
 window.addEventListener("scroll", debounce(function(e) {
   var foundSection;
-  
+
   sections.forEach(function(section) {
     var bounds = section.getBoundingClientRect();
     if (bounds.top <= window.innerHeight * 0.7) {
@@ -88,7 +88,8 @@ window.addEventListener("scroll", debounce(function(e) {
 
   for (var p in players) {
     var player = players[p];
-    var element = player.el();
+    // var element = player.el();
+    var element = player.getContainer();
     var bounds = element.getBoundingClientRect();
     if (playerDelay) clearTimeout(playerDelay);
     if (bounds.top < window.innerHeight * 0.7 && bounds.bottom > window.innerHeight * 0.3) {
@@ -138,6 +139,12 @@ $(".jump a").forEach(function(a) {
     animateScroll(section);
     pageIndex = section.id;
     window.history.replaceState("#", "#", "#");
+
+    if (pageIndex === "note"){
+      setTimeout(function(){
+        jwplayer('botr_8fp0TOH8_UXknQA8J_div').play();
+      }, 1000);
+    } else {};
   });
 });
 
@@ -151,7 +158,7 @@ $(".comment-bucket").forEach(function(bucket){
 
 // Insert video title, comments, and URL hash
 var loadVideoInfo = function(v) {
-  var playlistItem = document.querySelector(`.playlist-video[data-id="${v.id}"]`);
+  var playlistItem = document.querySelector(`.playlist-video[data-id="${v.jw_id}"]`);
   var playing = document.querySelector(".playlist-video.playing");
   if (playing) playing.classList.remove("playing");
   playlistItem.classList.add("playing");
@@ -196,12 +203,15 @@ if (term) {
 }
 
 // Load intro video player
-ready("BJvNJNM1g", "intro-player", function(p) {
-  players.intro = p;
-  p.on("ended", function() {
-    animateScroll("#words");
-  })
+// ready("BJvNJNM1g", "intro-player", function(p) {
+jwplayer('botr_8fp0TOH8_UXknQA8J_div').on('complete', () => {
+  animateScroll("#words");
 });
+  // players.intro = p;
+  // p.on("ended", function() {
+  //
+  // })
+// });
 
 
 // Bio videos
@@ -250,6 +260,7 @@ document.body.addEventListener("click", function(e) {
 
   // Skip intro
   if (e.target.classList.contains("skip-intro")) {
+    jwplayer('botr_8fp0TOH8_UXknQA8J_div').pause();
     animateScroll("#words");
     pageIndex = "words";
     window.history.replaceState("#", "#", "#");
@@ -266,6 +277,8 @@ document.body.addEventListener("click", function(e) {
     channel.emit("playVideo", v);
     channel.emit("updatePlaylist", v);
   };
+
+
 
   // Playlist functionality
   if (e.target.classList.contains("playlist-video")) {
@@ -285,7 +298,7 @@ document.body.addEventListener("click", function(e) {
   // More comments
   if (e.target.classList.contains("read-more")) {
     document.querySelector(".comment-bucket.selected").classList.add("more");
-    console.log(document.querySelector(".read-more"))
+    console.log(document.querySelector(".read-more"));
     document.querySelector(".comment-bucket.selected .read-fewer").classList.remove("hidden");
     document.querySelector(".comment-bucket.selected .read-more").classList.add("hidden");
   };
@@ -302,65 +315,106 @@ document.body.addEventListener("click", function(e) {
 });
 
 // Load words video player
-var playlistID = 4884471259001;
+// var playlistID = 4884471259001;
 
-ready("BJvNJNM1g", "player", function(player) {
-  player.on("playing", function() {
+var playlistID = "oPD1IECq";
+
+// ready("BJvNJNM1g", "player", function(player) {
+var readyWordsPlayers = function({ playlist }) {
+
+
+  var player = jwplayer('wordVid').setup({
+    playlist: playlist
+  });
+
+  player.on("play", function() {
     if (pageIndex == "playlist") {
-      var id = player.mediainfo.id ;
+      var index = jwplayer().getPlaylistIndex();
+      index = playlist[index];
+
+      var id = index.mediaid;
       var v = videoLookup[id];
+      // console.log(v);
       channel.emit("updatePlaylist", v);
     }
   });
 window.player = player;
-  player.catalog.getPlaylist(playlistID, function(err, playlist) {
-    player.catalog.load(playlist);
+  // player.catalog.getPlaylist(playlistID, function(err, playlist) {
+    // player.catalog.load(playlist);
     players.main = player;
+
 
     channel.removeListener("playVideo", preLoaded);
 
     channel.on("playVideo", function(v) {
-      player.playID(v.id);
+      jwplayer('wordVid').setup({
+        playlist: `https://cdn.jwplayer.com/v2/media/${v.jw_id}`
+      }).play();
+
+
       //player.playlist.currentItem(v.index);
       // player.play();
     });
 
     if (pending) {
-      player.playID(pending.id);
+      // player.playID(pending.id);
+      // console.log(pending);
+
+      // jwplayer('wordVid').setup({
+      //   playlist: `https://cdn.jwplayer.com/v2/media/${pending.jw_id}`
+      // }).play();
+
+
       //player.playlist.currentItem(pending.index);
       // player.play();
     }
 
-  });
-});
+  // });
+
+};
+// });
+
+fetch(`https://cdn.jwplayer.com/v2/playlists/${playlistID}`).then(r => r.json()).then(readyWordsPlayers);
 
 
 // Load bio video player
-var bioPlaylistID = 4902235697001;
+var bioPlaylistID = "ppiUttU6";
 
-ready("BJvNJNM1g", "bio-player", function(player) {
+var readyBiosPlayers = function({ playlist }) {
+// ready("BJvNJNM1g", "bio-player", function(player) {
+
+
+  var player = jwplayer('bioVid').setup({
+    playlist: playlist
+  });
+
+
   players.bio = player;
-  player.playlist.autoadvance(null);
+  // player.playlist.autoadvance(null);
 
   document.body.addEventListener("click", function(e) {
     if (e.target.classList.contains("close-bio")) player.pause();
   });
 
-  player.on("ended", function() {
+  player.on("complete", function() {
     closeVideo();
   });
-  player.on("loadeddata", function() {
-    bioVideo.classList.add("playing");
-  });
-  player.on("playing", function() {
+  // player.on("loadeddata", function() {
+  //   bioVideo.classList.add("playing");
+  // });
+  player.on("play", function() {
     bioVideo.classList.add("playing");
   });
 
-  player.catalog.getPlaylist(bioPlaylistID, function(err, playlist) {
-    player.catalog.load(playlist);
+  // player.catalog.getPlaylist(bioPlaylistID, function(err, playlist) {
+    // player.catalog.load(playlist);
 
     channel.on("playBioVideo", function(b) {
-      player.playID(b.id);
+      // player.playID(b.id);
+
+      jwplayer('bioVid').setup({
+        playlist: `https://cdn.jwplayer.com/v2/media/${b.jw_id}`
+      }).play();
       // player.playlist.currentItem(b.index);
       // player.on("loadedmetadata", function() {
       //   console.log("loaded")
@@ -368,7 +422,8 @@ ready("BJvNJNM1g", "bio-player", function(player) {
       // });
     });
 
-  });
-});
+//  });
+// });
+};
 
-
+fetch(`https://cdn.jwplayer.com/v2/playlists/${bioPlaylistID}`).then(r => r.json()).then(readyBiosPlayers);

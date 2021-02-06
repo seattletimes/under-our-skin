@@ -1,6 +1,5 @@
 <div class="larger subhed">Choose a term</div>
 
 <% json.UOSData_Videos.forEach(function(video) { %>
-  <div data-id="<%= video.id %>" data-term="<%= video.term %>" class="word tile word-tile"><%= video.word %></div>
+  <div data-id="<%= video.jw_id %>" data-term="<%= video.term %>" class="word tile word-tile"><%= video.word %></div>
 <% }); %>
-

@@ -8,6 +8,7 @@
 
 .hed-container {
   overflow: hidden;
+  position: relative;
 }
 
 .intro {
@@ -38,6 +39,29 @@
     }
   }
 
+  .homescreenDesktop {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+
+    @media (max-aspect-ratio: 16/9) {
+      height: 100vh;
+      width: auto;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      left: 50%;
+      // position: relative;
+      max-width: none;
+    }
+
+    @media @tablet {
+      display: none;
+    }
+  }
+
   video {
     max-width: 100%;
 
@@ -58,7 +82,7 @@
 
 .center {
   position: absolute;
-  top: 37%;
+  top: 31%;
   width: 100%;
   text-align: center;
 
@@ -98,4 +122,3 @@
   font-size: 13px;
   color: @df-light-gray;
 }
-

@@ -9,7 +9,7 @@
     <%= t.include("partials/_head.html") %>
   </head>
   <body>
-    
+
     <%= t.include("./_nav.html") %>
 
   <div class="dots hidden">
@@ -93,6 +93,8 @@
       window.playlistItems = <%= JSON.stringify(json.UOSData_Videos) %>;
       window.bioData = <%= JSON.stringify(json.UOSData_Bios) %>;
     </script>
+
+    <script src="https://cdn.jwplayer.com/libraries/oNGue23q.js"></script>
     <script src="app.js" async></script>
     <% if (json.project.production) { %>
     <%= !json.project.embedded ? t.include("partials/_foot.html") : "" %>

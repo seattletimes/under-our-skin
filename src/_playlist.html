@@ -4,13 +4,14 @@
   <div class="inner-flex">
     <div class="aspect-outer pending">
       <div class="aspect-inner">
-        <video
+        <!-- <video
           data-account="1509317113"
           data-player="BJvNJNM1g"
           data-embed="default"
           id="player"
           class="video-js" controls>
-        </video>
+        </video> -->
+        <div id="wordVid"></div>
       </div>
     </div>
   </div>
@@ -19,7 +20,7 @@
     <ul class="playlist">
       <% json.UOSData_Videos.forEach(function(video) { %>
         <div class="playlist-tile">
-          <div class="playlist-video <%= video.class %>" data-id="<%= video.id %>" data-term="<%= video.term %>"> <%= video.word %></div>
+          <div class="playlist-video <%= video.class %>" data-id="<%= video.jw_id %>" data-term="<%= video.term %>"> <%= video.word %></div>
         </div>
       <% }); %>
     </ul>
@@ -51,10 +52,10 @@
             <option value="saddened">saddened</option>
             <option value="angered">angered</option>
             <option value="other">(write your own)</option>
-          </select> 
+          </select>
           <input maxlength="50" name="input-adjective" value="--" required>
         </span>*
-        
+
         me because:
         <div class="comment-box">
           <textarea rows="3" maxlength="500" name="comment" placeholder="" required></textarea>
@@ -152,7 +153,7 @@
         <img src="./assets/homescreen_thumb.jpg">
       </a>
     </div>
-    
+
     <div class="sans guest-essays">
 
       <div class="subhed">Join the conversation</div>
@@ -167,7 +168,7 @@
       <p class="guest-essay">Palca Shibale: <a href="http://www.seattletimes.com/seattle-news/why-im-tired-of-explaining-racism-to-people/">Why I'm tired of explaining racism to people</a>
       <p class="guest-essay">Venice Buhain: <a href="http://www.seattletimes.com/seattle-news/guest-essay-why-were-asking-the-wrong-question-when-it-comes-to-diversity-in-media/">Why we're asking the wrong question when it comes to diversity in media</a>
 
-      <p class="submit">Do you have reactions to this project that you'd like to share? 
+      <p class="submit">Do you have reactions to this project that you'd like to share?
       <p class="submit">Read our <a href="./guidelines.html" target="_blank">guidelines</a> and email <span class="email"><a href="mailto:underourskin@seattletimes.com?Subject=Under Our Skin guest essay">underourskin@seattletimes.com</a></span> to submit a guest essay.
 
       <div class="padded subhed">Get updates</div>
@@ -175,7 +176,7 @@
     </div>
 
     <div class="submit-guest-essay">
-      
+
     </div>
 
   </div>
@@ -184,4 +185,3 @@
 
 
 <div class="scroll-note"><img src="./assets/chevron.svg"></div>
-

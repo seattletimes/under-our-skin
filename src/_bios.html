@@ -2,14 +2,15 @@
   <div class="aspect-outer">
     <div class="aspect-inner">
       <i class="close-bio  fa fa-times" aria-hidden="true"></i>
-      <div class="loading"><i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i> Loading...</div>
-      <video
+      <!-- <div class="loading"><i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i> Loading...</div> -->
+      <!-- <video
         data-account="1509317113"
         data-player="BJvNJNM1g"
         data-embed="default"
         id="bio-player"
         class="video-js" controls>
-      </video>
+      </video> -->
+      <div id="bioVid"></div>
     </div>
     <div class="bio-panel"></div>
   </div>
@@ -20,11 +21,10 @@
 <div class="bios-container">
   <% json.UOSData_Bios.forEach(function(bio) { %>
     <div class="grid-container">
-      <img data-id="<%=bio.id%>" class="bio-grid-img" src="./assets/stills/<%=bio.first_name%>_still.jpg">
+      <img data-id="<%=bio.jw_id%>" class="bio-grid-img" src="./assets/stills/<%=bio.first_name%>_still.jpg">
       <div class="bio-label"><%= bio.display %> <%= bio.last_name %></div>
     </div>
   <% }); %>
 </div>
 
 <div class="scroll-note"><img src="./assets/chevron.svg"></div>
-
