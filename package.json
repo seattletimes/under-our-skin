@@ -22,7 +22,7 @@
     "grunt": "^1.0.0",
     "grunt-contrib-connect": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "jquery": "^2.2.3",
+    "jquery": "^3.5.0",
     "less": "^2.6.1",
     "mime": "^1.2.11",
     "moment": "^2.13.0",
